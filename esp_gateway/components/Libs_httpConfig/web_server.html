@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            width: 300px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WiFi Configuration</h1>
+    <form id="wifi-form">
+        <label for="ssid">SSID:</label>
+        <input type="text" id="ssid" name="ssid" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="port">Port:</label>
+        <input type="port" id="port" name="port" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('wifi-form').addEventListener('submit', async (e) => {
+            e.preventDefault(); /* prevent the form from submitting */
+
+            // Lấy giá trị SSID và Password từ form
+            const ssid = document.getElementById('ssid').value;
+            const password = document.getElementById('password').value;
+            const port = document.getElementById('port').value;
+
+            try {
+                /* send data to esp32 via POST */
+                const response = await fetch('/wifi-config', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ ssid, password, port }) // send data as JSON
+                });
+
+                if (response.ok) {
+                    alert('WiFi configuration sent successfully!');
+                } else {
+                    alert('Failed to send WiFi configuration.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error connecting to the server.');
+            }
+        });
+    </script>
+</body>
+
+</html>
