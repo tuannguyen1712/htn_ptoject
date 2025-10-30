@@ -21,36 +21,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app.h"
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-typedef struct {
-	uint8_t hum;
-	uint8_t hum0;
-	uint8_t tem;
-	uint8_t tem0;
-	uint8_t check_sum;
-} dht22;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define UART_TIMEOUT		2				// 2 ms
-#define DHT_TIMEOUT			2
-#define INPUT 				0
-#define OUTPUT				1
-#define DURATION			30 * 1000
-#define SECTOR_USE			41
-#define RETRY				5
-
-#define DHT_ERROR_VAL		(int8_t) -1
-
-#define DEVICE_STATE_ON		1
-#define DEVICE_STATE_OFF 	0
-#define DEVICE_MODE_AUTO	1
-#define DEVICE_MODE_MANUAL	0
 
 /* USER CODE END PD */
 
@@ -62,66 +43,32 @@ typedef struct {
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+I2C_HandleTypeDef hi2c1;
+
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
-UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-// UART
-uint8_t uart_buf[100];
-uint8_t tx[1024];
-uint8_t uart_buf_cnt = 0;
-uint8_t uart_chr;
-uint8_t uart_last_rcv = 0;
-
-// dht22
-dht22 dht;
-float tem = 0;
-float hum = 0;
-uint32_t time_out = 0;
-uint8_t dht_err = 0;
-
-// misting control
-uint8_t device_threshold = 50;
-uint8_t device_state = 0;
-uint8_t device_mode = 0;
-uint8_t device_done = 0;
-
-// button
-uint8_t button_tick = 0;
-
-// mq135 sensor
-uint32_t adc_val = 0;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ADC1_Init(void);
-static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_USART1_UART_Init(void);
+static void MX_TIM3_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_I2C1_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void gpio_set_mode(uint8_t mode);
-void delay_us(uint32_t us);
-void init_dht22();
-void dht22_GetValue(dht22 *dht);
-
-void getADC_value(void);
-void misting_control(void);
-void Response(void);
-void Handle_Command(void);
-void clear_uart_buf();
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 /* USER CODE END 0 */
 
 /**
@@ -130,6 +77,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -152,26 +100,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC1_Init();
-  MX_TIM3_Init();
   MX_TIM2_Init();
-  MX_USART1_UART_Init();
+  MX_TIM3_Init();
+  MX_ADC1_Init();
+  MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_IT(&huart1, &uart_chr, sizeof(uart_chr));
-	HAL_TIM_Base_Start(&htim2);
-	init_dht22();
-	HAL_Delay(1000);
+
+  Air_Monitor_Main();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		Handle_Command();
-    dht22_GetValue(&dht);
-		misting_control();
-		HAL_Delay(1000);
-		Response();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -273,6 +215,40 @@ static void MX_ADC1_Init(void)
 }
 
 /**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -363,35 +339,35 @@ static void MX_TIM3_Init(void)
 }
 
 /**
-  * @brief USART1 Initialization Function
+  * @brief USART2 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_USART1_UART_Init(void)
+static void MX_USART2_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USART1_Init 0 */
+  /* USER CODE BEGIN USART2_Init 0 */
 
-  /* USER CODE END USART1_Init 0 */
+  /* USER CODE END USART2_Init 0 */
 
-  /* USER CODE BEGIN USART1_Init 1 */
+  /* USER CODE BEGIN USART2_Init 1 */
 
-  /* USER CODE END USART1_Init 1 */
-  huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
-  huart1.Init.WordLength = UART_WORDLENGTH_8B;
-  huart1.Init.StopBits = UART_STOPBITS_1;
-  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart1) != HAL_OK)
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USART1_Init 2 */
+  /* USER CODE BEGIN USART2_Init 2 */
 
-  /* USER CODE END USART1_Init 2 */
+  /* USER CODE END USART2_Init 2 */
 
 }
 
@@ -412,40 +388,30 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(RELAY_PIN_GPIO_Port, RELAY_PIN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DHT22_PIN_GPIO_Port, DHT22_PIN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin : RELAY_PIN_Pin */
+  GPIO_InitStruct.Pin = RELAY_PIN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(RELAY_PIN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PC15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_15;
+  /*Configure GPIO pin : DHT22_PIN_Pin */
+  GPIO_InitStruct.Pin = DHT22_PIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DHT22_PIN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TOUCH_SENSOR_PIN_Pin */
+  GPIO_InitStruct.Pin = TOUCH_SENSOR_PIN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PA3 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_9;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(TOUCH_SENSOR_PIN_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 7, 0);
@@ -456,193 +422,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	UNUSED(GPIO_Pin);
-	if (GPIO_Pin == GPIO_PIN_15) {
-		if (HAL_GetTick() - button_tick >= 300) {
-			device_done = 1;
-			device_mode = DEVICE_MODE_MANUAL;
-			device_state ^= 1;
-			button_tick = HAL_GetTick();
-		}
-	}
-}
-
-void Response() {
-	dht22_GetValue(&dht);
-//	getADC_value();
-	if (tem != -1) {
-		sprintf((char*) tx, "tem:%.1f hum:%.1f mq2:%lu mod:%u state:%u",
-				tem, hum, adc_val, device_mode, device_state);
-		HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-
-	}
-}
-
-void misting_control(void) {
-	if ((int) hum != DHT_ERROR_VAL && device_mode == DEVICE_MODE_AUTO) {
-		if ((int) hum <= device_threshold) {
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, DEVICE_STATE_ON);
-			device_state = DEVICE_STATE_ON;
-		} else {
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, DEVICE_STATE_OFF);
-			device_state = DEVICE_STATE_ON;
-		}
-	} else if (device_done) {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, device_state);
-	}
-}
-
-void getADC_value() {
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 1000);
-	adc_val = HAL_ADC_GetValue(&hadc1);
-	HAL_ADC_Stop(&hadc1);
-}
-
-void gpio_set_mode(uint8_t mode) {
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-	if (mode) {						// output
-		GPIO_InitStruct.Pin = GPIO_PIN_9;
-		GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-		GPIO_InitStruct.Pull = GPIO_NOPULL;
-		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-		HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-	} else {							// input
-		GPIO_InitStruct.Pin = GPIO_PIN_9;
-		GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-		GPIO_InitStruct.Pull = GPIO_NOPULL;
-		HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-	}
-}
-
-void delay_us(uint32_t us) {
-	__HAL_TIM_SetCounter(&htim2, 0);
-	while (__HAL_TIM_GetCounter(&htim2) < us)
-		;
-}
-
-void init_dht22() {
-	gpio_set_mode(OUTPUT);
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 1);
-}
-
-void dht22_GetValue(dht22 *dht) {
-	uint8_t bytes[5];
-
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 0);
-	delay_us(1000);
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 1);
-	delay_us(20);
-
-	gpio_set_mode(INPUT);
-
-	delay_us(120);
-
-	for (int j = 0; j < 5; j++) {
-		uint8_t result = 0;
-		for (int i = 0; i < 8; i++) { //for each bit in each byte (8 total)
-			time_out = HAL_GetTick();				// wait input become high
-			while (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9)) {
-				if (HAL_GetTick() - time_out >= DHT_TIMEOUT) {
-					// if (isDebug) {
-					// 	sprintf((char*) tx, "Err3");
-					// 	HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-					// }
-					tem = -1;
-					hum = -1;
-					init_dht22();
-					return;
-				}
-			}
-			delay_us(30);
-			if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9))// if input still high after 30us -> bit 1
-				//result |= (1 << (7-i));
-				result = (result << 1) | 0x01;
-			else
-				// else bit 0
-				result = result << 1;
-			time_out = HAL_GetTick();
-			while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9))	// wait dht22 transmit bit 1 complete
-			{
-				if (HAL_GetTick() - time_out >= DHT_TIMEOUT) {
-					// if (isDebug) {
-					// 	sprintf((char*) tx, "Err3");
-					// 	HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-					// }
-					tem = -1;
-					hum = -1;
-					init_dht22();
-					return;
-				}
-			}
-		}
-		bytes[j] = result;
-	}
-
-	init_dht22();
-
-	dht->hum = bytes[0];
-	dht->hum0 = bytes[1];
-	dht->tem = bytes[2];
-	dht->tem0 = bytes[3];
-	dht->check_sum = bytes[4];
-
-	uint16_t check = (uint16_t) bytes[0] + (uint16_t) bytes[1]
-			+ (uint16_t) bytes[2] + (uint16_t) bytes[3];
-	if ((check % 256) != bytes[4]) {
-		// if (isDebug) {
-		// 	sprintf((char*) tx, "Err4");
-		// 	HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-		// }
-		tem = -1;
-		hum = -1;
-		init_dht22();
-		return;							// incorrect checksum
-	}
-
-	uint16_t t = ((uint16_t) dht->tem << 8) | ((uint16_t) dht->tem0);
-	uint16_t h = ((uint16_t) dht->hum << 8) | ((uint16_t) dht->hum0);
-
-	tem = (float) t / 10;
-	hum = (float) h / 10;
-}
-
-void Handle_Command() {
-	if (HAL_GetTick() - uart_last_rcv >= (uint32_t) 20
-			&& strlen((char*) uart_buf) >= 3) {
-		if (strlen((char*) uart_buf) == 4
-				&& strncmp((char*) uart_buf, "c:", 2) == 0) {
-			int temp = atoi((char*) uart_buf + 2);
-			device_mode = temp / 10;
-			device_state = atoi((char*) uart_buf + 3);
-			clear_uart_buf();
-			Response();
-			device_done = 1;
-//			sprintf((char*) tx, "%d %d\n", device_mode, device_state);
-//			HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-		}
-	} else {
-		clear_uart_buf();
-//			sprintf((char*) tx, "Invalid Command!\n");
-//			HAL_UART_Transmit(&huart1, tx, strlen((char*) tx), 200);
-	}
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	if (huart->Instance == huart1.Instance) {
-		if (uart_buf_cnt < sizeof(uart_buf)) {
-			uart_buf[uart_buf_cnt] = uart_chr;
-		}
-		uart_last_rcv = HAL_GetTick();
-		uart_buf_cnt++;
-		HAL_UART_Receive_IT(&huart1, &uart_chr, sizeof(uart_chr));
-	}
-}
-void clear_uart_buf() {
-	memset(uart_buf, 0, strlen((char*) uart_buf));
-	uart_buf_cnt = 0;
-}
 
 /* USER CODE END 4 */
 

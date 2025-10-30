@@ -31,10 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
-#include "stdint.h"
-#include "string.h"
-#include "stdlib.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -60,6 +57,13 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define RELAY_PIN_Pin GPIO_PIN_15
+#define RELAY_PIN_GPIO_Port GPIOC
+#define DHT22_PIN_Pin GPIO_PIN_2
+#define DHT22_PIN_GPIO_Port GPIOB
+#define TOUCH_SENSOR_PIN_Pin GPIO_PIN_10
+#define TOUCH_SENSOR_PIN_GPIO_Port GPIOB
+#define TOUCH_SENSOR_PIN_EXTI_IRQn EXTI15_10_IRQn
 
 /* USER CODE BEGIN Private defines */
 
