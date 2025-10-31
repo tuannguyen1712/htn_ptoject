@@ -13,8 +13,9 @@ void WebServer_Handler();
 esp_err_t WebServer_getNvsData(uint8_t *ssid, uint8_t *pass, uint16_t *port);
 void WebServer_setNvsData(uint8_t *ssid, uint8_t *pass, uint16_t port);
 
-uint16_t mode, state, temp, humi, co2;
-uint16_t ctrl_mode, ctrl_state;
+uint16_t mode, state, temp, humi, co2, hum_thres;
+uint16_t ctrl_mode, ctrl_state, ctrl_hum_thres;
+uint8_t time_stamp[20], time_path[20];
 
 void app_main(void)
 {
@@ -29,10 +30,6 @@ void app_main(void)
 
     xTaskCreate(&WebServer_Handler, "Wifi Config Task", 8096, NULL, 2, NULL);
 
-    /* Must call station init function imidiately after lwip init function */
-    // Libs_lwipInit();
-    // Libs_staInit((char*) "IP12PRX", (char*) "toikhongbiet");
-
     xEventGroupWaitBits(xEventGroup, WIFI_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
     xEventGroupWaitBits(xEventGroup, FIREBASE_EVENT_BIT, pdTRUE, pdTRUE, portMAX_DELAY);
     // // init BLE GATT client
@@ -43,15 +40,18 @@ void app_main(void)
 
     for(;;)
     {
-        
-        Libs_BLEGattClientGetValue(0, &temp, &humi, &co2, &mode, &state);
+        Libs_BLEGattClientGetValue(0, &temp, &humi, &co2, &mode, &state, &hum_thres);
         ESP_LOGI(TAG, "Sensor: temp=%d.%dC, humi=%d.%d%%, co2=%dppm, mode=%d, state=%d", temp/10, temp%10, humi/10, humi%10, co2, mode, state);
-        firebase_put_example("ESP32_ABC123", temp/10.0, humi/10.0, co2, mode, state);
+        Libs_FireBaseGetTime(time_stamp, time_path);
+        firebase_put_example("ESP32_ABC123", temp/10.0, humi/10.0, co2, mode, state, hum_thres, time_stamp, time_path);
         // Ví dụ GET + parse
-        firebase_get_and_parse("ESP32_ABC123", &ctrl_state, &ctrl_mode);
-        if (ctrl_state != state || ctrl_mode != mode) { 
-            gateway_set_state(0, ctrl_state);
+        firebase_get_and_parse("ESP32_ABC123", &ctrl_state, &ctrl_mode, &ctrl_hum_thres);
+        ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", ctrl_state, ctrl_mode, ctrl_hum_thres);
+        if (ctrl_state != state || ctrl_mode != mode || ctrl_hum_thres != hum_thres) { 
+            if (ctrl_mode == 0) 
+                gateway_set_state(0, ctrl_state);
             gateway_set_mode(0, ctrl_mode);
+            gateway_set_humth(0, ctrl_hum_thres);
             ESP_LOGI(TAG, "Parsed from Firebase: state=%d, mode=%d", ctrl_state, ctrl_mode);
         }
         vTaskDelay(1000 / portTICK_PERIOD_MS);

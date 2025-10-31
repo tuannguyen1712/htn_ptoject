@@ -102,9 +102,9 @@ static void on_found_target(const esp_bd_addr_t bda, esp_ble_addr_type_t type)
     peers[idx].conn_id = 0;
     peers[idx].sensor_start = peers[idx].sensor_end = 0;
     peers[idx].led_start    = peers[idx].led_end    = 0;
-    peers[idx].h_temp_val = peers[idx].h_humi_val = peers[idx].h_co2_val = peers[idx].h_mode_val = peers[idx].h_state_val = 0;
-    peers[idx].h_temp_cccd = peers[idx].h_humi_cccd = peers[idx].h_co2_cccd = peers[idx].h_mode_cccd = peers[idx].h_state_cccd = 0;
-    peers[idx].h_led_val = peers[idx].h_led_mode_val = 0;
+    peers[idx].h_temp_val = peers[idx].h_humi_val = peers[idx].h_co2_val = peers[idx].h_mode_val = peers[idx].h_state_val = peers[idx].h_hum_thres_val  = 0;
+    peers[idx].h_temp_cccd = peers[idx].h_humi_cccd = peers[idx].h_co2_cccd = peers[idx].h_mode_cccd = peers[idx].h_state_cccd = peers[idx].h_hum_thres_cccd = 0;
+    peers[idx].h_led_val = peers[idx].h_led_mode_val = peers[idx].h_led_hum_thres_val = 0;
     memcpy(peers[idx].bda, bda, sizeof(esp_bd_addr_t));
     peers[idx].bda_type = type;
 
@@ -209,15 +209,20 @@ static void gattc_cb(esp_gattc_cb_event_t e, esp_gatt_if_t gattc_if, esp_ble_gat
             ESP_LOGI(TAG, "[%d] CO2  = %u ppm", idx, c);
             sensors[idx].co2 = c;
         }
-        if (p->notify.handle == peers[idx].h_mode_val && p->notify.value_len >= 2) {
+        else if (p->notify.handle == peers[idx].h_mode_val && p->notify.value_len >= 2) {
             uint16_t m; memcpy(&m, p->notify.value, 2);
             ESP_LOGI(TAG, "[%d] Mode = %u C", idx, m);
             sensors[idx].mode = m;
         }
-        if (p->notify.handle == peers[idx].h_state_val && p->notify.value_len >= 2) {
+        else if (p->notify.handle == peers[idx].h_state_val && p->notify.value_len >= 2) {
             uint16_t s; memcpy(&s, p->notify.value, 2);
             ESP_LOGI(TAG, "[%d] State = %u C", idx, s);
             sensors[idx].state = s;
+        }
+        else if (p->notify.handle == peers[idx].h_hum_thres_val && p->notify.value_len >= 2) {
+            uint16_t ht; memcpy(&ht, p->notify.value, 2);
+            ESP_LOGI(TAG, "[%d] Hum threshold = %u C", idx, ht);
+            sensors[idx].hum_thres = ht;
         }
         break;
     }
@@ -349,6 +354,18 @@ static void discover_and_subscribe_slot(int idx)
                                                ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
             }
         }
+
+        // hum threshold 
+        if (find_handles_for_char(gattc_if_global, peers[idx].conn_id,
+                                  peers[idx].sensor_start, peers[idx].sensor_end,
+                                  DEVICE_HUM_THRES, &peers[idx].h_hum_thres_val, &peers[idx].h_hum_thres_cccd)) {
+            esp_ble_gattc_register_for_notify(gattc_if_global, peers[idx].bda, peers[idx].h_hum_thres_val);
+            uint8_t en[2] = {0x01, 0x00};
+            if (peers[idx].h_hum_thres_cccd) {
+                esp_ble_gattc_write_char_descr(gattc_if_global, peers[idx].conn_id, peers[idx].h_hum_thres_cccd, 2, en,
+                                               ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
+            }
+        }
     }
 
     if (peers[idx].led_start && peers[idx].led_end) {
@@ -361,6 +378,11 @@ static void discover_and_subscribe_slot(int idx)
         find_handles_for_char(gattc_if_global, peers[idx].conn_id,
                               peers[idx].led_start, peers[idx].led_end,
                               MODE_CHAR_UUID16, &peers[idx].h_led_mode_val, NULL);
+    }
+    if (peers[idx].led_start && peers[idx].led_end) {
+        find_handles_for_char(gattc_if_global, peers[idx].conn_id,
+                              peers[idx].led_start, peers[idx].led_end,
+                              HUM_THRES_CHAR_UUID16, &peers[idx].h_led_hum_thres_val, NULL);
     }
 }
 
@@ -393,6 +415,19 @@ void gateway_set_mode(int server_idx, uint8_t on)
     }
 }
 
+void gateway_set_humth(int server_idx, uint8_t on)
+{
+    if (server_idx < 0 || server_idx >= MAX_PEERS) return;
+    if (!peers[server_idx].connected || !peers[server_idx].h_led_hum_thres_val) {
+        ESP_LOGI(TAG, "LED write skipped: connected=%d, h_led_hum_thres_val=0x%04X", peers[server_idx].connected, peers[server_idx].h_led_hum_thres_val);
+        return;
+    }
+    if (peers[server_idx].connected && peers[server_idx].h_led_hum_thres_val) {
+        esp_ble_gattc_write_char(gattc_if_global, peers[server_idx].conn_id, peers[server_idx].h_led_hum_thres_val,
+                                 1, &on, ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
+    }
+}
+
 void Libs_BLEGattClient_init(void) 
 {
     // BLE init (Bluedroid)
@@ -413,7 +448,7 @@ void Libs_BLEGattClient_init(void)
     if (mtu_ret) ESP_LOGW(TAG, "set local MTU failed, err=0x%x", mtu_ret);
 }
 
-void Libs_BLEGattClientGetValue(uint16_t idx, uint16_t *temp, uint16_t *humi, uint16_t *co2, uint16_t *mode, uint16_t *state)
+void Libs_BLEGattClientGetValue(uint16_t idx, uint16_t *temp, uint16_t *humi, uint16_t *co2, uint16_t *mode, uint16_t *state, uint16_t *hum_thres)
 {
     // Lấy dữ liệu từ tất cả các peer (nếu có)
     *temp = sensors[idx].temp;
@@ -421,4 +456,5 @@ void Libs_BLEGattClientGetValue(uint16_t idx, uint16_t *temp, uint16_t *humi, ui
     *co2  = sensors[idx].co2;
     *mode = sensors[idx].mode;
     *state= sensors[idx].state;
+    *hum_thres= sensors[idx].hum_thres;
 }

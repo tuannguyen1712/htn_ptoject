@@ -21,6 +21,5 @@
  
 // static void uart2_event_task(void *pvParameters);
 void uart2_init();
-void uart_handle_event();
-void uart_GetData(int16_t *tempx10, int16_t *humix10, uint16_t *co2, uint16_t *mode, uint16_t *state);
-void uart_SendData(uint16_t mode, uint16_t state);
+void uart_GetData(int16_t *tempx10, int16_t *humix10, uint16_t *co2, uint16_t *mode, uint16_t *state, uint16_t *hum_threshold);
+void uart_SendData(uint16_t mode, uint16_t state, uint16_t hum_threshold);

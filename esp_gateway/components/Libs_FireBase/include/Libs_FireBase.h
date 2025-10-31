@@ -21,6 +21,19 @@
 #include "esp_http_client.h"
 #include "esp_crt_bundle.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <sys/time.h>
+#include "esp_system.h"
+#include "esp_event.h"
+#include "esp_log.h"
+#include "esp_attr.h"
+#include "esp_sleep.h"
+#include "esp_netif_sntp.h"
+#include "lwip/ip_addr.h"
+#include "esp_sntp.h"
+
 #include "cJSON.h"
 
 //====================== USER CONFIG ======================//
@@ -40,6 +53,8 @@ static const char *TAG = "APP";
 
 static EventGroupHandle_t s_wifi_event_group;
 static const int WIFI_CONNECTED_BIT = BIT0;
+time_t now = 0; 
+struct tm timeinfo = {0};
 
 // -------------------- Wi-Fi --------------------
 static void wifi_event_handler(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
@@ -76,8 +91,6 @@ static void wifi_init_sta(void)
             .pmf_cfg = {.capable = true, .required = false},
         },
     };
-    strncpy((char *)sta_cfg.sta.ssid, WIFI_SSID, sizeof(sta_cfg.sta.ssid));
-    strncpy((char *)sta_cfg.sta.password, WIFI_PASS, sizeof(sta_cfg.sta.password));
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &sta_cfg));
@@ -92,22 +105,23 @@ static void sntp_sync_time_test(void)
 {
     ESP_LOGI(TAG, "Init SNTP...");
     esp_sntp_setoperatingmode(ESP_SNTP_OPMODE_POLL);
-    // dùng pool.ntp.org
-    esp_sntp_setservername(0, "pool.ntp.org");
+    esp_sntp_setservername(0, "time1.google.com");
     esp_sntp_init();
 
     // đợi time hợp lệ
-    for (int i = 0; i < 30; ++i) {
-        time_t now = 0; struct tm timeinfo = {0};
-        time(&now); localtime_r(&now, &timeinfo);
-        if (timeinfo.tm_year >= (2016 - 1900)) {
-            ESP_LOGI(TAG, "Time synced: %s", asctime(&timeinfo));
-            return;
-        }
-        ESP_LOGI(TAG, "Waiting for system time to be set... (%d/30)", i+1);
-        vTaskDelay(pdMS_TO_TICKS(1000));
+    int retry = 0;
+    const int retry_count = 15;
+    while (esp_netif_sntp_sync_wait(2000 / portTICK_PERIOD_MS) == ESP_ERR_TIMEOUT && ++retry < retry_count) {
+        ESP_LOGI("SNTP", "Waiting for system time to be set... (%d/%d)", retry, retry_count);
     }
-    ESP_LOGW(TAG, "SNTP time not set yet (continue anyway)");
+    if (retry < retry_count) 
+    {
+        ESP_LOGI("SNTP", "Set time success");  
+        time(&now);
+        localtime_r(&now, &timeinfo);
+    }
+    else 
+        ESP_LOGW(TAG, "SNTP time not set yet (continue anyway)");
 }
 
 // -------------------- HTTP helper --------------------
@@ -171,15 +185,22 @@ static void build_url(char *out, size_t out_sz, const char *path_no_json)
 }
 
 // -------------------- Firebase: POST (tạo key tự sinh) --------------------
-static esp_err_t firebase_post_example(void)
+static esp_err_t firebase_post_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, int hum_thres, uint8_t *time_stamp)
 {
-    char url[256];
-    build_url(url, sizeof(url), FIREBASE_PATH_DATA);
+    char path[256];
+    snprintf(path, sizeof(path), "%s/%s", FIREBASE_PATH_DATA, device_id);
 
-    // JSON bằng cJSON
+    char url[256];
+    build_url(url, sizeof(url), path);
+
     cJSON *root = cJSON_CreateObject();
-    cJSON_AddNumberToObject(root, "Memory", 2);
-    cJSON_AddStringToObject(root, "Name", "Data from ESP32 (POST)");
+    cJSON_AddNumberToObject(root, "Temp", temp);
+    cJSON_AddNumberToObject(root, "Humi", hum);
+    cJSON_AddNumberToObject(root, "CO2", co2_ppm);
+    cJSON_AddNumberToObject(root, "Mode", mode);   // 0: auto, 1: manual
+    cJSON_AddNumberToObject(root, "State", state); // 0: off, 1: on
+    cJSON_AddNumberToObject(root, "HumThres", hum_thres);
+    cJSON_AddStringToObject(root, "Timestamp", (const char*)time_stamp);
     char *post_data = cJSON_PrintUnformatted(root);
 
     http_resp_buf_t acc = {.buf = NULL, .len = 0};
@@ -215,10 +236,11 @@ static esp_err_t firebase_post_example(void)
 
 // -------------------- Firebase: PUT (ghi đè vào key cố định) --------------------
 // ví dụ đặt key theo device_id
-esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state)
+esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, 
+                                int hum_thres, uint8_t *time_stamp, uint8_t *time_path)
 {
     char path[256];
-    snprintf(path, sizeof(path), "%s/%s", FIREBASE_PATH_DATA, device_id);
+    snprintf(path, sizeof(path), "%s/%s/%s", FIREBASE_PATH_DATA, device_id, (const char*)time_path);
 
     char url[256];
     build_url(url, sizeof(url), path);
@@ -229,6 +251,8 @@ esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int
     cJSON_AddNumberToObject(root, "CO2", co2_ppm);
     cJSON_AddNumberToObject(root, "Mode", mode);   // 0: auto, 1: manual
     cJSON_AddNumberToObject(root, "State", state); // 0: off, 1: on
+    cJSON_AddNumberToObject(root, "HumThres", hum_thres);
+    cJSON_AddStringToObject(root, "Timestamp", (const char*)time_stamp);
     char *put_data = cJSON_PrintUnformatted(root);
 
     http_resp_buf_t acc = {.buf = NULL, .len = 0};
@@ -263,7 +287,7 @@ esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int
 }
 
 // -------------------- Firebase: GET + parse JSON --------------------
-esp_err_t firebase_get_and_parse(const char *device_id, int *device_state, int *device_mode)
+esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_state, uint16_t *device_mode, uint16_t *device_hum_thres)
 {
     char url[256];
     build_url(url, sizeof(url), FIREBASE_PATH_CONTROL);
@@ -299,18 +323,24 @@ esp_err_t firebase_get_and_parse(const char *device_id, int *device_state, int *
                         if (cJSON_IsObject(it)) {
                             cJSON *mode = cJSON_GetObjectItem(it, "mode");
                             cJSON *state = cJSON_GetObjectItem(it, "state");
+                            cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "Item '%s' -> mode=%g", it->string, mode->valuedouble);
                             if (state) ESP_LOGI(TAG, "Item '%s' -> state=%g", it->string, state->valuedouble);
+                            if (hum_t) ESP_LOGI(TAG, "Item '%s' -> hum_t=%g", it->string, hum_t->valuedouble);
                             *device_state = state ? state->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
+                            *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                         } else {
                             // nếu GET path là key cố định (PUT), root chính là object
                             cJSON *mode = cJSON_GetObjectItem(root, "mode");
                             cJSON *state = cJSON_GetObjectItem(root, "state");
+                            cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "mode=%g", mode->valuedouble);
                             if (state) ESP_LOGI(TAG, "state=%g", state->valuedouble);
+                            if (hum_t) ESP_LOGI(TAG, "hum_t=%g", hum_t->valuedouble);
                             *device_state = state ? state->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
+                            *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                             break;
                         }
                     }
@@ -332,4 +362,21 @@ esp_err_t firebase_get_and_parse(const char *device_id, int *device_state, int *
 void Libs_FireBaseInit()
 {
     sntp_sync_time_test();
+}
+
+/* time format yyyy:mm:dd:hh:mm:ss */
+void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *time_path) 
+{
+    time(&now);
+    setenv("TZ", "CST-7", 1);
+    tzset();
+    localtime_r(&now, &timeinfo);
+    timeinfo.tm_year += 1900;
+    timeinfo.tm_mon += 1;
+    sprintf((char *)time_buf, "%04d:%02d:%02d:%02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+    sprintf((char *)time_path, "%04d%02d%02d%02d%02d%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+    ESP_LOGI("SNTP", "Current time in Vietnam: %d:%02d:%02d %02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
