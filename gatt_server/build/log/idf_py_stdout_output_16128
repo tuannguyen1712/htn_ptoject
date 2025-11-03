@@ -1,0 +1,174 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 30 2025 21:31:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=216fch (136956) map[0m
+[0;32mI (154) esp_image: segment 1: paddr=00031724 vaddr=3ffbdb60 size=04560h ( 17760) load[0m
+[0;32mI (162) esp_image: segment 2: paddr=00035c8c vaddr=40080000 size=0a38ch ( 41868) load[0m
+[0;32mI (179) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=82290h (533136) map[0m
+[0;32mI (372) esp_image: segment 4: paddr=000c22b8 vaddr=4008a38c size=0f0c4h ( 61636) load[0m
+[0;32mI (410) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (411) boot: Disabling RNG early entropy source...[0m
+[0;32mI (422) cpu_start: Multicore app[0m
+[0;32mI (422) cpu_start: Pro cpu up.[0m
+[0;32mI (423) cpu_start: Starting app cpu, entry point is 0x400814a0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (440) cpu_start: Application information:[0m
+[0;32mI (445) cpu_start: Project name:     gatt_server_demos[0m
+[0;32mI (451) cpu_start: App version:      1[0m
+[0;32mI (455) cpu_start: Compile time:     Oct 30 2025 21:30:41[0m
+[0;32mI (461) cpu_start: ELF file SHA256:  9ac0013e43a51b80...[0m
+[0;32mI (467) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (473) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (477) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (482) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (487) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (494) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (500) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (506) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFC7050 len 00018FB0 (99 KiB): DRAM[0m
+[0;32mI (519) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (532) heap_init: At 40099450 len 00006BB0 (26 KiB): IRAM[0m
+[0;32mI (539) spi_flash: detected chip: generic[0m
+[0;32mI (542) spi_flash: flash io: dio[0m
+[0;32mI (547) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (552) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (557) app_start: Starting scheduler on CPU1[0m
+I (557) main_task: Started on CPU0[0m
+[0;32mI (567) main_task: Calling app_main()[0m
+[0;32mI (617) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (617) BTDM_INIT: Bluetooth MAC: fc:b4:67:f5:ed:82[0m
+[0;32mI (617) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+[0;32mI (1047) GATT_SERVER: A REG app_id=0, gatts_if=3[0m
+[0;32mI (1057) GATT_SERVER: Sensor service started[0m
+[0;32mI (1057) GATT_SERVER: B REG app_id=1, gatts_if=4[0m
+[0;32mI (1057) GATT_SERVER: LED handles:[0m
+[0;32mI (1057) GATT_SERVER:   SVC        : 0x0038[0m
+[0;32mI (1067) GATT_SERVER:   CHAR_DECL  : 0x0039[0m
+[0;32mI (1067) GATT_SERVER:   CHAR_VALUE : 0x003A[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_DECL  : 0x003B[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_VALUE : 0x003C[0m
+[0;33mW (1087) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1087) uart: queue free spaces: 20[0m
+[0;32mI (1097) GATT_SERVER: Adv data set. Start advertising[0m
+[0;32mI (1107) main_task: Returned from app_main()[0m
+[0;32mI (1657) UART2: uart[2] event:[0m
+[0;32mI (1657) UART2: [UART DATA]: 38[0m
+[0;32mI (1657) UART2: tem:28.100000 hum:77.800003 mq2:0 mod:0 state:0[0m
+[0;31mE (1667) FreeRTOS: FreeRTOS Task "uart_event_task" should not return, Aborting now![0m
+
+abort() was called at PC 0x4009459b on core 0
+
+
+Backtrace: 0x40081b4a:0x3ffceed0 0x40091cdd:0x3ffceef0 0x400976da:0x3ffcef10 0x4009459b:0x3ffcef80
+
+
+
+
+ELF file SHA256: 9ac0013e43a51b80
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 30 2025 21:31:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=216fch (136956) map[0m
+[0;32mI (154) esp_image: segment 1: paddr=00031724 vaddr=3ffbdb60 size=04560h ( 17760) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=00035c8c vaddr=40080000 size=0a38ch ( 41868) load[0m
+[0;32mI (179) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=82290h (533136) map[0m
+[0;32mI (372) esp_image: segment 4: paddr=000c22b8 vaddr=4008a38c size=0f0c4h ( 61636) load[0m
+[0;32mI (410) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (410) boot: Disabling RNG early entropy source...[0m
+[0;32mI (422) cpu_start: Multicore app[0m
+[0;32mI (422) cpu_start: Pro cpu up.[0m
+[0;32mI (422) cpu_start: Starting app cpu, entry point is 0x400814a0[0m
+[0;32mI (410) cpu_start: App cpu up.[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (441) cpu_start: Application information:[0m
+[0;32mI (445) cpu_start: Project name:     gatt_server_demos[0m
+[0;32mI (451) cpu_start: App version:      1[0m
+[0;32mI (455) cpu_start: Compile time:     Oct 30 2025 21:30:41[0m
+[0;32mI (462) cpu_start: ELF file SHA256:  9ac0013e43a51b80...[0m
+[0;32mI (468) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (473) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (478) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (482) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (487) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (495) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (500) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (507) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFC7050 len 00018FB0 (99 KiB): DRAM[0m
+[0;32mI (519) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (532) heap_init: At 40099450 len 00006BB0 (26 KiB): IRAM[0m
+[0;32mI (539) spi_flash: detected chip: generic[0m
+[0;32mI (542) spi_flash: flash io: dio[0m
+[0;32mI (547) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (552) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (557) app_start: Starting scheduler on CPU1[0m
+I (557) main_task: Started on CPU0[0m
+[0;32mI (567) main_task: Calling app_main()[0m
+[0;32mI (617) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (617) BTDM_INIT: Bluetooth MAC: fc:b4:67:f5:ed:82[0m
+[0;32mI (617) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+[0;32mI (1057) GATT_SERVER: A REG app_id=0, gatts_if=3[0m
+[0;32mI (1057) GATT_SERVER: Sensor service started[0m
+[0;32mI (1057) GATT_SERVER: B REG app_id=1, gatts_if=4[0m
+[0;32mI (1067) GATT_SERVER: LED handles:[0m
+[0;32mI (1067) GATT_SERVER:   SVC        : 0x0038[0m
+[0;32mI (1067) GATT_SERVER:   CHAR_DECL  : 0x0039[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_VALUE : 0x003A[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_DECL  : 0x003B[0m
+[0;32mI (1087) GATT_SERVER:   CHAR_VALUE : 0x003C[0m
+[0;33mW (1087) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1097) uart: queue free spaces: 20[0m
+[0;32mI (1097) GATT_SERVER: Adv data set. Start advertising[0m
+[0;32mI (1117) main_task: Returned from app_main()[0m

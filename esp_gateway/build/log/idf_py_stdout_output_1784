@@ -1,0 +1,1363 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2025 11:40:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=76f18h (487192) map[0m
+[0;32mI (281) esp_image: segment 1: paddr=00086f40 vaddr=3ffbdb60 size=05468h ( 21608) load[0m
+[0;32mI (289) esp_image: segment 2: paddr=0008c3b0 vaddr=40080000 size=03c68h ( 15464) load[0m
+[0;32mI (296) esp_image: segment 3: paddr=00090020 vaddr=400d0020 size=fb3d4h (1029076) map[0m
+[0;32mI (669) esp_image: segment 4: paddr=0018b3fc vaddr=40083c68 size=1acc4h (109764) load[0m
+[0;32mI (730) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (730) boot: Disabling RNG early entropy source...[0m
+[0;32mI (742) cpu_start: Multicore app[0m
+[0;32mI (742) cpu_start: Pro cpu up.[0m
+[0;32mI (742) cpu_start: Starting app cpu, entry point is 0x40081408[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (762) cpu_start: Pro cpu start user code[0m
+[0;32mI (762) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (762) cpu_start: Application information:[0m
+[0;32mI (767) cpu_start: Project name:     main[0m
+[0;32mI (771) cpu_start: App version:      1[0m
+[0;32mI (776) cpu_start: Compile time:     Oct 14 2025 11:40:01[0m
+[0;32mI (782) cpu_start: ELF file SHA256:  aebed01f5a03438f...[0m
+[0;32mI (788) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (793) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (798) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (803) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (808) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (815) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (821) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (827) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (833) heap_init: At 3FFCB8D0 len 00014730 (81 KiB): DRAM[0m
+[0;32mI (839) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (846) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (852) heap_init: At 4009E92C len 000016D4 (5 KiB): IRAM[0m
+[0;32mI (860) spi_flash: detected chip: generic[0m
+[0;32mI (863) spi_flash: flash io: dio[0m
+[0;32mI (868) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (873) app_start: Starting scheduler on CPU0[0m
+[0;32[0;32mI (877) app_start: Starting scheduler on CPU1[0m
+mI (877) main_task: Started on CPU0[0m
+[0;32mI (887) main_task: Calling app_main()[0m
+[0;32mI (937) APP: Web server handler task started[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+I (957) wifi:wifi driver task: 3ffd1abc, prio:23, stack:6656, core=0
+I (977) wifi:wifi firmware version: ce9244d
+I (977) wifi:wifi certification version: v7.0
+I (977) wifi:config NVS flash: enabled
+I (977) wifi:config nano formating: disabled
+I (987) wifi:Init data frame dynamic rx buffer num: 32
+I (987) wifi:Init management frame dynamic rx buffer num: 32
+I (997) wifi:Init management short buffer num: 32
+I (997) wifi:Init dynamic tx buffer num: 32
+I (1007) wifi:Init static rx buffer size: 1600
+I (1007) wifi:Init static rx buffer num: 10
+I (1007) wifi:Init dynamic rx buffer num: 32
+[0;32mI (1017) wifi_init: rx ba win: 6[0m
+[0;32mI (1017) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1027) wifi_init: udp mbox: 6[0m
+[0;32mI (1027) wifi_init: tcp mbox: 6[0m
+[0;32mI (1027) wifi_init: tcp tx win: 5744[0m
+[0;32mI (1037) wifi_init: tcp rx win: 5744[0m
+[0;32mI (1037) wifi_init: tcp mss: 1440[0m
+[0;32mI (1047) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1047) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1057) WIFI STATION: wifi_init_sta finished, ssid:laptop, pass:12345678. ssid len:6, pass len:8[0m
+[0;32mI (1107) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+I (1217) wifi:mode : sta (24:dc:c3:a6:d0:28)
+I (1217) wifi:enable tsf
+[0;32mI (1227) APP: Read data from nvs flash: laptop 12345678 0[0m
+[0;32mI (1227) WIFI STA: start connect to access point[0m
+I (3637) wifi:new:<2,1>, old:<1,0>, ap:<255,255>, sta:<2,1>, prof:2
+I (4807) wifi:state: init -> auth (b0)
+I (4817) wifi:state: auth -> assoc (0)
+I (4827) wifi:state: assoc -> run (10)
+I (4837) wifi:connected with laptop, aid = 17, channel 2, 40U, bssid = 16:13:33:02:85:b3
+I (4837) wifi:security: WPA2-PSK, phy: bgn, rssi: -49
+I (4847) wifi:pm start, type: 1
+
+I (5017) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5847) esp_netif_handlers: sta ip: 192.168.137.216, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (5847) WIFI STATION: got ip:192.168.137.1[0m
+[0;32mI (5847) APP: Connect to AP successful[0m
+[0;32mI (5857) APP: connection state: 1[0m
+[0;32mI (5857) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (5867) BTDM_INIT: Bluetooth MAC: 24:dc:c3:a6:d0:2a[0m
+[0;32mI (6197) GATTC_MULTI: Registered gattc_if=3, start scan[0m
+[0;32mI (6197) APP: Init SNTP...[0m
+[0;32mI (6197) GATTC_MULTI: Scan params set -> start scanning[0m
+[0;32mI (6207) APP: Waiting for system time to be set... (1/30)[0m
+[0;32mI (6207) GATTC_MULTI: Target found -> connect slot 0[0m
+[0;33mW (6217) BT_APPL:  bta_dm_ble_scan start scan failed. status=0x3
+[0m
+[0;31mE (6217) BT_HCI: CC evt: op=0x200c, status=0xc[0m
+[0;32mI (6357) GATTC_MULTI: Connected slot=0 conn_id=0 -> MTU req[0m
+I (6767) wifi:<ba-add>idx:0 (ifx:0, 16:13:33:02:85:b3), tid:0, ssn:4, winSize:64
+[0;32mI (7207) APP: Time synced: Thu Oct 16 15:39:43 2025
+[0m
+[0;32mI (7207) APP: Sensor: temp=0.0C, humi=0.0%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (7217) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (7307) GATTC_MULTI: MTU configured: 185[0m
+[0;32mI (7307) GATTC_MULTI: [0] SENSOR svc start=0x0028 end=0x0037[0m
+[0;32mI (7307) GATTC_MULTI: [0] LED svc start=0x0038 end=0xFFFF[0m
+[0;32mI (7317) GATTC_MULTI: [0] Search complete -> discover & subscribe[0m
+[0;32mI (7327) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (7327) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (7337) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (7337) GATTC_MULTI: Register for notify status=0x0[0m
+[0;31mE (7347) BT_APPL: Max Notification Reached, registration failed.[0m
+[0;32mI (7357) GATTC_MULTI: Register for notify status=0x80[0m
+[0;32mI (7797) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (8127) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (8127) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (8137) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (8137) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (8137) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (8147) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (8157) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (8157) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (8917) APP: PUT status=200, resp={"CO2":0,"Humi":0,"Mode":0,"State":0,"Temp":0}[0m
+[0;32mI (8927) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (9177) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (9177) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (9197) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (9197) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (9197) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (9207) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (9207) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (9217) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (9337) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (10207) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (10207) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (10207) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (10217) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (10217) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (10227) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (10227) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (10237) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (10267) APP: GET status=200[0m
+[0;32mI (10267) APP: GET body=null[0m
+[0;32mI (10267) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (11217) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (11217) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (11237) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (11237) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (11237) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (11237) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (11247) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (11247) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (11277) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (11277) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (11657) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (12257) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (12257) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (12257) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (12267) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (12267) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (12277) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (12277) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (12287) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (12707) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (12717) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (13097) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (13297) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (13297) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (13297) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (13297) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (13307) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (13307) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (13317) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (13317) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (14037) APP: GET status=200[0m
+[0;32mI (14037) APP: GET body=null[0m
+[0;32mI (14047) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (14327) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (14327) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (14327) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (14337) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (14337) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (14337) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (14357) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (14357) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (15047) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (15047) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (15347) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (15347) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (15347) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (15367) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (15367) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (15367) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (15367) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (15377) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (15497) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (16387) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (16387) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (16387) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (16387) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (16397) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (16397) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (16427) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (16427) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (16597) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (16607) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (16977) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (17417) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (17417) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (17417) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (17417) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (17427) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (17437) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (17437) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (17447) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (17927) APP: GET status=200[0m
+[0;32mI (17927) APP: GET body=null[0m
+[0;32mI (17937) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (18457) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (18457) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (18457) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (18457) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (18467) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (18467) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (18477) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (18477) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (18937) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (18937) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (19337) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (19467) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (19477) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (19477) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (19477) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (19477) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (19487) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (19487) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (19497) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (20387) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (20397) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (20517) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (20517) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (20527) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (20527) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (20527) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (20537) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (20557) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (20557) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (20777) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (21547) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (21547) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (21547) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (21547) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (21557) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (21557) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (21567) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (21567) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (21717) APP: GET status=200[0m
+[0;32mI (21717) APP: GET body=null[0m
+[0;32mI (21727) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (22567) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (22567) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (22567) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (22567) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (22577) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (22577) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (22587) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (22587) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (22727) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (22727) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (23127) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (23597) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (23597) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (23597) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (23607) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (23607) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (23617) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (23617) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (23627) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (24647) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (24657) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (24657) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (24657) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (24657) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (24667) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (24667) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (24677) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (24697) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (24697) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (25177) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (25657) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (25657) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (25657) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (25657) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (25667) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (25667) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (25677) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (25677) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (26137) APP: GET status=200[0m
+[0;32mI (26137) APP: GET body=null[0m
+[0;32mI (26137) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (26687) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (26687) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (26687) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (26687) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (26697) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (26707) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (26707) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (26717) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (27137) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (27137) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (27527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (27717) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (27717) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (27727) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (27727) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (27737) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (27737) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (27737) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (27747) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (28577) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (28587) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (28737) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (28737) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (28757) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (28757) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (28757) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (28767) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (28767) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (28777) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (28967) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (29777) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (29777) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (29777) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (29777) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (29787) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (29797) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (29797) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (29807) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (29827) APP: GET status=200[0m
+[0;32mI (29827) APP: GET body=null[0m
+[0;32mI (29837) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (30817) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (30817) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (30817) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (30817) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (30827) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (30827) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (30837) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (30837) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (30847) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (30857) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (31317) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (31847) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (31847) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (31847) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (31857) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (31857) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (31867) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (31867) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (31877) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (32367) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (32377) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (32757) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (32867) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (32867) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (32867) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (32877) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (32877) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (32887) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (32887) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (32897) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (33797) APP: GET status=200[0m
+[0;32mI (33797) APP: GET body=null[0m
+[0;32mI (33807) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (33927) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (33927) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (33937) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (33937) GATTC_MULTI: [0] Humi = 77.1 %[0m
+[0;32mI (33957) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (33957) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (33967) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (33967) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (34807) APP: Sensor: temp=30.8C, humi=77.1%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (34807) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (34957) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (34957) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (34957) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (34957) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (34967) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (34967) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (34997) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (34997) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (35217) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (35987) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (35987) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (35987) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (35997) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (35997) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (36007) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (36017) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (36017) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (36157) APP: PUT status=200, resp={"CO2":0,"Humi":77.0999984741211,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (36167) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (36537) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (36997) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (36997) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (36997) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (36997) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (37007) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (37007) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (37017) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (37017) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (37487) APP: GET status=200[0m
+[0;32mI (37487) APP: GET body=null[0m
+[0;32mI (37497) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (38027) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (38027) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (38027) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (38027) GATTC_MULTI: [0] Humi = 77.1 %[0m
+[0;32mI (38037) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (38037) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (38047) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (38057) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (38497) APP: Sensor: temp=30.8C, humi=77.1%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (38497) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (38897) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (39047) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (39047) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (39047) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (39057) GATTC_MULTI: [0] Humi = 77.1 %[0m
+[0;32mI (39057) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (39067) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (39087) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (39087) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (39857) APP: PUT status=200, resp={"CO2":0,"Humi":77.0999984741211,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (39867) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (40077) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (40087) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (40087) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (40087) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (40097) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (40097) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (40107) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (40107) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (40257) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (41127) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (41137) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (41137) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (41137) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (41137) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (41147) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (41157) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (41157) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (41177) APP: GET status=200[0m
+[0;32mI (41177) APP: GET body=null[0m
+[0;32mI (41187) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (42137) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (42137) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (42137) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (42147) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (42147) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (42157) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (42157) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (42167) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (42187) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (42187) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (42577) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (43177) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (43177) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (43177) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (43177) GATTC_MULTI: [0] Humi = 77.1 %[0m
+[0;32mI (43187) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (43187) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (43197) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (43197) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (43547) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (43557) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (44017) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (44207) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (44207) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (44207) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (44217) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (44217) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (44227) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (44227) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (44237) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (45097) APP: GET status=200[0m
+[0;32mI (45097) APP: GET body=null[0m
+[0;32mI (45107) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (45227) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (45227) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (45227) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (45237) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (45237) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (45247) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (45247) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (45257) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (46107) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (46107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (46267) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (46267) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (46267) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (46267) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (46277) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (46277) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (46287) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (46287) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (46527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (47307) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (47307) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (47307) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (47307) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (47317) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (47317) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (47327) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (47327) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (47627) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (47637) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (48017) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (48317) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (48317) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (48317) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (48327) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (48327) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (48337) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (48337) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (48347) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (48967) APP: GET status=200[0m
+[0;32mI (48967) APP: GET body=null[0m
+[0;32mI (48977) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (49357) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (49357) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (49357) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (49367) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (49367) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (49377) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (49377) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (49387) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (49977) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (49977) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (50367) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (50387) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (50387) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (50387) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (50397) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (50397) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (50407) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (50417) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (50417) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (51417) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (51427) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (51437) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (51437) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (51437) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (51447) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (51447) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (51457) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (51477) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (51477) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (51897) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (52447) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (52447) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (52447) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (52447) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (52457) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (52457) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (52467) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (52467) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (52857) APP: GET status=200[0m
+[0;32mI (52857) APP: GET body=null[0m
+[0;32mI (52867) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (53477) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (53477) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (53477) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (53487) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (53487) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (53497) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (53497) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (53507) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (53867) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (53867) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (54257) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (54507) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (54507) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (54507) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (54507) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (54517) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (54517) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (54527) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (54527) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (55307) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (55307) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (55527) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (55537) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (55537) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (55537) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (55547) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (55547) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (55577) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (55577) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (55727) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (56567) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (56567) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (56567) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (56577) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (56577) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (56587) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (56597) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (56597) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (56637) APP: GET status=200[0m
+[0;32mI (56637) APP: GET body=null[0m
+[0;32mI (56647) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (57587) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (57587) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (57587) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (57587) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (57607) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (57607) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (57607) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (57617) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (57647) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (57647) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (58047) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (58617) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (58627) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (58627) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (58627) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (58637) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (58637) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (58647) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (58647) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (59097) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (59097) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (59477) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (59657) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (59657) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (59667) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (59667) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (59667) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (59677) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (59677) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (59687) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (60427) APP: GET status=200[0m
+[0;32mI (60427) APP: GET body=null[0m
+[0;32mI (60437) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (60697) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (60697) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (60697) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (60697) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (60707) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (60707) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (60717) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (60717) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (61437) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (61447) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (61717) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (61717) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (61717) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (61717) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (61727) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (61727) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (61737) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (61737) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (61877) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (62757) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (62757) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (62757) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (62757) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (62767) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (62767) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (62777) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (62777) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (62877) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (62887) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (63277) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (63777) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (63787) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (63787) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (63787) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (63797) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (63797) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (63807) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (63807) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (64217) APP: GET status=200[0m
+[0;32mI (64217) APP: GET body=null[0m
+[0;32mI (64217) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (64807) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (64807) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (64807) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (64807) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (64817) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (64827) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (64827) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (64837) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (65217) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (65217) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (65627) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (65837) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (65837) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (65837) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (65847) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (65847) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (65857) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (65857) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (65867) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (66767) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (66777) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (66857) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (66857) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (66857) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (66867) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (66867) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (66877) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (66877) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (66887) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (67157) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (67937) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (67937) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (67937) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (67947) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (67947) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (67957) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (67967) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (67967) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (68107) APP: GET status=200[0m
+[0;32mI (68107) APP: GET body=null[0m
+[0;32mI (68107) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (68927) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (68927) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (68927) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (68937) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (68937) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (68947) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (68947) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (68957) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (69107) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (69107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (69517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (69947) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (69957) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (69957) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (69957) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (69957) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (69967) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (69967) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (69977) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (70557) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (70567) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (70947) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (70987) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (70987) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (70987) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (70987) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (70997) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (70997) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (71007) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (71007) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (71897) APP: GET status=200[0m
+[0;32mI (71897) APP: GET body=null[0m
+[0;32mI (71907) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (72027) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (72037) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (72037) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (72037) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (72047) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (72047) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (72057) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (72057) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (72907) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (72917) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (73057) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (73057) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (73057) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (73057) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (73067) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (73077) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (73077) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (73087) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (73307) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (74077) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (74077) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (74077) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (74077) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (74087) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (74087) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (74107) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (74107) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (74347) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (74357) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (74737) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (75107) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (75107) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (75117) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (75117) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (75117) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (75127) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (75127) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (75137) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (75707) APP: GET status=200[0m
+[0;32mI (75707) APP: GET body=null[0m
+[0;32mI (75707) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (76147) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (76147) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (76147) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (76147) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (76157) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (76157) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (76167) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (76167) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (76707) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (76707) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (77097) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (77167) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (77167) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (77167) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (77167) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (77177) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (77177) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (77187) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (77187) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (78207) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (78207) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (78207) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (78207) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (78217) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (78217) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (78227) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (78227) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (78247) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (78247) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (78627) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (79227) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (79237) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (79237) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (79237) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (79247) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (79247) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (79247) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (79257) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (79577) APP: GET status=200[0m
+[0;32mI (79577) APP: GET body=null[0m
+[0;32mI (79577) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (80267) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (80267) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (80267) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (80277) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (80287) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (80287) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (80287) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (80297) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (80577) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (80577) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (80887) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (81287) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (81287) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (81287) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (81297) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (81297) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (81307) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (81307) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (81317) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (81827) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (81837) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (82217) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (82317) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (82327) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (82327) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (82327) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (82337) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (82337) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (82347) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (82347) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (83157) APP: GET status=200[0m
+[0;32mI (83157) APP: GET body=null[0m
+[0;32mI (83167) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (83387) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (83387) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (83387) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (83397) GATTC_MULTI: [0] Humi = 77.1 %[0m
+[0;32mI (83397) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (83407) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (83417) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (83417) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (84167) APP: Sensor: temp=30.8C, humi=77.1%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (84167) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (84387) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (84387) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (84427) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (84427) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (84427) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (84427) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (84437) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (84437) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (84597) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (85447) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (85447) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (85447) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (85447) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (85457) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (85457) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (85467) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (85467) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (85617) APP: PUT status=200, resp={"CO2":0,"Humi":77.0999984741211,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (85617) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (85997) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (86447) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (86447) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (86467) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (86467) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (86467) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (86467) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (86477) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (86477) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (86947) APP: GET status=200[0m
+[0;32mI (86947) APP: GET body=null[0m
+[0;32mI (86957) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (87477) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (87487) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (87487) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (87487) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (87497) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (87497) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (87507) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (87507) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (87957) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (87967) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (88357) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (88507) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (88507) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (88507) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (88517) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (88517) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (88527) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (88527) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (88537) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (89407) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (89407) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (89537) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (89537) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (89537) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (89547) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (89547) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (89557) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (89567) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (89567) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (89787) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (90587) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (90587) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (90587) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (90597) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (90597) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (90607) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (90607) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (90617) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (90627) APP: GET status=200[0m
+[0;32mI (90637) APP: GET body=null[0m
+[0;32mI (90637) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (91607) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (91607) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (91617) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (91617) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (91617) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (91627) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (91627) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (91637) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (91637) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (91657) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (92037) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (92627) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (92627) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (92647) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (92647) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (92647) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (92647) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (92657) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (92657) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (93087) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (93097) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (93487) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (93677) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (93677) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (93677) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (93687) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (93687) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (93697) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (93697) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (93707) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (94427) APP: GET status=200[0m
+[0;32mI (94427) APP: GET body=null[0m
+[0;32mI (94427) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (94707) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (94707) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (94707) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (94707) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (94717) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (94717) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (94727) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (94727) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (95427) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (95427) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (95717) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (95717) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (95727) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (95737) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (95737) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (95737) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (95747) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (95747) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (95867) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (96757) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (96757) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (96757) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (96767) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (96767) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (96777) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (96777) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (96787) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (96877) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (96887) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (97267) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (97787) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (97787) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (97787) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (97797) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (97807) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (97807) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (97807) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (97817) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (98207) APP: GET status=200[0m
+[0;32mI (98207) APP: GET body=null[0m
+[0;32mI (98217) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (98827) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (98827) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (98827) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (98827) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (98837) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (98837) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (98847) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (98847) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (99217) APP: Sensor: temp=30.8C, humi=77.2%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (99217) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (99877) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (99877) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (99877) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (99877) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (99887) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (99887) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (99907) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (99907) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (100057) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (100907) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (100907) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (100917) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (100917) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (100917) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (100927) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (100927) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (100937) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (101077) APP: PUT status=200, resp={"CO2":0,"Humi":77.1999969482422,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (101087) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (101457) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (101917) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (101917) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (101917) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (101917) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (101927) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (101927) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (101937) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (101947) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (102407) APP: GET status=200[0m
+[0;32mI (102407) APP: GET body=null[0m
+[0;32mI (102417) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (102957) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (102957) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (102957) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (102957) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (102967) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (102967) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (102977) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (102977) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (103417) APP: Sensor: temp=30.8C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (103417) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (103817) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (103967) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (103967) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (103967) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (103977) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (103977) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (103987) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (103987) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (103997) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (104867) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (104877) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (105007) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (105007) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (105007) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (105017) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (105017) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (105027) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (105027) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (105037) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (105247) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (106057) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (106057) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (106057) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (106067) GATTC_MULTI: [0] Humi = 77.2 %[0m
+[0;32mI (106067) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (106077) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (106077) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (106087) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (106197) APP: GET status=200[0m
+[0;32mI (106197) APP: GET body=null[0m
+[0;32mI (106207) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (107077) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (107077) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (107077) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (107077) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (107087) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (107087) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (107097) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (107097) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (107207) APP: Sensor: temp=30.8C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (107207) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (107607) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (108097) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (108097) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (108107) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (108107) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (108107) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (108117) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (108117) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (108127) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (108657) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (108657) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (109037) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (109127) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (109127) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (109127) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (109137) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (109147) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (109147) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (109147) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (109157) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (109987) APP: GET status=200[0m
+[0;32mI (109987) APP: GET body=null[0m
+[0;32mI (109987) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (110167) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (110167) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (110167) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (110167) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (110177) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (110177) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (110187) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (110187) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (110997) APP: Sensor: temp=30.8C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (110997) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (111177) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (111187) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (111197) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (111207) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (111207) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (111207) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (111217) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (111217) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (111417) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (112217) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (112217) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (112217) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (112227) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (112227) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (112237) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (112267) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (112267) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (112447) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (112457) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (112827) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (113257) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (113257) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (113267) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (113267) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (113267) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (113277) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (113287) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (113287) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (113777) APP: GET status=200[0m
+[0;32mI (113777) APP: GET body=null[0m
+[0;32mI (113777) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (114287) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (114287) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (114287) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (114297) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (114307) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (114307) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (114307) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (114317) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (114787) APP: Sensor: temp=30.8C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (114787) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (115177) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (115307) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (115307) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (115317) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (115317) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (115317) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (115327) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (115327) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (115337) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (116227) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.799999237060547}[0m
+[0;32mI (116237) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (116357) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (116357) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (116367) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (116367) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (116367) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (116377) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (116387) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (116387) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (116617) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (117397) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (117397) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (117397) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (117397) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (117407) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (117407) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (117417) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (117427) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (117467) APP: GET status=200[0m
+[0;32mI (117467) APP: GET body=null[0m
+[0;32mI (117477) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (118427) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (118427) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (118427) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (118437) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (118447) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (118447) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (118447) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (118457) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (118477) APP: Sensor: temp=30.7C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (118477) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (118877) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (119437) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (119437) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (119437) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (119437) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (119447) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (119447) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (119457) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (119457) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (119917) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.700000762939453}[0m
+[0;32mI (119927) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (120307) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (120467) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (120467) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (120467) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (120477) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (120487) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (120487) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (120487) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (120497) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (121247) APP: GET status=200[0m
+[0;32mI (121247) APP: GET body=null[0m
+[0;32mI (121257) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (121517) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (121517) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (121517) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (121527) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (121527) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (121537) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (121537) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (121547) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (122257) APP: Sensor: temp=30.7C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (122257) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (122537) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (122537) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (122537) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (122547) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (122557) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (122557) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (122557) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (122567) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (122697) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (123557) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (123567) GATTC_MULTI: [0] Temp = 30.8 C[0m
+[0;32mI (123567) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (123567) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (123577) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (123577) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (123587) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (123587) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (123707) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.700000762939453}[0m
+[0;32mI (123717) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (124087) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (124597) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (124597) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (124597) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (124597) GATTC_MULTI: [0] Humi = 77.4 %[0m
+[0;32mI (124637) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (124637) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (124637) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (124647) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (125037) APP: GET status=200[0m
+[0;32mI (125037) APP: GET body=null[0m
+[0;32mI (125047) APP: Parsed from Firebase: state=0, mode=0[0m
+[0;32mI (125627) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (125627) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (125627) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (125637) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (125637) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (125647) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (125647) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (125657) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (126047) APP: Sensor: temp=30.7C, humi=77.3%, co2=0ppm, mode=0, state=0[0m
+[0;32mI (126047) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (126447) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (126647) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (126657) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (126657) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (126657) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (126667) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (126667) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (126677) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (126677) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (127497) APP: PUT status=200, resp={"CO2":0,"Humi":77.3000030517578,"Mode":0,"State":0,"Temp":30.700000762939453}[0m
+[0;32mI (127507) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/device/control.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (127687) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (127687) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (127727) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (127727) GATTC_MULTI: [0] Humi = 77.3 %[0m
+[0;32mI (127727) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (127737) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (127737) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (127747) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (127917) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (128757) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (128757) GATTC_MULTI: [0] Temp = 30.7 C[0m
+[0;32mI (128757) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (128757) GATTC_MULTI: [0] Humi = 77.4 %[0m
+[0;32mI (128767) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (128767) GATTC_MULTI: [0] CO2  = 0 ppm[0m
+[0;32mI (128777) GATTC_MULTI: [0] NOTIFY handle=0x0033 len=2[0m
+[0;32mI (128777) GATTC_MULTI: [0] State  = 0[0m
+[0;32mI (128827) APP: GET status=200[0m
+[0;32mI (128827) APP: GET body=null[0m
+[0;32mI (128837) APP: Parsed from Firebase: state=0, mode=0[0m

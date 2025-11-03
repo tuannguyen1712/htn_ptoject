@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "uart_handle.h": "c",
+        "libs_gattserver.h": "c",
+        "esp_gatt_common_api.h": "c",
+        "esp_bt_main.h": "c",
+        "esp_bt.h": "c",
+        "freertos.h": "c",
+        "esp_sntp.h": "c"
+    }
+}

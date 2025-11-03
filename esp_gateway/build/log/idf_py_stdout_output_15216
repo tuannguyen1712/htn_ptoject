@@ -1,0 +1,25 @@
+[1/11] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\workspace\ESP_Gateway\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/Espressif/workspace/ESP_Gateway/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/9] Building C object esp-idf/Libs_wifiSta/CMakeFiles/__idf_Libs_wifiSta.dir/Libs_wifiSta.c.obj
+D:/Espressif/workspace/ESP_Gateway/components/Libs_wifiSta/Libs_wifiSta.c: In function 'Libs_staSetEventGroupHandle':
+D:/Espressif/workspace/ESP_Gateway/components/Libs_wifiSta/Libs_wifiSta.c:115:17: warning: assignment to 'EventGroupHandle_t' {aka 'struct EventGroupDef_t *'} from incompatible pointer type 'struct EventGroupDef_t **' [-Wincompatible-pointer-types]
+  115 |     xEventGroup = handle;
+      |                 ^
+[3/9] Linking C static library esp-idf\Libs_wifiSta\libLibs_wifiSta.a
+[4/9] Linking C static library esp-idf\main\libmain.a
+[5/9] Generating ld/sections.ld
+[6/9] Building C object CMakeFiles/main.elf.dir/project_elf_src_esp32.c.obj
+[7/9] Linking CXX executable main.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.7.dev1
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated D:/Espressif/workspace/ESP_Gateway/build/main.bin
+[9/9] cmd.exe /C "cd /D D:\Espressif\workspace\ESP_Gateway\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/workspace/ESP_Gateway/build/partition_table/partition-table.bin D:/Espressif/workspace/ESP_Gateway/build/main.bin"
+FAILED: esp-idf/esptool_py/CMakeFiles/app_check_size D:/Espressif/workspace/ESP_Gateway/build/esp-idf/esptool_py/CMakeFiles/app_check_size 
+cmd.exe /C "cd /D D:\Espressif\workspace\ESP_Gateway\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/workspace/ESP_Gateway/build/partition_table/partition-table.bin D:/Espressif/workspace/ESP_Gateway/build/main.bin"
+Error: app partition is too small for binary main.bin size 0x195be0:
+  - Part 'factory' 0/0 @ 0x10000 size 0x177000 (overflow 0x1ebe0)
+ninja: build stopped: subcommand failed.

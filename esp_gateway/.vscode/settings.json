@@ -1,0 +1,32 @@
+{
+    "files.associations": {
+        "libs_blegattserver.h": "c",
+        "libs_wifista.h": "c",
+        "esp_bt_main.h": "c",
+        "esp_bt.h": "c",
+        "nvs_flash.h": "c",
+        "esp_gap_ble_api.h": "c",
+        "event_groups.h": "c",
+        "esp_event.h": "c",
+        "esp_netif.h": "c",
+        "esp_http_client.h": "c",
+        "esp_wifi.h": "c",
+        "esp_sntp.h": "c",
+        "esp_crt_bundle.h": "c",
+        "freertos.h": "c",
+        "cjson.h": "c",
+        "libs_firebase.h": "c",
+        "libs_softap.h": "c",
+        "libs_blegattclient.h": "c",
+        "libs_httpconfig.h": "c",
+        "libs_nvshandle.h": "c",
+        "configuration.h": "c",
+        "typeinfo": "c",
+        "complex": "c",
+        "string": "c",
+        "fstream": "c",
+        "limits": "c",
+        "sstream": "c",
+        "functional": "c"
+    }
+}

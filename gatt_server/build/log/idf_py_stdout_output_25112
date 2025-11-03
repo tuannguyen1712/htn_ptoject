@@ -1,0 +1,1021 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct  7 2025 23:25:26[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2168ch (136844) map[0m
+[0;32mI (154) esp_image: segment 1: paddr=000316b4 vaddr=3ffbdb60 size=04560h ( 17760) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=00035c1c vaddr=40080000 size=0a3fch ( 41980) load[0m
+[0;32mI (179) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=82244h (533060) map[0m
+[0;32mI (372) esp_image: segment 4: paddr=000c226c vaddr=4008a3fc size=0f054h ( 61524) load[0m
+[0;32mI (410) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (411) boot: Disabling RNG early entropy source...[0m
+[0;32mI (422) cpu_start: Multicore app[0m
+[0;32mI (422) cpu_start: Pro cpu up.[0m
+[0;32mI (422) cpu_start: Starting app cpu, entry point is 0x400814a0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (440) cpu_start: Application information:[0m
+[0;32mI (445) cpu_start: Project name:     gatt_server_demos[0m
+[0;32mI (451) cpu_start: App version:      1[0m
+[0;32mI (455) cpu_start: Compile time:     Oct  7 2025 23:24:39[0m
+[0;32mI (461) cpu_start: ELF file SHA256:  ad9bd2ac0739458f...[0m
+[0;32mI (467) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (473) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (477) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (482) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (487) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (494) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (500) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (506) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFC7050 len 00018FB0 (99 KiB): DRAM[0m
+[0;32mI (519) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (531) heap_init: At 40099450 len 00006BB0 (26 KiB): IRAM[0m
+[0;32mI (539) spi_flash: detected chip: generic[0m
+[0;32mI (542) spi_flash: flash io: dio[0m
+[0;33mW (546) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (560) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (565) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (570) app_start: Starting scheduler on CPU1[0m
+I (570) main_task: Started on CPU0[0m
+[0;32mI (580) main_task: Calling app_main()[0m
+[0;32mI (630) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (630) BTDM_INIT: Bluetooth MAC: fc:b4:67:f5:ed:82[0m
+[0;32mI (630) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+[0;32mI (1070) GATT_DEMO: A REG app_id=0, gatts_if=3[0m
+[0;32mI (1070) GATT_DEMO: Sensor service started[0m
+[0;32mI (1070) GATT_DEMO: B REG app_id=1, gatts_if=4[0m
+[0;32mI (1080) GATT_DEMO: LED handles:[0m
+[0;32mI (1080) GATT_DEMO:   SVC        : 0x0038[0m
+[0;32mI (1080) GATT_DEMO:   CHAR_DECL  : 0x0039[0m
+[0;32mI (1090) GATT_DEMO:   CHAR_VALUE : 0x003A[0m
+[0;32mI (1090) GATT_DEMO:   CHAR_DECL  : 0x003B[0m
+[0;32mI (1090) GATT_DEMO:   CHAR_VALUE : 0x003C[0m
+[0;33mW (1100) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1110) uart: queue free spaces: 20[0m
+[0;32mI (1110) GATT_DEMO: Adv data set. Start advertising[0m
+[0;32mI (1450) UART2: uart[2] event:[0m
+[0;32mI (1450) UART2: [UART DATA]: 37[0m
+[0;32mI (1450) UART2: tem:30.900000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (2480) UART2: uart[2] event:[0m
+[0;32mI (2480) UART2: [UART DATA]: 37[0m
+[0;32mI (2480) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (3510) UART2: uart[2] event:[0m
+[0;32mI (3510) UART2: [UART DATA]: 37[0m
+[0;32mI (3510) UART2: tem:30.900000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (4540) UART2: uart[2] event:[0m
+[0;32mI (4540) UART2: [UART DATA]: 37[0m
+[0;32mI (4540) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (5570) UART2: uart[2] event:[0m
+[0;32mI (5570) UART2: [UART DATA]: 37[0m
+[0;32mI (5570) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (6600) UART2: uart[2] event:[0m
+[0;32mI (6600) UART2: [UART DATA]: 37[0m
+[0;32mI (6610) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (6800) GATT_DEMO: A CONNECT conn_id=0[0m
+[0;32mI (7640) UART2: uart[2] event:[0m
+[0;32mI (7640) UART2: [UART DATA]: 37[0m
+[0;32mI (7640) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (7640) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (8480) GATT_DEMO: TEMP notify EN[0m
+[0;32mI (8570) GATT_DEMO: HUMI notify EN[0m
+[0;32mI (8600) GATT_DEMO: CO2 notify EN[0m
+[0;32mI (8630) GATT_DEMO: Device mode notify EN[0m
+[0;32mI (8670) UART2: uart[2] event:[0m
+[0;32mI (8670) UART2: [UART DATA]: 37[0m
+[0;32mI (8670) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (8670) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (8680) GATT_DEMO: Device state notify EN[0m
+[0;32mI (9700) UART2: uart[2] event:[0m
+[0;32mI (9700) UART2: [UART DATA]: 37[0m
+[0;32mI (9700) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (9700) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (10730) UART2: uart[2] event:[0m
+[0;32mI (10730) UART2: [UART DATA]: 37[0m
+[0;32mI (10730) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (10730) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (11760) UART2: uart[2] event:[0m
+[0;32mI (11760) UART2: [UART DATA]: 37[0m
+[0;32mI (11760) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (11770) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (12370) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (12370) GATT_DEMO: BLE receive event[0m
+[0;32mI (12370) UART2: Send data: c:00[0m
+[0;32mI (12470) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (12470) GATT_DEMO: BLE receive event[0m
+[0;32mI (12470) UART2: Send data: c:00[0m
+[0;32mI (12790) UART2: uart[2] event:[0m
+[0;32mI (12790) UART2: [UART DATA]: 37[0m
+[0;32mI (12790) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (12800) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (13820) UART2: uart[2] event:[0m
+[0;32mI (13820) UART2: [UART DATA]: 37[0m
+[0;32mI (13830) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (13830) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (14860) UART2: uart[2] event:[0m
+[0;32mI (14860) UART2: [UART DATA]: 37[0m
+[0;32mI (14860) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (14860) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (15890) UART2: uart[2] event:[0m
+[0;32mI (15890) UART2: [UART DATA]: 37[0m
+[0;32mI (15890) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (15890) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (16370) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (16370) GATT_DEMO: BLE receive event[0m
+[0;32mI (16370) UART2: Send data: c:00[0m
+[0;32mI (16430) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (16430) GATT_DEMO: BLE receive event[0m
+[0;32mI (16430) UART2: Send data: c:00[0m
+[0;32mI (16920) UART2: uart[2] event:[0m
+[0;32mI (16920) UART2: [UART DATA]: 37[0m
+[0;32mI (16920) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (16920) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (17950) UART2: uart[2] event:[0m
+[0;32mI (17950) UART2: [UART DATA]: 37[0m
+[0;32mI (17950) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (17950) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (18980) UART2: uart[2] event:[0m
+[0;32mI (18980) UART2: [UART DATA]: 37[0m
+[0;32mI (18980) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (18990) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (20010) UART2: uart[2] event:[0m
+[0;32mI (20010) UART2: [UART DATA]: 37[0m
+[0;32mI (20010) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (20020) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (20350) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (20350) GATT_DEMO: BLE receive event[0m
+[0;32mI (20350) UART2: Send data: c:00[0m
+[0;32mI (20380) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (20380) GATT_DEMO: BLE receive event[0m
+[0;32mI (20380) UART2: Send data: c:00[0m
+[0;32mI (21040) UART2: uart[2] event:[0m
+[0;32mI (21040) UART2: [UART DATA]: 37[0m
+[0;32mI (21050) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (21050) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (22080) UART2: uart[2] event:[0m
+[0;32mI (22080) UART2: [UART DATA]: 37[0m
+[0;32mI (22080) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (22080) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (23110) UART2: uart[2] event:[0m
+[0;32mI (23110) UART2: [UART DATA]: 37[0m
+[0;32mI (23110) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (23110) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (24140) UART2: uart[2] event:[0m
+[0;32mI (24140) UART2: [UART DATA]: 37[0m
+[0;32mI (24140) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (24140) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (25170) UART2: uart[2] event:[0m
+[0;32mI (25170) UART2: [UART DATA]: 37[0m
+[0;32mI (25170) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (25170) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (26200) UART2: uart[2] event:[0m
+[0;32mI (26200) UART2: [UART DATA]: 37[0m
+[0;32mI (26200) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (26200) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (27230) UART2: uart[2] event:[0m
+[0;32mI (27230) UART2: [UART DATA]: 37[0m
+[0;32mI (27230) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (27240) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;33mW (27860) BT_HCI: hcif disc complete: hdl 0x0, rsn 0x8[0m
+[0;32mI (27870) GATT_DEMO: A DISCONNECT[0m
+[0;32mI (28210) GATT_DEMO: A CONNECT conn_id=0[0m
+[0;32mI (28260) UART2: uart[2] event:[0m
+[0;32mI (28270) UART2: [UART DATA]: 37[0m
+[0;32mI (28270) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (28270) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (29200) GATT_DEMO: TEMP notify EN[0m
+[0;32mI (29240) GATT_DEMO: HUMI notify EN[0m
+[0;32mI (29270) GATT_DEMO: CO2 notify EN[0m
+[0;32mI (29300) UART2: uart[2] event:[0m
+[0;32mI (29300) UART2: [UART DATA]: 37[0m
+[0;32mI (29300) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (29300) GATT_DEMO: Device mode notify EN[0m
+[0;32mI (29310) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (29330) GATT_DEMO: Device state notify EN[0m
+[0;32mI (30330) UART2: uart[2] event:[0m
+[0;32mI (30330) UART2: [UART DATA]: 37[0m
+[0;32mI (30330) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (30330) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (31360) UART2: uart[2] event:[0m
+[0;32mI (31360) UART2: [UART DATA]: 37[0m
+[0;32mI (31360) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (31360) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (32390) UART2: uart[2] event:[0m
+[0;32mI (32390) UART2: [UART DATA]: 37[0m
+[0;32mI (32390) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (32390) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (33420) UART2: uart[2] event:[0m
+[0;32mI (33420) UART2: [UART DATA]: 37[0m
+[0;32mI (33420) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (33430) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (34450) UART2: uart[2] event:[0m
+[0;32mI (34450) UART2: [UART DATA]: 37[0m
+[0;32mI (34450) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (34460) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (34480) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (34480) GATT_DEMO: BLE receive event[0m
+[0;32mI (34480) UART2: Send data: c:00[0m
+[0;32mI (34580) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (34590) GATT_DEMO: BLE receive event[0m
+[0;32mI (34590) UART2: Send data: c:00[0m
+[0;32mI (35480) UART2: uart[2] event:[0m
+[0;32mI (35480) UART2: [UART DATA]: 37[0m
+[0;32mI (35490) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (35490) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (36520) UART2: uart[2] event:[0m
+[0;32mI (36520) UART2: [UART DATA]: 37[0m
+[0;32mI (36520) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (36520) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (37550) UART2: uart[2] event:[0m
+[0;32mI (37550) UART2: [UART DATA]: 37[0m
+[0;32mI (37550) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (37550) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (38570) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (38580) GATT_DEMO: BLE receive event[0m
+[0;32mI (38580) UART2: Send data: c:00[0m
+[0;32mI (38580) UART2: uart[2] event:[0m
+[0;32mI (38580) UART2: [UART DATA]: 37[0m
+[0;32mI (38590) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (38590) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (38610) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (38610) GATT_DEMO: BLE receive event[0m
+[0;32mI (38610) UART2: Send data: c:00[0m
+[0;32mI (39610) UART2: uart[2] event:[0m
+[0;32mI (39610) UART2: [UART DATA]: 37[0m
+[0;32mI (39610) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (39610) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (40640) UART2: uart[2] event:[0m
+[0;32mI (40640) UART2: [UART DATA]: 37[0m
+[0;32mI (40640) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (40640) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (41670) UART2: uart[2] event:[0m
+[0;32mI (41670) UART2: [UART DATA]: 37[0m
+[0;32mI (41670) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (41680) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (42470) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (42480) GATT_DEMO: BLE receive event[0m
+[0;32mI (42480) UART2: Send data: c:00[0m
+[0;32mI (42530) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (42530) GATT_DEMO: BLE receive event[0m
+[0;32mI (42540) UART2: Send data: c:00[0m
+[0;32mI (42700) UART2: uart[2] event:[0m
+[0;32mI (42700) UART2: [UART DATA]: 37[0m
+[0;32mI (42700) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (42710) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (43730) UART2: uart[2] event:[0m
+[0;32mI (43730) UART2: [UART DATA]: 37[0m
+[0;32mI (43740) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (43740) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (44770) UART2: uart[2] event:[0m
+[0;32mI (44770) UART2: [UART DATA]: 37[0m
+[0;32mI (44770) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (44770) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (45800) UART2: uart[2] event:[0m
+[0;32mI (45800) UART2: [UART DATA]: 37[0m
+[0;32mI (45800) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (45800) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (46670) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (46680) GATT_DEMO: BLE receive event[0m
+[0;32mI (46680) UART2: Send data: c:00[0m
+[0;32mI (46730) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (46730) GATT_DEMO: BLE receive event[0m
+[0;32mI (46740) UART2: Send data: c:00[0m
+[0;32mI (46830) UART2: uart[2] event:[0m
+[0;32mI (46830) UART2: [UART DATA]: 37[0m
+[0;32mI (46830) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (46830) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (47860) UART2: uart[2] event:[0m
+[0;32mI (47860) UART2: [UART DATA]: 37[0m
+[0;32mI (47860) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (47860) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (48890) UART2: uart[2] event:[0m
+[0;32mI (48890) UART2: [UART DATA]: 37[0m
+[0;32mI (48890) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (48900) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (49920) UART2: uart[2] event:[0m
+[0;32mI (49920) UART2: [UART DATA]: 37[0m
+[0;32mI (49930) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (49930) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (50870) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (50880) GATT_DEMO: BLE receive event[0m
+[0;32mI (50880) UART2: Send data: c:00[0m
+[0;32mI (50930) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (50940) GATT_DEMO: BLE receive event[0m
+[0;32mI (50940) UART2: Send data: c:00[0m
+[0;32mI (50950) UART2: uart[2] event:[0m
+[0;32mI (50960) UART2: [UART DATA]: 37[0m
+[0;32mI (50960) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (50960) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (51990) UART2: uart[2] event:[0m
+[0;32mI (51990) UART2: [UART DATA]: 37[0m
+[0;32mI (51990) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (51990) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (53020) UART2: uart[2] event:[0m
+[0;32mI (53020) UART2: [UART DATA]: 37[0m
+[0;32mI (53020) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (53020) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (54050) UART2: uart[2] event:[0m
+[0;32mI (54050) UART2: [UART DATA]: 37[0m
+[0;32mI (54050) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (54050) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (54860) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (54870) GATT_DEMO: BLE receive event[0m
+[0;32mI (54870) UART2: Send data: c:00[0m
+[0;32mI (54950) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (54960) GATT_DEMO: BLE receive event[0m
+[0;32mI (54960) UART2: Send data: c:00[0m
+[0;32mI (55080) UART2: uart[2] event:[0m
+[0;32mI (55080) UART2: [UART DATA]: 37[0m
+[0;32mI (55080) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (55080) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (56110) UART2: uart[2] event:[0m
+[0;32mI (56110) UART2: [UART DATA]: 37[0m
+[0;32mI (56110) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (56110) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (57140) UART2: uart[2] event:[0m
+[0;32mI (57140) UART2: [UART DATA]: 37[0m
+[0;32mI (57140) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (57150) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (58170) UART2: uart[2] event:[0m
+[0;32mI (58170) UART2: [UART DATA]: 37[0m
+[0;32mI (58170) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (58180) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (59020) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (59020) GATT_DEMO: BLE receive event[0m
+[0;32mI (59020) UART2: Send data: c:00[0m
+[0;32mI (59130) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (59130) GATT_DEMO: BLE receive event[0m
+[0;32mI (59130) UART2: Send data: c:00[0m
+[0;32mI (59200) UART2: uart[2] event:[0m
+[0;32mI (59200) UART2: [UART DATA]: 37[0m
+[0;32mI (59200) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (59210) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (60230) UART2: uart[2] event:[0m
+[0;32mI (60230) UART2: [UART DATA]: 37[0m
+[0;32mI (60240) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (60240) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (61270) UART2: uart[2] event:[0m
+[0;32mI (61270) UART2: [UART DATA]: 37[0m
+[0;32mI (61270) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (61270) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (62300) UART2: uart[2] event:[0m
+[0;32mI (62300) UART2: [UART DATA]: 37[0m
+[0;32mI (62300) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (62300) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (63180) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (63180) GATT_DEMO: BLE receive event[0m
+[0;32mI (63180) UART2: Send data: c:00[0m
+[0;32mI (63250) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (63250) GATT_DEMO: BLE receive event[0m
+[0;32mI (63250) UART2: Send data: c:00[0m
+[0;32mI (63330) UART2: uart[2] event:[0m
+[0;32mI (63330) UART2: [UART DATA]: 37[0m
+[0;32mI (63330) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (63330) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (64360) UART2: uart[2] event:[0m
+[0;32mI (64360) UART2: [UART DATA]: 37[0m
+[0;32mI (64360) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (64360) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (65390) UART2: uart[2] event:[0m
+[0;32mI (65390) UART2: [UART DATA]: 37[0m
+[0;32mI (65390) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (65390) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (66420) UART2: uart[2] event:[0m
+[0;32mI (66420) UART2: [UART DATA]: 37[0m
+[0;32mI (66420) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (66430) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (67350) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (67350) GATT_DEMO: BLE receive event[0m
+[0;32mI (67350) UART2: Send data: c:00[0m
+[0;32mI (67450) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (67450) GATT_DEMO: BLE receive event[0m
+[0;32mI (67450) UART2: uart[2] event:[0m
+[0;32mI (67450) UART2: [UART DATA]: 37[0m
+[0;32mI (67460) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (67460) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (67480) UART2: Send data: c:00[0m
+[0;32mI (68490) UART2: uart[2] event:[0m
+[0;32mI (68490) UART2: [UART DATA]: 37[0m
+[0;32mI (68490) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (68490) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (69520) UART2: uart[2] event:[0m
+[0;32mI (69520) UART2: [UART DATA]: 37[0m
+[0;32mI (69520) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (69520) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (70550) UART2: uart[2] event:[0m
+[0;32mI (70550) UART2: [UART DATA]: 37[0m
+[0;32mI (70550) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (70550) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (71370) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (71370) GATT_DEMO: BLE receive event[0m
+[0;32mI (71370) UART2: Send data: c:00[0m
+[0;32mI (71460) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (71460) GATT_DEMO: BLE receive event[0m
+[0;32mI (71460) UART2: Send data: c:00[0m
+[0;32mI (71580) UART2: uart[2] event:[0m
+[0;32mI (71580) UART2: [UART DATA]: 37[0m
+[0;32mI (71580) UART2: tem:30.900000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (71580) GATT_DEMO: Notify data: T=309 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (72610) UART2: uart[2] event:[0m
+[0;32mI (72610) UART2: [UART DATA]: 37[0m
+[0;32mI (72610) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (72610) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (73640) UART2: uart[2] event:[0m
+[0;32mI (73640) UART2: [UART DATA]: 37[0m
+[0;32mI (73640) UART2: tem:30.900000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (73650) GATT_DEMO: Notify data: T=309 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (74670) UART2: uart[2] event:[0m
+[0;32mI (74670) UART2: [UART DATA]: 37[0m
+[0;32mI (74670) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (74680) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (75700) UART2: uart[2] event:[0m
+[0;32mI (75710) UART2: [UART DATA]: 37[0m
+[0;32mI (75710) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (75710) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (75730) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (75730) GATT_DEMO: BLE receive event[0m
+[0;32mI (75740) UART2: Send data: c:00[0m
+[0;32mI (75780) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (75780) GATT_DEMO: BLE receive event[0m
+[0;32mI (75780) UART2: Send data: c:00[0m
+[0;32mI (76740) UART2: uart[2] event:[0m
+[0;32mI (76740) UART2: [UART DATA]: 37[0m
+[0;32mI (76740) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (76740) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (77770) UART2: uart[2] event:[0m
+[0;32mI (77770) UART2: [UART DATA]: 37[0m
+[0;32mI (77770) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (77770) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (78800) UART2: uart[2] event:[0m
+[0;32mI (78800) UART2: [UART DATA]: 37[0m
+[0;32mI (78800) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (78800) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (79770) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (79770) GATT_DEMO: BLE receive event[0m
+[0;32mI (79770) UART2: Send data: c:00[0m
+[0;32mI (79830) UART2: uart[2] event:[0m
+[0;32mI (79830) UART2: [UART DATA]: 37[0m
+[0;32mI (79830) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (79830) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (79840) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (79850) GATT_DEMO: BLE receive event[0m
+[0;32mI (79850) UART2: Send data: c:00[0m
+[0;32mI (80860) UART2: uart[2] event:[0m
+[0;32mI (80860) UART2: [UART DATA]: 37[0m
+[0;32mI (80860) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (80860) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (81890) UART2: uart[2] event:[0m
+[0;32mI (81890) UART2: [UART DATA]: 37[0m
+[0;32mI (81890) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (81900) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (82920) UART2: uart[2] event:[0m
+[0;32mI (82930) UART2: [UART DATA]: 37[0m
+[0;32mI (82930) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (82930) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (83850) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (83850) GATT_DEMO: BLE receive event[0m
+[0;32mI (83850) UART2: Send data: c:00[0m
+[0;32mI (83940) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (83940) GATT_DEMO: BLE receive event[0m
+[0;32mI (83940) UART2: Send data: c:00[0m
+[0;32mI (83960) UART2: uart[2] event:[0m
+[0;32mI (83960) UART2: [UART DATA]: 37[0m
+[0;32mI (83960) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (83960) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (84990) UART2: uart[2] event:[0m
+[0;32mI (84990) UART2: [UART DATA]: 37[0m
+[0;32mI (84990) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (84990) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (86020) UART2: uart[2] event:[0m
+[0;32mI (86020) UART2: [UART DATA]: 37[0m
+[0;32mI (86020) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (86020) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (87050) UART2: uart[2] event:[0m
+[0;32mI (87050) UART2: [UART DATA]: 37[0m
+[0;32mI (87050) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (87050) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (87850) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (87850) GATT_DEMO: BLE receive event[0m
+[0;32mI (87850) UART2: Send data: c:00[0m
+[0;32mI (87940) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (87940) GATT_DEMO: BLE receive event[0m
+[0;32mI (87940) UART2: Send data: c:00[0m
+[0;32mI (88080) UART2: uart[2] event:[0m
+[0;32mI (88080) UART2: [UART DATA]: 37[0m
+[0;32mI (88080) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (88080) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (89110) UART2: uart[2] event:[0m
+[0;32mI (89110) UART2: [UART DATA]: 37[0m
+[0;32mI (89110) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (89120) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (90140) UART2: uart[2] event:[0m
+[0;32mI (90140) UART2: [UART DATA]: 37[0m
+[0;32mI (90140) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (90150) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (91170) UART2: uart[2] event:[0m
+[0;32mI (91180) UART2: [UART DATA]: 37[0m
+[0;32mI (91180) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (91180) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (91930) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (91930) GATT_DEMO: BLE receive event[0m
+[0;32mI (91930) UART2: Send data: c:00[0m
+[0;32mI (91990) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (91990) GATT_DEMO: BLE receive event[0m
+[0;32mI (91990) UART2: Send data: c:00[0m
+[0;32mI (92210) UART2: uart[2] event:[0m
+[0;32mI (92210) UART2: [UART DATA]: 37[0m
+[0;32mI (92210) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (92210) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (93240) UART2: uart[2] event:[0m
+[0;32mI (93240) UART2: [UART DATA]: 37[0m
+[0;32mI (93240) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (93240) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (94270) UART2: uart[2] event:[0m
+[0;32mI (94270) UART2: [UART DATA]: 37[0m
+[0;32mI (94270) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (94270) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (95300) UART2: uart[2] event:[0m
+[0;32mI (95300) UART2: [UART DATA]: 37[0m
+[0;32mI (95300) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (95300) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (96130) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (96130) GATT_DEMO: BLE receive event[0m
+[0;32mI (96130) UART2: Send data: c:00[0m
+[0;32mI (96190) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (96190) GATT_DEMO: BLE receive event[0m
+[0;32mI (96200) UART2: Send data: c:00[0m
+[0;32mI (96330) UART2: uart[2] event:[0m
+[0;32mI (96330) UART2: [UART DATA]: 37[0m
+[0;32mI (96330) UART2: tem:30.900000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (96330) GATT_DEMO: Notify data: T=309 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (97360) UART2: uart[2] event:[0m
+[0;32mI (97360) UART2: [UART DATA]: 37[0m
+[0;32mI (97360) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (97360) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (98390) UART2: uart[2] event:[0m
+[0;32mI (98390) UART2: [UART DATA]: 37[0m
+[0;32mI (98390) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (98390) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (99420) UART2: uart[2] event:[0m
+[0;32mI (99420) UART2: [UART DATA]: 37[0m
+[0;32mI (99420) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (99430) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (100230) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (100230) GATT_DEMO: BLE receive event[0m
+[0;32mI (100230) UART2: Send data: c:00[0m
+[0;32mI (100330) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (100330) GATT_DEMO: BLE receive event[0m
+[0;32mI (100340) UART2: Send data: c:00[0m
+[0;32mI (100450) UART2: uart[2] event:[0m
+[0;32mI (100450) UART2: [UART DATA]: 37[0m
+[0;32mI (100450) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (100460) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (101480) UART2: uart[2] event:[0m
+[0;32mI (101480) UART2: [UART DATA]: 37[0m
+[0;32mI (101480) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (101490) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (102510) UART2: uart[2] event:[0m
+[0;32mI (102520) UART2: [UART DATA]: 37[0m
+[0;32mI (102520) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (102520) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (103540) UART2: uart[2] event:[0m
+[0;32mI (103540) UART2: [UART DATA]: 37[0m
+[0;32mI (103550) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (103550) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (104190) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (104190) GATT_DEMO: BLE receive event[0m
+[0;32mI (104190) UART2: Send data: c:00[0m
+[0;32mI (104230) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (104230) GATT_DEMO: BLE receive event[0m
+[0;32mI (104240) UART2: Send data: c:00[0m
+[0;32mI (104570) UART2: uart[2] event:[0m
+[0;32mI (104580) UART2: [UART DATA]: 37[0m
+[0;32mI (104580) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (104580) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (105610) UART2: uart[2] event:[0m
+[0;32mI (105610) UART2: [UART DATA]: 37[0m
+[0;32mI (105610) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (105610) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (106640) UART2: uart[2] event:[0m
+[0;32mI (106640) UART2: [UART DATA]: 37[0m
+[0;32mI (106640) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (106640) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (107670) UART2: uart[2] event:[0m
+[0;32mI (107670) UART2: [UART DATA]: 37[0m
+[0;32mI (107670) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (107670) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (108430) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (108440) GATT_DEMO: BLE receive event[0m
+[0;32mI (108440) UART2: Send data: c:00[0m
+[0;32mI (108490) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (108490) GATT_DEMO: BLE receive event[0m
+[0;32mI (108500) UART2: Send data: c:00[0m
+[0;32mI (108700) UART2: uart[2] event:[0m
+[0;32mI (108700) UART2: [UART DATA]: 37[0m
+[0;32mI (108700) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (108700) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (109730) UART2: uart[2] event:[0m
+[0;32mI (109730) UART2: [UART DATA]: 37[0m
+[0;32mI (109730) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (109730) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (110760) UART2: uart[2] event:[0m
+[0;32mI (110760) UART2: [UART DATA]: 37[0m
+[0;32mI (110760) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (110770) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (111790) UART2: uart[2] event:[0m
+[0;32mI (111790) UART2: [UART DATA]: 37[0m
+[0;32mI (111790) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (111800) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (112530) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (112530) GATT_DEMO: BLE receive event[0m
+[0;32mI (112530) UART2: Send data: c:00[0m
+[0;32mI (112590) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (112590) GATT_DEMO: BLE receive event[0m
+[0;32mI (112590) UART2: Send data: c:00[0m
+[0;32mI (112820) UART2: uart[2] event:[0m
+[0;32mI (112820) UART2: [UART DATA]: 37[0m
+[0;32mI (112830) UART2: tem:30.900000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (112830) GATT_DEMO: Notify data: T=309 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (113850) UART2: uart[2] event:[0m
+[0;32mI (113860) UART2: [UART DATA]: 37[0m
+[0;32mI (113860) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (113860) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (114890) UART2: uart[2] event:[0m
+[0;32mI (114890) UART2: [UART DATA]: 37[0m
+[0;32mI (114890) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (114890) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (115920) UART2: uart[2] event:[0m
+[0;32mI (115920) UART2: [UART DATA]: 37[0m
+[0;32mI (115920) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (115920) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (116610) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (116610) GATT_DEMO: BLE receive event[0m
+[0;32mI (116610) UART2: Send data: c:00[0m
+[0;32mI (116640) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (116640) GATT_DEMO: BLE receive event[0m
+[0;32mI (116640) UART2: Send data: c:00[0m
+[0;32mI (116950) UART2: uart[2] event:[0m
+[0;32mI (116950) UART2: [UART DATA]: 37[0m
+[0;32mI (116950) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (116950) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (117980) UART2: uart[2] event:[0m
+[0;32mI (117980) UART2: [UART DATA]: 37[0m
+[0;32mI (117980) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (117980) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (119010) UART2: uart[2] event:[0m
+[0;32mI (119010) UART2: [UART DATA]: 37[0m
+[0;32mI (119010) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (119010) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (120040) UART2: uart[2] event:[0m
+[0;32mI (120040) UART2: [UART DATA]: 37[0m
+[0;32mI (120040) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (120040) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (120700) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (120710) GATT_DEMO: BLE receive event[0m
+[0;32mI (120710) UART2: Send data: c:00[0m
+[0;32mI (120730) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (120730) GATT_DEMO: BLE receive event[0m
+[0;32mI (120740) UART2: Send data: c:00[0m
+[0;32mI (121070) UART2: uart[2] event:[0m
+[0;32mI (121070) UART2: [UART DATA]: 37[0m
+[0;32mI (121070) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (121080) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (122100) UART2: uart[2] event:[0m
+[0;32mI (122100) UART2: [UART DATA]: 37[0m
+[0;32mI (122100) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (122110) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (123130) UART2: uart[2] event:[0m
+[0;32mI (123130) UART2: [UART DATA]: 37[0m
+[0;32mI (123130) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (123140) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (124170) UART2: uart[2] event:[0m
+[0;32mI (124170) UART2: [UART DATA]: 37[0m
+[0;32mI (124170) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (124170) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (125010) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (125010) GATT_DEMO: BLE receive event[0m
+[0;32mI (125010) UART2: Send data: c:00[0m
+[0;32mI (125080) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (125090) GATT_DEMO: BLE receive event[0m
+[0;32mI (125090) UART2: Send data: c:00[0m
+[0;32mI (125200) UART2: uart[2] event:[0m
+[0;32mI (125200) UART2: [UART DATA]: 37[0m
+[0;32mI (125200) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (125200) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (126230) UART2: uart[2] event:[0m
+[0;32mI (126230) UART2: [UART DATA]: 37[0m
+[0;32mI (126230) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (126230) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (127260) UART2: uart[2] event:[0m
+[0;32mI (127260) UART2: [UART DATA]: 37[0m
+[0;32mI (127260) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (127260) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (128290) UART2: uart[2] event:[0m
+[0;32mI (128290) UART2: [UART DATA]: 37[0m
+[0;32mI (128290) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (128290) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (129320) UART2: uart[2] event:[0m
+[0;32mI (129320) UART2: [UART DATA]: 37[0m
+[0;32mI (129320) UART2: tem:30.900000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (129320) GATT_DEMO: Notify data: T=309 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (129330) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (129340) GATT_DEMO: BLE receive event[0m
+[0;32mI (129340) UART2: Send data: c:00[0m
+[0;32mI (129410) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (129410) GATT_DEMO: BLE receive event[0m
+[0;32mI (129410) UART2: Send data: c:00[0m
+[0;32mI (130350) UART2: uart[2] event:[0m
+[0;32mI (130350) UART2: [UART DATA]: 37[0m
+[0;32mI (130350) UART2: tem:30.900000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (130350) GATT_DEMO: Notify data: T=309 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (131380) UART2: uart[2] event:[0m
+[0;32mI (131380) UART2: [UART DATA]: 37[0m
+[0;32mI (131380) UART2: tem:31.000000 hum:76.099998 mq2:0 mod:0 state:1[0m
+[0;32mI (131390) GATT_DEMO: Notify data: T=310 H=761 CO2=0 mode=0 state=1[0m
+[0;32mI (132410) UART2: uart[2] event:[0m
+[0;32mI (132410) UART2: [UART DATA]: 37[0m
+[0;32mI (132410) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (132420) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (133410) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (133410) GATT_DEMO: BLE receive event[0m
+[0;32mI (133410) UART2: Send data: c:00[0m
+[0;32mI (133440) UART2: uart[2] event:[0m
+[0;32mI (133440) UART2: [UART DATA]: 37[0m
+[0;32mI (133440) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (133450) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (133470) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (133470) GATT_DEMO: BLE receive event[0m
+[0;32mI (133470) UART2: Send data: c:00[0m
+[0;32mI (134470) UART2: uart[2] event:[0m
+[0;32mI (134470) UART2: [UART DATA]: 37[0m
+[0;32mI (134480) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (134480) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (135500) UART2: uart[2] event:[0m
+[0;32mI (135510) UART2: [UART DATA]: 37[0m
+[0;32mI (135510) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (135510) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (136540) UART2: uart[2] event:[0m
+[0;32mI (136540) UART2: [UART DATA]: 37[0m
+[0;32mI (136540) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (136540) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (137400) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (137400) GATT_DEMO: BLE receive event[0m
+[0;32mI (137400) UART2: Send data: c:00[0m
+[0;32mI (137490) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (137490) GATT_DEMO: BLE receive event[0m
+[0;32mI (137490) UART2: Send data: c:00[0m
+[0;32mI (137570) UART2: uart[2] event:[0m
+[0;32mI (137570) UART2: [UART DATA]: 37[0m
+[0;32mI (137570) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (137570) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (138600) UART2: uart[2] event:[0m
+[0;32mI (138600) UART2: [UART DATA]: 37[0m
+[0;32mI (138600) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (138600) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (139630) UART2: uart[2] event:[0m
+[0;32mI (139630) UART2: [UART DATA]: 37[0m
+[0;32mI (139630) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (139630) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (140660) UART2: uart[2] event:[0m
+[0;32mI (140660) UART2: [UART DATA]: 37[0m
+[0;32mI (140660) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (140660) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (141390) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (141390) GATT_DEMO: BLE receive event[0m
+[0;32mI (141390) UART2: Send data: c:00[0m
+[0;32mI (141420) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (141420) GATT_DEMO: BLE receive event[0m
+[0;32mI (141420) UART2: Send data: c:00[0m
+[0;32mI (141690) UART2: uart[2] event:[0m
+[0;32mI (141690) UART2: [UART DATA]: 37[0m
+[0;32mI (141690) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (141700) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (142720) UART2: uart[2] event:[0m
+[0;32mI (142720) UART2: [UART DATA]: 37[0m
+[0;32mI (142720) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (142730) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (143750) UART2: uart[2] event:[0m
+[0;32mI (143750) UART2: [UART DATA]: 37[0m
+[0;32mI (143760) UART2: tem:30.900000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (143760) GATT_DEMO: Notify data: T=309 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (144790) UART2: uart[2] event:[0m
+[0;32mI (144790) UART2: [UART DATA]: 37[0m
+[0;32mI (144790) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (144790) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (145400) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (145400) GATT_DEMO: BLE receive event[0m
+[0;32mI (145400) UART2: Send data: c:00[0m
+[0;32mI (145490) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (145490) GATT_DEMO: BLE receive event[0m
+[0;32mI (145490) UART2: Send data: c:00[0m
+[0;32mI (145820) UART2: uart[2] event:[0m
+[0;32mI (145820) UART2: [UART DATA]: 37[0m
+[0;32mI (145820) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (145820) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (146850) UART2: uart[2] event:[0m
+[0;32mI (146850) UART2: [UART DATA]: 37[0m
+[0;32mI (146850) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (146850) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (147880) UART2: uart[2] event:[0m
+[0;32mI (147880) UART2: [UART DATA]: 37[0m
+[0;32mI (147880) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (147880) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (148910) UART2: uart[2] event:[0m
+[0;32mI (148910) UART2: [UART DATA]: 37[0m
+[0;32mI (148910) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (148910) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (149610) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (149610) GATT_DEMO: BLE receive event[0m
+[0;32mI (149610) UART2: Send data: c:00[0m
+[0;32mI (149690) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (149690) GATT_DEMO: BLE receive event[0m
+[0;32mI (149690) UART2: Send data: c:00[0m
+[0;32mI (149940) UART2: uart[2] event:[0m
+[0;32mI (149940) UART2: [UART DATA]: 37[0m
+[0;32mI (149940) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (149950) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (150970) UART2: uart[2] event:[0m
+[0;32mI (150970) UART2: [UART DATA]: 37[0m
+[0;32mI (150970) UART2: tem:31.000000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (150980) GATT_DEMO: Notify data: T=310 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (152000) UART2: uart[2] event:[0m
+[0;32mI (152000) UART2: [UART DATA]: 37[0m
+[0;32mI (152010) UART2: tem:31.000000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (152010) GATT_DEMO: Notify data: T=310 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (153040) UART2: uart[2] event:[0m
+[0;32mI (153040) UART2: [UART DATA]: 37[0m
+[0;32mI (153040) UART2: tem:31.000000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (153040) GATT_DEMO: Notify data: T=310 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (153780) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (153780) GATT_DEMO: BLE receive event[0m
+[0;32mI (153780) UART2: Send data: c:00[0m
+[0;32mI (153810) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (153810) GATT_DEMO: BLE receive event[0m
+[0;32mI (153810) UART2: Send data: c:00[0m
+[0;32mI (154070) UART2: uart[2] event:[0m
+[0;32mI (154070) UART2: [UART DATA]: 37[0m
+[0;32mI (154070) UART2: tem:31.000000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (154070) GATT_DEMO: Notify data: T=310 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (155100) UART2: uart[2] event:[0m
+[0;32mI (155100) UART2: [UART DATA]: 37[0m
+[0;32mI (155100) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (155100) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (156130) UART2: uart[2] event:[0m
+[0;32mI (156130) UART2: [UART DATA]: 37[0m
+[0;32mI (156130) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (156130) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (157160) UART2: uart[2] event:[0m
+[0;32mI (157160) UART2: [UART DATA]: 37[0m
+[0;32mI (157160) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (157160) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (158000) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (158000) GATT_DEMO: BLE receive event[0m
+[0;32mI (158000) UART2: Send data: c:00[0m
+[0;32mI (158060) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (158060) GATT_DEMO: BLE receive event[0m
+[0;32mI (158060) UART2: Send data: c:00[0m
+[0;32mI (158190) UART2: uart[2] event:[0m
+[0;32mI (158190) UART2: [UART DATA]: 37[0m
+[0;32mI (158190) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (158190) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (159220) UART2: uart[2] event:[0m
+[0;32mI (159220) UART2: [UART DATA]: 37[0m
+[0;32mI (159220) UART2: tem:31.000000 hum:76.400002 mq2:0 mod:0 state:1[0m
+[0;32mI (159230) GATT_DEMO: Notify data: T=310 H=764 CO2=0 mode=0 state=1[0m
+[0;32mI (160250) UART2: uart[2] event:[0m
+[0;32mI (160250) UART2: [UART DATA]: 37[0m
+[0;32mI (160250) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (160260) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (161280) UART2: uart[2] event:[0m
+[0;32mI (161280) UART2: [UART DATA]: 37[0m
+[0;32mI (161290) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (161290) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (161880) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (161880) GATT_DEMO: BLE receive event[0m
+[0;32mI (161880) UART2: Send data: c:00[0m
+[0;32mI (161970) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (161970) GATT_DEMO: BLE receive event[0m
+[0;32mI (161980) UART2: Send data: c:00[0m
+[0;32mI (162320) UART2: uart[2] event:[0m
+[0;32mI (162320) UART2: [UART DATA]: 37[0m
+[0;32mI (162320) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (162320) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (163350) UART2: uart[2] event:[0m
+[0;32mI (163350) UART2: [UART DATA]: 37[0m
+[0;32mI (163350) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (163350) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (164380) UART2: uart[2] event:[0m
+[0;32mI (164380) UART2: [UART DATA]: 37[0m
+[0;32mI (164380) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (164380) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (165410) UART2: uart[2] event:[0m
+[0;32mI (165410) UART2: [UART DATA]: 37[0m
+[0;32mI (165410) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (165410) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (165780) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (165780) GATT_DEMO: BLE receive event[0m
+[0;32mI (165780) UART2: Send data: c:00[0m
+[0;32mI (165870) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (165870) GATT_DEMO: BLE receive event[0m
+[0;32mI (165880) UART2: Send data: c:00[0m
+[0;32mI (166440) UART2: uart[2] event:[0m
+[0;32mI (166440) UART2: [UART DATA]: 37[0m
+[0;32mI (166440) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (166440) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (167470) UART2: uart[2] event:[0m
+[0;32mI (167470) UART2: [UART DATA]: 37[0m
+[0;32mI (167470) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (167480) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (168500) UART2: uart[2] event:[0m
+[0;32mI (168500) UART2: [UART DATA]: 37[0m
+[0;32mI (168500) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (168510) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (169530) UART2: uart[2] event:[0m
+[0;32mI (169530) UART2: [UART DATA]: 37[0m
+[0;32mI (169530) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (169540) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (169980) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (169980) GATT_DEMO: BLE receive event[0m
+[0;32mI (169990) UART2: Send data: c:00[0m
+[0;32mI (170070) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (170070) GATT_DEMO: BLE receive event[0m
+[0;32mI (170080) UART2: Send data: c:00[0m
+[0;32mI (170560) UART2: uart[2] event:[0m
+[0;32mI (170560) UART2: [UART DATA]: 37[0m
+[0;32mI (170570) UART2: tem:31.000000 hum:76.300003 mq2:0 mod:0 state:1[0m
+[0;32mI (170570) GATT_DEMO: Notify data: T=310 H=763 CO2=0 mode=0 state=1[0m
+[0;32mI (171600) UART2: uart[2] event:[0m
+[0;32mI (171600) UART2: [UART DATA]: 37[0m
+[0;32mI (171600) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (171600) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (172630) UART2: uart[2] event:[0m
+[0;32mI (172630) UART2: [UART DATA]: 37[0m
+[0;32mI (172630) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (172630) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (173660) UART2: uart[2] event:[0m
+[0;32mI (173660) UART2: [UART DATA]: 37[0m
+[0;32mI (173660) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (173660) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (174060) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (174060) GATT_DEMO: BLE receive event[0m
+[0;32mI (174070) UART2: Send data: c:00[0m
+[0;32mI (174120) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (174120) GATT_DEMO: BLE receive event[0m
+[0;32mI (174130) UART2: Send data: c:00[0m
+[0;32mI (174690) UART2: uart[2] event:[0m
+[0;32mI (174690) UART2: [UART DATA]: 37[0m
+[0;32mI (174690) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (174690) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (175720) UART2: uart[2] event:[0m
+[0;32mI (175720) UART2: [UART DATA]: 37[0m
+[0;32mI (175720) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (175720) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (176750) UART2: uart[2] event:[0m
+[0;32mI (176750) UART2: [UART DATA]: 37[0m
+[0;32mI (176750) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (176760) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (177780) UART2: uart[2] event:[0m
+[0;32mI (177780) UART2: [UART DATA]: 37[0m
+[0;32mI (177780) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (177780) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (178160) GATT_DEMO: LED STATE -> 0[0m
+[0;32mI (178160) GATT_DEMO: BLE receive event[0m
+[0;32mI (178160) UART2: Send data: c:00[0m
+[0;32mI (178230) GATT_DEMO: LED MODE -> 0[0m
+[0;32mI (178230) GATT_DEMO: BLE receive event[0m
+[0;32mI (178240) UART2: Send data: c:00[0m
+[0;32mI (178810) UART2: uart[2] event:[0m
+[0;32mI (178810) UART2: [UART DATA]: 37[0m
+[0;32mI (178810) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (178820) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (179840) UART2: uart[2] event:[0m
+[0;32mI (179840) UART2: [UART DATA]: 37[0m
+[0;32mI (179850) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (179850) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m
+[0;32mI (180870) UART2: uart[2] event:[0m
+[0;32mI (180870) UART2: [UART DATA]: 37[0m
+[0;32mI (180880) UART2: tem:31.000000 hum:76.199997 mq2:0 mod:0 state:1[0m
+[0;32mI (180880) GATT_DEMO: Notify data: T=310 H=762 CO2=0 mode=0 state=1[0m

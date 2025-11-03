@@ -1,0 +1,349 @@
+[0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM6 instead...[0m
+[0;33m--- idf_monitor on \\.\COM6 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+[0m
+[0;33m0x401b9f47: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+[0m
+[0;33m0x401bb5f1: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vprintf.c:34 (discriminator 5)
+[0m
+[0;33m0x401c9d39: esp_log_writev at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:200
+[0m
+[0;33m0x4009723d: esp_log_write at D:/Espressif/frameworks/esp-idf-v5.1.1/components/log/log.c:210
+[0m
+[0;33m0x400d8545: firebase_get_and_parse at D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:314 (discriminator 15)
+[0m
+[0;33m0x400d864f: app_main at D:/Espressif/workspace/ESP_Gateway/main/main.c:47
+[0m
+[0;33m0x401c9403: main_task at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400941b1: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081408: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0m

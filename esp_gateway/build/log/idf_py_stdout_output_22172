@@ -1,0 +1,888 @@
+ting scheduler on CPU0[0m�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 12 2025 00:01:49[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=49c28h (302120) map[0m
+[0;32mI (214) esp_image: segment 1: paddr=00059c50 vaddr=3ffbdb60 size=05468h ( 21608) load[0m
+[0;32mI (223) esp_image: segment 2: paddr=0005f0c0 vaddr=40080000 size=00f58h (  3928) load[0m
+[0;32mI (225) esp_image: segment 3: paddr=00060020 vaddr=400d0020 size=f7580h (1013120) map[0m
+[0;32mI (596) esp_image: segment 4: paddr=001575a8 vaddr=40080f58 size=1d9d4h (121300) load[0m
+[0;32mI (662) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (662) boot: Disabling RNG early entropy source...[0m
+[0;32mI (674) cpu_start: Multicore app[0m
+[0;32mI (674) cpu_start: Pro cpu up.[0m
+[0;32mI (674) cpu_start: Starting app cpu, entry point is 0x40081408[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (694) cpu_start: Pro cpu start user code[0m
+[0;32mI (694) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (694) cpu_start: Application information:[0m
+[0;32mI (699) cpu_start: Project name:     main[0m
+[0;32mI (704) cpu_start: App version:      1[0m
+[0;32mI (708) cpu_start: Compile time:     Oct 12 2025 00:01:10[0m
+[0;32mI (714) cpu_start: ELF file SHA256:  60a44cca9e61d07a...[0m
+[0;32mI (720) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (726) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (730) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (735) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (740) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (747) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (753) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (759) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (765) heap_init: At 3FFCB848 len 000147B8 (81 KiB): DRAM[0m
+[0;32mI (771) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (778) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (784) heap_init: At 4009E92C len 000016D4 (5 KiB): IRAM[0m
+[0;32mI (792) spi_flash: detected chip: generic[0m
+[0;32mI (795) spi_flash: flash io: dio[0m
+[0;33mW (799) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (813) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (818) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (822) app_start: Starting scheduler on CPU1[0m
+I (822) main_task: Started on CPU0[0m
+[0;32mI (832) main_task: Calling app_main()[0m
+I (892) wifi:wifi driver task: 3ffcf8f4, prio:23, stack:6656, core=0
+I (912) wifi:wifi firmware version: ce9244d
+I (912) wifi:wifi certification version: v7.0
+I (912) wifi:config NVS flash: enabled
+I (912) wifi:config nano formating: disabled
+I (922) wifi:Init data frame dynamic rx buffer num: 32
+I (922) wifi:Init management frame dynamic rx buffer num: 32
+I (932) wifi:Init management short buffer num: 32
+I (932) wifi:Init dynamic tx buffer num: 32
+I (932) wifi:Init static rx buffer size: 1600
+I (942) wifi:Init static rx buffer num: 10
+I (942) wifi:Init dynamic rx buffer num: 32
+[0;32mI (952) wifi_init: rx ba win: 6[0m
+[0;32mI (952) wifi_init: tcpip mbox: 32[0m
+[0;32mI (952) wifi_init: udp mbox: 6[0m
+[0;32mI (962) wifi_init: tcp mbox: 6[0m
+[0;32mI (962) wifi_init: tcp tx win: 5744[0m
+[0;32mI (972) wifi_init: tcp rx win: 5744[0m
+[0;32mI (972) wifi_init: tcp mss: 1440[0m
+[0;32mI (972) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (982) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (982) WIFI STATION: wifi_init_sta finished, ssid:Infrastructure NW, pass:NetworkPolicy. ssid len:17, pass len:13[0m
+[0;32mI (1002) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+I (1122) wifi:mode : sta (fc:b4:67:f5:ed:80)
+I (1122) wifi:enable tsf
+[0;32mI (1122) WIFI STA: start connect to access point[0m
+I (3532) wifi:new:<13,0>, old:<1,0>, ap:<255,255>, sta:<13,0>, prof:2
+I (3532) wifi:state: init -> auth (b0)
+I (3542) wifi:state: auth -> assoc (0)
+I (3552) wifi:state: assoc -> run (10)
+W (3552) wifi:[ADDBA]rx delba, code:39, delete tid:0
+W (3552) wifi:[ADDBA]rx delba, code:39, delete tid:5
+I (3552) wifi:<ba-add>idx:0 (ifx:0, 24:0b:2a:2e:69:79), tid:5, ssn:0, winSize:64
+I (3652) wifi:connected with Infrastructure NW, aid = 7, channel 13, BW20, bssid = 24:0b:2a:2e:69:79
+I (3652) wifi:security: WPA2-PSK, phy: bgn, rssi: -54
+I (3662) wifi:pm start, type: 1
+
+I (3722) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (4662) esp_netif_handlers: sta ip: 192.168.1.6, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (4662) WIFI STATION: got ip:192.168.1.1[0m
+[0;32mI (4662) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (4672) BTDM_INIT: Bluetooth MAC: fc:b4:67:f5:ed:82[0m
+[0;32mI (4992) GATTC_MULTI: Registered gattc_if=3, start scan[0m
+[0;32mI (4992) APP: Init SNTP...[0m
+[0;32mI (5002) GATTC_MULTI: Scan params set -> start scanning[0m
+[0;32mI (5002) APP: Waiting for system time to be set... (1/30)[0m
+I (5772) wifi:<ba-add>idx:1 (ifx:0, 24:0b:2a:2e:69:79), tid:0, ssn:12, winSize:64
+[0;32mI (6002) APP: Waiting for system time to be set... (2/30)[0m
+[0;32mI (7002) APP: Time synced: Sat Oct 11 18:53:47 2025
+[0m
+[0;32mI (7002) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (7512) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (8442) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (8442) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (8842) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (9762) APP: GET status=200[0m
+[0;32mI (9762) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (9772) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (9772) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (9782) APP: Memory=100[0m
+[0;32mI (9782) APP: Name=Data from ESP32[0m
+[0;32mI (10792) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (11302) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (12322) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (12332) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (12812) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (13662) APP: GET status=200[0m
+[0;32mI (13662) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (13662) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (13672) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (13682) APP: Memory=100[0m
+[0;32mI (13682) APP: Name=Data from ESP32[0m
+[0;32mI (14692) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (15202) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (16222) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (16232) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (16722) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (17552) APP: GET status=200[0m
+[0;32mI (17552) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (17562) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (17562) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (17572) APP: Memory=100[0m
+[0;32mI (17572) APP: Name=Data from ESP32[0m
+[0;32mI (18582) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (19072) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (20002) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (20012) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (20542) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (21472) APP: GET status=200[0m
+[0;32mI (21472) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (21482) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (21482) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (21492) APP: Memory=100[0m
+[0;32mI (21492) APP: Name=Data from ESP32[0m
+[0;32mI (22502) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (23062) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (24002) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (24002) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (24422) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (25372) APP: GET status=200[0m
+[0;32mI (25372) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (25372) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (25382) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (25382) APP: Memory=100[0m
+[0;32mI (25392) APP: Name=Data from ESP32[0m
+[0;32mI (26392) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (26862) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (27802) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (27802) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (28292) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (29122) APP: GET status=200[0m
+[0;32mI (29122) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (29132) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (29132) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (29142) APP: Memory=100[0m
+[0;32mI (29142) APP: Name=Data from ESP32[0m
+[0;32mI (30152) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (30562) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (31572) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (31582) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (31992) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (32812) APP: GET status=200[0m
+[0;32mI (32812) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (32812) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (32822) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (32832) APP: Memory=100[0m
+[0;32mI (32832) APP: Name=Data from ESP32[0m
+[0;32mI (33842) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (34242) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (35212) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (35222) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (35662) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (36502) APP: GET status=200[0m
+[0;32mI (36502) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (36502) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (36512) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (36512) APP: Memory=100[0m
+[0;32mI (36522) APP: Name=Data from ESP32[0m
+[0;32mI (37532) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (38032) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (39052) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (39062) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (39472) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (40402) APP: GET status=200[0m
+[0;32mI (40412) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (40412) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (40412) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (40422) APP: Memory=100[0m
+[0;32mI (40422) APP: Name=Data from ESP32[0m
+[0;32mI (41442) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (41942) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (42942) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (42952) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (43382) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (44272) APP: GET status=200[0m
+[0;32mI (44272) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (44282) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (44282) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (44292) APP: Memory=100[0m
+[0;32mI (44292) APP: Name=Data from ESP32[0m
+[0;32mI (45302) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (45712) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (46632) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (46642) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (47062) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (47962) APP: GET status=200[0m
+[0;32mI (47962) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (47972) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (47972) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (47982) APP: Memory=100[0m
+[0;32mI (47982) APP: Name=Data from ESP32[0m
+[0;32mI (48992) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (49602) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (50632) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (50632) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (51042) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (51962) APP: GET status=200[0m
+[0;32mI (51962) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (51962) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (51972) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (51982) APP: Memory=100[0m
+[0;32mI (51982) APP: Name=Data from ESP32[0m
+[0;32mI (52992) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (53502) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (54512) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (54522) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (54922) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (55842) APP: GET status=200[0m
+[0;32mI (55852) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (55852) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (55852) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (55862) APP: Memory=100[0m
+[0;32mI (55862) APP: Name=Data from ESP32[0m
+[0;32mI (56872) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (57282) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (58312) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (58322) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (58722) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (59532) APP: GET status=200[0m
+[0;32mI (59542) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (59542) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (59552) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (59552) APP: Memory=100[0m
+[0;32mI (59562) APP: Name=Data from ESP32[0m
+[0;32mI (60562) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (60972) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (61892) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (61902) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (62322) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (63222) APP: GET status=200[0m
+[0;32mI (63222) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (63232) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (63232) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (63242) APP: Memory=100[0m
+[0;32mI (63242) APP: Name=Data from ESP32[0m
+[0;32mI (64252) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (64672) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (65712) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (65722) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (66202) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (68962) APP: GET status=200[0m
+[0;32mI (68962) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (68962) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (68972) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (68972) APP: Memory=100[0m
+[0;32mI (68982) APP: Name=Data from ESP32[0m
+[0;32mI (69992) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (71852) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (72862) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (72872) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (73382) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (74282) APP: GET status=200[0m
+[0;32mI (74282) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (74292) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (74292) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (74302) APP: Memory=100[0m
+[0;32mI (74302) APP: Name=Data from ESP32[0m
+[0;32mI (75312) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (75732) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (76742) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (76752) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (77242) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (78182) APP: GET status=200[0m
+[0;32mI (78182) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (78182) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (78192) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (78192) APP: Memory=100[0m
+[0;32mI (78202) APP: Name=Data from ESP32[0m
+[0;32mI (79212) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (79632) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (80632) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (80642) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (81142) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (82182) APP: GET status=200[0m
+[0;32mI (82182) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (82182) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (82192) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (82192) APP: Memory=100[0m
+[0;32mI (82202) APP: Name=Data from ESP32[0m
+[0;32mI (83212) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (83712) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (84722) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (84732) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (85262) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (86192) APP: GET status=200[0m
+[0;32mI (86192) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (86202) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (86202) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (86212) APP: Memory=100[0m
+[0;32mI (86212) APP: Name=Data from ESP32[0m
+[0;32mI (87222) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (87692) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (88712) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (88722) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (89262) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (90262) APP: GET status=200[0m
+[0;32mI (90262) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (90262) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (90272) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (90282) APP: Memory=100[0m
+[0;32mI (90282) APP: Name=Data from ESP32[0m
+[0;32mI (91292) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (91792) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (92832) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (92842) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (93322) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (94262) APP: GET status=200[0m
+[0;32mI (94262) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (94262) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (94272) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (94272) APP: Memory=100[0m
+[0;32mI (94282) APP: Name=Data from ESP32[0m
+[0;32mI (95282) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (95712) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (96602) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (96612) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (97122) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (98042) APP: GET status=200[0m
+[0;32mI (98042) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (98052) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (98052) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (98062) APP: Memory=100[0m
+[0;32mI (98062) APP: Name=Data from ESP32[0m
+[0;32mI (99072) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (99592) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (100602) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (100602) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (101102) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (102042) APP: GET status=200[0m
+[0;32mI (102042) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (102052) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (102052) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (102062) APP: Memory=100[0m
+[0;32mI (102062) APP: Name=Data from ESP32[0m
+[0;32mI (103072) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (103582) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (104592) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (104602) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (105012) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (105922) APP: GET status=200[0m
+[0;32mI (105932) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (105932) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (105942) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (105942) APP: Memory=100[0m
+[0;32mI (105952) APP: Name=Data from ESP32[0m
+[0;32mI (106952) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (107372) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (108382) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (108392) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (109022) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (109922) APP: GET status=200[0m
+[0;32mI (109922) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (109922) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (109932) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (109942) APP: Memory=100[0m
+[0;32mI (109942) APP: Name=Data from ESP32[0m
+[0;32mI (110952) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (111472) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (112472) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (112482) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (112882) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (113812) APP: GET status=200[0m
+[0;32mI (113812) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (113822) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (113822) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (113832) APP: Memory=100[0m
+[0;32mI (113832) APP: Name=Data from ESP32[0m
+[0;32mI (114842) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (115262) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (116262) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (116272) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (116692) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (117502) APP: GET status=200[0m
+[0;32mI (117502) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (117502) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (117512) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (117512) APP: Memory=100[0m
+[0;32mI (117522) APP: Name=Data from ESP32[0m
+[0;32mI (118522) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (118922) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (119952) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (119962) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (120572) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (121482) APP: GET status=200[0m
+[0;32mI (121482) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (121492) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (121492) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (121502) APP: Memory=100[0m
+[0;32mI (121502) APP: Name=Data from ESP32[0m
+[0;32mI (122512) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (122942) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (123952) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (123952) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (124382) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (125292) APP: GET status=200[0m
+[0;32mI (125292) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (125302) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (125302) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (125312) APP: Memory=100[0m
+[0;32mI (125312) APP: Name=Data from ESP32[0m
+[0;32mI (126322) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (126732) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (127732) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (127742) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (128172) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (129072) APP: GET status=200[0m
+[0;32mI (129072) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (129082) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (129082) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (129092) APP: Memory=100[0m
+[0;32mI (129092) APP: Name=Data from ESP32[0m
+[0;32mI (130102) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (130502) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (131532) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (131532) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (132052) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (132972) APP: GET status=200[0m
+[0;32mI (132972) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (132982) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (132982) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (132992) APP: Memory=100[0m
+[0;32mI (132992) APP: Name=Data from ESP32[0m
+[0;32mI (134002) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (134412) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (135422) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (135432) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (136032) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (136972) APP: GET status=200[0m
+[0;32mI (136972) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (136982) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (136982) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (136992) APP: Memory=100[0m
+[0;32mI (136992) APP: Name=Data from ESP32[0m
+[0;32mI (138002) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (138522) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (139612) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (139622) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (140132) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (145162) APP: GET status=200[0m
+[0;32mI (145162) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (145172) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (145172) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (145182) APP: Memory=100[0m
+[0;32mI (145182) APP: Name=Data from ESP32[0m
+[0;32mI (146192) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (146672) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (147712) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (147722) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (148232) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (149272) APP: GET status=200[0m
+[0;32mI (149272) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (149272) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (149282) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (149282) APP: Memory=100[0m
+[0;32mI (149292) APP: Name=Data from ESP32[0m
+[0;32mI (150292) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (150782) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (157372) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (157382) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (157872) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (158772) APP: GET status=200[0m
+[0;32mI (158772) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (158772) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (158782) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (158792) APP: Memory=100[0m
+[0;32mI (158792) APP: Name=Data from ESP32[0m
+[0;32mI (159802) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (160402) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (161442) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (161452) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (161952) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (162872) APP: GET status=200[0m
+[0;32mI (162872) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (162882) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (162882) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (162892) APP: Memory=100[0m
+[0;32mI (162892) APP: Name=Data from ESP32[0m
+[0;32mI (163902) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (164412) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (165422) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (165432) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (166022) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (166972) APP: GET status=200[0m
+[0;32mI (166972) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (166972) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (166982) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (166982) APP: Memory=100[0m
+[0;32mI (166992) APP: Name=Data from ESP32[0m
+[0;32mI (167992) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (168702) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (169722) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (169722) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (170232) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (171152) APP: GET status=200[0m
+[0;32mI (171162) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (171162) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (171172) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (171172) APP: Memory=100[0m
+[0;32mI (171182) APP: Name=Data from ESP32[0m
+[0;32mI (172182) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (172592) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (173612) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (173622) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (174012) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (174842) APP: GET status=200[0m
+[0;32mI (174842) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (174852) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (174852) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (174862) APP: Memory=100[0m
+[0;32mI (174862) APP: Name=Data from ESP32[0m
+[0;32mI (175872) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (176272) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (177162) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (177162) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (177622) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (178542) APP: GET status=200[0m
+[0;32mI (178542) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (178542) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (178552) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (178552) APP: Memory=100[0m
+[0;32mI (178562) APP: Name=Data from ESP32[0m
+[0;32mI (179572) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (179962) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (180982) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (180992) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (181412) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (182322) APP: GET status=200[0m
+[0;32mI (182322) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (182322) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (182332) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (182332) APP: Memory=100[0m
+[0;32mI (182342) APP: Name=Data from ESP32[0m
+[0;32mI (183352) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (183772) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (184792) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (184802) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (185302) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (186212) APP: GET status=200[0m
+[0;32mI (186212) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (186212) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (186222) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (186222) APP: Memory=100[0m
+[0;32mI (186232) APP: Name=Data from ESP32[0m
+[0;32mI (187242) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (187762) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (188762) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (188772) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (189182) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (190102) APP: GET status=200[0m
+[0;32mI (190102) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (190102) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (190112) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (190122) APP: Memory=100[0m
+[0;32mI (190122) APP: Name=Data from ESP32[0m
+[0;32mI (191132) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (191532) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (192562) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (192572) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (192972) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (193892) APP: GET status=200[0m
+[0;32mI (193892) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (193902) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (193902) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (193912) APP: Memory=100[0m
+[0;32mI (193912) APP: Name=Data from ESP32[0m
+[0;32mI (194922) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (195322) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (196252) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (196252) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (196652) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (197472) APP: GET status=200[0m
+[0;32mI (197472) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (197482) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (197482) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (197492) APP: Memory=100[0m
+[0;32mI (197492) APP: Name=Data from ESP32[0m
+[0;32mI (198502) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (198922) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (199822) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (199832) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (200242) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (201062) APP: GET status=200[0m
+[0;32mI (201062) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (201062) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (201072) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (201072) APP: Memory=100[0m
+[0;32mI (201082) APP: Name=Data from ESP32[0m
+[0;32mI (202092) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (202502) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (203542) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (203552) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (204022) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (204862) APP: GET status=200[0m
+[0;32mI (204862) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (204872) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (204872) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (204882) APP: Memory=100[0m
+[0;32mI (204882) APP: Name=Data from ESP32[0m
+[0;32mI (205892) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (206372) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (207412) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (207422) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (207812) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (208772) APP: GET status=200[0m
+[0;32mI (208772) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (208772) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (208782) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (208782) APP: Memory=100[0m
+[0;32mI (208792) APP: Name=Data from ESP32[0m
+[0;32mI (209792) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (210272) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (211292) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (211302) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (211712) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (212642) APP: GET status=200[0m
+[0;32mI (212642) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (212642) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (212652) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (212652) APP: Memory=100[0m
+[0;32mI (212662) APP: Name=Data from ESP32[0m
+[0;32mI (213492) GATTC_MULTI: Target found -> connect slot 0[0m
+[0;33mW (213502) BT_APPL:  bta_dm_ble_scan start scan failed. status=0x3
+[0m
+[0;31mE (213502) BT_HCI: CC evt: op=0x200c, status=0xc[0m
+[0;32mI (213642) GATTC_MULTI: Connected slot=0 conn_id=0 -> MTU req[0m
+[0;32mI (213672) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (214222) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (214552) GATTC_MULTI: MTU configured: 185[0m
+[0;32mI (214552) GATTC_MULTI: [0] SENSOR svc start=0x0028 end=0x0031[0m
+[0;32mI (214552) GATTC_MULTI: [0] LED svc start=0x0032 end=0xFFFF[0m
+[0;32mI (214562) GATTC_MULTI: [0] Search complete -> discover & subscribe[0m
+[0;32mI (214572) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (214572) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (214582) GATTC_MULTI: Register for notify status=0x0[0m
+[0;32mI (215312) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (215312) GATTC_MULTI: [0] Temp = 25.2 C[0m
+[0;32mI (215322) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (215322) GATTC_MULTI: [0] Humi = 51.2 %[0m
+[0;32mI (215322) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (215332) GATTC_MULTI: [0] CO2  = 422 ppm[0m
+[0;32mI (215392) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (215402) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (215822) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (216292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (216292) GATTC_MULTI: [0] Temp = 25.3 C[0m
+[0;32mI (216292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (216292) GATTC_MULTI: [0] Humi = 51.3 %[0m
+[0;32mI (216302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (216302) GATTC_MULTI: [0] CO2  = 423 ppm[0m
+[0;32mI (216832) APP: GET status=200[0m
+[0;32mI (216832) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (216842) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (216842) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (216852) APP: Memory=100[0m
+[0;32mI (216852) APP: Name=Data from ESP32[0m
+[0;32mI (217292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (217292) GATTC_MULTI: [0] Temp = 25.4 C[0m
+[0;32mI (217292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (217302) GATTC_MULTI: [0] Humi = 51.4 %[0m
+[0;32mI (217302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (217312) GATTC_MULTI: [0] CO2  = 424 ppm[0m
+[0;32mI (217862) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (218282) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (218282) GATTC_MULTI: [0] Temp = 25.5 C[0m
+[0;32mI (218302) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (218312) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (218312) GATTC_MULTI: [0] Humi = 51.5 %[0m
+[0;32mI (218312) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (218322) GATTC_MULTI: [0] CO2  = 425 ppm[0m
+[0;32mI (219322) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (219322) GATTC_MULTI: [0] Temp = 25.6 C[0m
+[0;32mI (219322) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (219322) GATTC_MULTI: [0] Humi = 51.6 %[0m
+[0;32mI (219332) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (219342) GATTC_MULTI: [0] CO2  = 426 ppm[0m
+[0;32mI (219392) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (219402) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (219802) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (220292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (220292) GATTC_MULTI: [0] Temp = 25.7 C[0m
+[0;32mI (220292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (220302) GATTC_MULTI: [0] Humi = 51.7 %[0m
+[0;32mI (220302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (220312) GATTC_MULTI: [0] CO2  = 427 ppm[0m
+[0;32mI (220722) APP: GET status=200[0m
+[0;32mI (220722) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (220722) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (220732) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (220742) APP: Memory=100[0m
+[0;32mI (220742) APP: Name=Data from ESP32[0m
+[0;32mI (221282) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (221282) GATTC_MULTI: [0] Temp = 25.8 C[0m
+[0;32mI (221292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (221302) GATTC_MULTI: [0] Humi = 51.8 %[0m
+[0;32mI (221302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (221302) GATTC_MULTI: [0] CO2  = 428 ppm[0m
+[0;32mI (221752) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (222172) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (222292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (222292) GATTC_MULTI: [0] Temp = 25.9 C[0m
+[0;32mI (222292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (222292) GATTC_MULTI: [0] Humi = 51.9 %[0m
+[0;32mI (222302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (222302) GATTC_MULTI: [0] CO2  = 429 ppm[0m
+[0;32mI (223282) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (223282) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (223332) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (223332) GATTC_MULTI: [0] Temp = 26.0 C[0m
+[0;32mI (223332) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (223332) GATTC_MULTI: [0] Humi = 50.0 %[0m
+[0;32mI (223342) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (223342) GATTC_MULTI: [0] CO2  = 430 ppm[0m
+[0;32mI (223822) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (224282) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (224282) GATTC_MULTI: [0] Temp = 26.1 C[0m
+[0;32mI (224312) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (224312) GATTC_MULTI: [0] Humi = 50.1 %[0m
+[0;32mI (224312) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (224322) GATTC_MULTI: [0] CO2  = 431 ppm[0m
+[0;32mI (224822) APP: GET status=200[0m
+[0;32mI (224822) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (224822) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (224832) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (224832) APP: Memory=100[0m
+[0;32mI (224842) APP: Name=Data from ESP32[0m
+[0;32mI (225292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (225292) GATTC_MULTI: [0] Temp = 26.2 C[0m
+[0;32mI (225292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (225292) GATTC_MULTI: [0] Humi = 50.2 %[0m
+[0;32mI (225302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (225302) GATTC_MULTI: [0] CO2  = 432 ppm[0m
+[0;32mI (225852) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (226252) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (226312) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (226312) GATTC_MULTI: [0] Temp = 26.3 C[0m
+[0;32mI (226312) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (226312) GATTC_MULTI: [0] Humi = 50.3 %[0m
+[0;32mI (226322) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (226322) GATTC_MULTI: [0] CO2  = 433 ppm[0m
+[0;32mI (227272) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (227282) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (227302) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (227302) GATTC_MULTI: [0] Temp = 26.4 C[0m
+[0;32mI (227302) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (227302) GATTC_MULTI: [0] Humi = 50.4 %[0m
+[0;32mI (227312) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (227312) GATTC_MULTI: [0] CO2  = 434 ppm[0m
+[0;32mI (227822) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (228322) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (228322) GATTC_MULTI: [0] Temp = 26.5 C[0m
+[0;32mI (228322) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (228322) GATTC_MULTI: [0] Humi = 50.5 %[0m
+[0;32mI (228332) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (228332) GATTC_MULTI: [0] CO2  = 435 ppm[0m
+[0;32mI (228812) APP: GET status=200[0m
+[0;32mI (228812) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (228812) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (228822) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (228822) APP: Memory=100[0m
+[0;32mI (228832) APP: Name=Data from ESP32[0m
+[0;32mI (229292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (229292) GATTC_MULTI: [0] Temp = 26.6 C[0m
+[0;32mI (229292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (229302) GATTC_MULTI: [0] Humi = 50.6 %[0m
+[0;32mI (229302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (229312) GATTC_MULTI: [0] CO2  = 436 ppm[0m
+[0;32mI (229842) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (230242) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (230302) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (230302) GATTC_MULTI: [0] Temp = 26.7 C[0m
+[0;32mI (230302) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (230302) GATTC_MULTI: [0] Humi = 50.7 %[0m
+[0;32mI (230312) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (230312) GATTC_MULTI: [0] CO2  = 437 ppm[0m
+[0;32mI (231262) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (231272) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (231292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (231292) GATTC_MULTI: [0] Temp = 26.8 C[0m
+[0;32mI (231292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (231292) GATTC_MULTI: [0] Humi = 50.8 %[0m
+[0;32mI (231302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (231312) GATTC_MULTI: [0] CO2  = 438 ppm[0m
+[0;32mI (231692) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (232292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (232292) GATTC_MULTI: [0] Temp = 26.9 C[0m
+[0;32mI (232292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (232302) GATTC_MULTI: [0] Humi = 50.9 %[0m
+[0;32mI (232302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (232312) GATTC_MULTI: [0] CO2  = 439 ppm[0m
+[0;32mI (232602) APP: GET status=200[0m
+[0;32mI (232612) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (232612) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (232622) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (232622) APP: Memory=100[0m
+[0;32mI (232632) APP: Name=Data from ESP32[0m
+[0;32mI (233282) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (233282) GATTC_MULTI: [0] Temp = 27.0 C[0m
+[0;32mI (233292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (233302) GATTC_MULTI: [0] Humi = 51.0 %[0m
+[0;32mI (233302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (233302) GATTC_MULTI: [0] CO2  = 440 ppm[0m
+[0;32mI (233642) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (234262) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (234292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (234292) GATTC_MULTI: [0] Temp = 27.1 C[0m
+[0;32mI (234292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (234292) GATTC_MULTI: [0] Humi = 51.1 %[0m
+[0;32mI (234302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (234302) GATTC_MULTI: [0] CO2  = 441 ppm[0m
+[0;32mI (235292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (235292) GATTC_MULTI: [0] Temp = 27.2 C[0m
+[0;32mI (235292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (235302) GATTC_MULTI: [0] Humi = 51.2 %[0m
+[0;32mI (235302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (235312) GATTC_MULTI: [0] CO2  = 442 ppm[0m
+[0;32mI (235372) APP: PUT status=200, resp={"Memory":3,"Name":"Data from ESP32 (PUT)"}[0m
+[0;32mI (235382) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (236082) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (236302) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (236302) GATTC_MULTI: [0] Temp = 27.3 C[0m
+[0;32mI (236302) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (236302) GATTC_MULTI: [0] Humi = 51.3 %[0m
+[0;32mI (236312) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (236312) GATTC_MULTI: [0] CO2  = 443 ppm[0m
+[0;32mI (236992) APP: GET status=200[0m
+[0;32mI (236992) APP: GET body={"ESP32_ABC123":{"Memory":3,"Name":"Data from ESP32 (PUT)"},"Memory":100,"Name":"Data from ESP32"}[0m
+[0;32mI (237002) APP: Item 'ESP32_ABC123' -> Memory=3[0m
+[0;32mI (237002) APP: Item 'ESP32_ABC123' -> Name=Data from ESP32 (PUT)[0m
+[0;32mI (237012) APP: Memory=100[0m
+[0;32mI (237012) APP: Name=Data from ESP32[0m
+[0;32mI (237292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (237292) GATTC_MULTI: [0] Temp = 27.4 C[0m
+[0;32mI (237292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (237292) GATTC_MULTI: [0] Humi = 51.4 %[0m
+[0;32mI (237302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (237302) GATTC_MULTI: [0] CO2  = 444 ppm[0m
+[0;32mI (238022) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (238292) GATTC_MULTI: [0] NOTIFY handle=0x002A len=2[0m
+[0;32mI (238292) GATTC_MULTI: [0] Temp = 27.5 C[0m
+[0;32mI (238292) GATTC_MULTI: [0] NOTIFY handle=0x002D len=2[0m
+[0;32mI (238302) GATTC_MULTI: [0] Humi = 51.5 %[0m
+[0;32mI (238302) GATTC_MULTI: [0] NOTIFY handle=0x0030 len=2[0m
+[0;32mI (238312) GATTC_MULTI: [0] CO2  = 445 ppm[0m
+[0;32mI (238502) esp-x509-crt-bundle: Certificate validated[0m

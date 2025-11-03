@@ -1,0 +1,282 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2025 11:40:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4e268h (320104) map[0m
+[0;32mI (220) esp_image: segment 1: paddr=0005e290 vaddr=3ffbdb60 size=01d88h (  7560) load[0m
+[0;32mI (224) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=8bc64h (572516) map[0m
+[0;32mI (433) esp_image: segment 3: paddr=000ebc8c vaddr=3ffbf8e8 size=03170h ( 12656) load[0m
+[0;32mI (438) esp_image: segment 4: paddr=000eee04 vaddr=40080000 size=169dch ( 92636) load[0m
+[0;32mI (489) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (489) boot: Disabling RNG early entropy source...[0m
+[0;32mI (500) cpu_start: Multicore app[0m
+[0;32mI (501) cpu_start: Pro cpu up.[0m
+[0;32mI (501) cpu_start: Starting app cpu, entry point is 0x400813b0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (519) cpu_start: Pro cpu start user code[0m
+[0;32mI (519) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (519) cpu_start: Application information:[0m
+[0;32mI (523) cpu_start: Project name:     main[0m
+[0;32mI (528) cpu_start: App version:      1[0m
+[0;32mI (532) cpu_start: Compile time:     Oct 14 2025 11:40:01[0m
+[0;32mI (539) cpu_start: ELF file SHA256:  901aa1f6a5022d89...[0m
+[0;32mI (545) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (550) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (555) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (559) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (564) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (572) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (578) heap_init: At 3FFC6BB8 len 00019448 (101 KiB): DRAM[0m
+[0;32mI (584) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (590) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (597) heap_init: At 400969DC len 00009624 (37 KiB): IRAM[0m
+[0;32mI (604) spi_flash: detected chip: generic[0m
+[0;32mI (607) spi_flash: flash io: dio[0m
+[0;32mI (612) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (617) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (622) app_start: Starting scheduler on CPU1[0m
+I (622) main_task: Started on CPU0[0m
+[0;32mI (632) main_task: Calling app_main()[0m
+[0;32mI (682) APP: Web server handler task started[0m
+[0;32mI (682) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (682) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (682) NVS_HANDLE: Open nvs flash: 0[0m
+I (702) wifi:wifi driver task: 3ffba14c, prio:23, stack:6656, core=0
+I (722) wifi:wifi firmware version: ce9244d
+I (722) wifi:wifi certification version: v7.0
+I (722) wifi:config NVS flash: enabled
+I (722) wifi:config nano formating: disabled
+I (732) wifi:Init data frame dynamic rx buffer num: 32
+I (732) wifi:Init management frame dynamic rx buffer num: 32
+I (742) wifi:Init management short buffer num: 32
+I (742) wifi:Init dynamic tx buffer num: 32
+I (742) wifi:Init static rx buffer size: 1600
+I (752) wifi:Init static rx buffer num: 10
+I (752) wifi:Init dynamic rx buffer num: 32
+[0;32mI (762) wifi_init: rx ba win: 6[0m
+[0;32mI (762) wifi_init: tcpip mbox: 32[0m
+[0;32mI (762) wifi_init: udp mbox: 6[0m
+[0;32mI (772) wifi_init: tcp mbox: 6[0m
+[0;32mI (772) wifi_init: tcp tx win: 5744[0m
+[0;32mI (782) wifi_init: tcp rx win: 5744[0m
+[0;32mI (782) wifi_init: tcp mss: 1440[0m
+[0;32mI (782) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (792) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (792) WIFI STATION: wifi_init_sta finished, ssid:laptop, pass:12345678. ssid len:6, pass len:8[0m
+[0;32mI (812) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+I (922) wifi:mode : sta (fc:b4:67:f5:ed:80)
+I (922) wifi:enable tsf
+[0;32mI (922) APP: Read data from nvs flash: laptop 12345678 0[0m
+[0;32mI (932) WIFI STA: start connect to access point[0m
+[0;32mI (3342) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (3342) WIFI STATION: connect to the AP fail[0m
+[0;32mI (5762) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (5762) WIFI STATION: connect to the AP fail[0m
+[0;32mI (8172) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (8172) WIFI STATION: connect to the AP fail[0m
+I (10592) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:2
+I (10592) wifi:state: init -> auth (b0)
+I (11592) wifi:state: auth -> init (200)
+I (11592) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:2
+[0;32mI (11592) WIFI STATION: Can't connect to the AP point[0m
+[0;32mI (11592) WIFI STATION: connect to the AP fail[0m
+E (11592) wifi:NAN WiFi stop
+I (11602) wifi:flush txq
+I (11602) wifi:stop sw txq
+I (11612) wifi:lmac stop hw txq
+[0;32mI (11622) WIFI STA: Deinit station mode[0m
+[0;32mI (11622) APP: connection state: 0[0m
+[0;32mI (11622) wifi_init: rx ba win: 6[0m
+[0;32mI (11622) wifi_init: tcpip mbox: 32[0m
+[0;32mI (11632) wifi_init: udp mbox: 6[0m
+[0;32mI (11632) wifi_init: tcp mbox: 6[0m
+[0;32mI (11632) wifi_init: tcp tx win: 5744[0m
+[0;32mI (11642) wifi_init: tcp rx win: 5744[0m
+[0;32mI (11642) wifi_init: tcp mss: 1440[0m
+[0;32mI (11652) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (11652) wifi_init: WiFi RX IRAM OP enabled[0m
+I (11672) wifi:mode : softAP (fc:b4:67:f5:ed:81)
+I (11782) wifi:Total power save buffer number: 16
+I (11792) wifi:Init max length of beacon: 752/752
+I (11792) wifi:Init max length of beacon: 752/752
+[0;32mI (11792) SOFTAP: wifi_init_softap finished. SSID:ESP32 password:12345678 channel:2[0m
+[0;32mI (11792) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (11802) HTTP_SERVER: http_server_configure: Starting server on port: '80' with task priority: '3'[0m
+[0;32mI (11822) HTTP_SERVER: http_server_configure: Registering URI handlers[0m
+[0;32mI (11822) APP: Start webserver for connection configuration[0m
+I (39002) wifi:new:<2,0>, old:<2,1>, ap:<2,1>, sta:<255,255>, prof:2
+I (39012) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+I (39012) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 134242, bss:0x3ffce6e4
+I (39012) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (39042) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (39042) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+I (39042) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 134242, bss:0x3ffceb0c
+I (39052) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (42112) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (42112) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+I (42112) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 134242, bss:0x3ffce7d4
+I (42122) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (42142) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (42142) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+I (42152) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 134242, bss:0x3ffce7c0
+I (42152) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (43732) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (43732) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+[0;32mI (43762) SOFTAP: event connected[0m
+[0;32mI (44062) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+I (44292) wifi:<ba-add>idx:2 (ifx:1, d6:2e:43:ee:8e:a6), tid:0, ssn:16, winSize:64
+[0;32mI (46272) HTTP_SERVER: index.html requested[0m
+[0;32mI (50902) HTTP_SERVER: index.html requested[0m
+[0;32mI (50972) HTTP_SERVER: favicon.ico requested[0m
+[0;32mI (66742) HTTP_SERVER: sssid: laptop[0m
+[0;32mI (66742) HTTP_SERVER: password: 12345678[0m
+[0;32mI (66742) HTTP_SERVER: port: 11[0m
+[0;32mI (66742) HTTP_SERVER: Receive data:laptop 12345678[0m
+I (66762) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 8916035, bss:0x3ffce7c0
+I (66762) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (66762) wifi:<ba-del>idx:2, tid:0
+E (66772) wifi:NAN WiFi stop
+[0;32mI (66772) SOFTAP: event disconnected connected[0m
+[0;33mW (66782) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;33mW (66782) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;33mW (66792) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+I (67112) wifi:flush txq
+I (67112) wifi:stop sw txq
+I (67112) wifi:lmac stop hw txq
+[0;32mI (67122) wifi_init: rx ba win: 6[0m
+[0;32mI (67122) wifi_init: tcpip mbox: 32[0m
+[0;32mI (67122) wifi_init: udp mbox: 6[0m
+[0;32mI (67122) wifi_init: tcp mbox: 6[0m
+[0;32mI (67122) wifi_init: tcp tx win: 5744[0m
+[0;32mI (67132) wifi_init: tcp rx win: 5744[0m
+[0;32mI (67132) wifi_init: tcp mss: 1440[0m
+[0;32mI (67142) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (67142) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (67152) WIFI STATION: wifi_init_sta finished, ssid:laptop, pass:12345678. ssid len:6, pass len:8[0m
+I (67172) wifi:mode : sta (fc:b4:67:f5:ed:80)
+I (67172) wifi:enable tsf
+[0;32mI (67182) WIFI STA: start connect to access point[0m
+[0;32mI (69592) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (69592) WIFI STATION: connect to the AP fail[0m
+I (72002) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:2
+I (72012) wifi:state: init -> auth (b0)
+I (73012) wifi:state: auth -> init (200)
+I (73012) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:2
+[0;32mI (73012) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (73012) WIFI STATION: connect to the AP fail[0m
+[0;32mI (75432) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (75432) WIFI STATION: connect to the AP fail[0m
+E (77842) wifi:NAN WiFi stop
+I (77842) wifi:flush txq
+I (77842) wifi:stop sw txq
+I (77842) wifi:lmac stop hw txq
+[0;32mI (77842) WIFI STATION: Can't connect to the AP point[0m
+[0;32mI (77852) WIFI STATION: connect to the AP fail[0m
+[0;32mI (77862) WIFI STA: Deinit station mode[0m
+[0;32mI (78862) wifi_init: rx ba win: 6[0m
+[0;32mI (78862) wifi_init: tcpip mbox: 32[0m
+[0;32mI (78862) wifi_init: udp mbox: 6[0m
+[0;32mI (78862) wifi_init: tcp mbox: 6[0m
+[0;32mI (78862) wifi_init: tcp tx win: 5744[0m
+[0;32mI (78872) wifi_init: tcp rx win: 5744[0m
+[0;32mI (78872) wifi_init: tcp mss: 1440[0m
+[0;32mI (78872) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (78882) wifi_init: WiFi RX IRAM OP enabled[0m
+I (78912) wifi:mode : softAP (fc:b4:67:f5:ed:81)
+I (79012) wifi:Total power save buffer number: 16
+[0;32mI (79022) SOFTAP: wifi_init_softap finished. SSID:ESP32 password:12345678 channel:2[0m
+[0;32mI (79022) APP: Start webserver for connection configuration[0m
+[0;32mI (79022) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+I (160232) wifi:new:<2,0>, old:<2,1>, ap:<2,1>, sta:<255,255>, prof:2
+I (160242) wifi:station: d6:2e:43:ee:8e:a6 join, AID=1, bgn, 20
+[0;32mI (160272) SOFTAP: event connected[0m
+[0;32mI (160382) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+I (160582) wifi:<ba-add>idx:2 (ifx:1, d6:2e:43:ee:8e:a6), tid:0, ssn:16, winSize:64
+[0;32mI (162622) HTTP_SERVER: index.html requested[0m
+[0;32mI (186442) HTTP_SERVER: index.html requested[0m
+[0;32mI (186622) HTTP_SERVER: favicon.ico requested[0m
+[0;32mI (195602) HTTP_SERVER: sssid: laptop[0m
+[0;32mI (195602) HTTP_SERVER: password: 123456789[0m
+[0;32mI (195602) HTTP_SERVER: port: 11[0m
+[0;32mI (195612) HTTP_SERVER: Receive data:laptop 123456789[0m
+I (195622) wifi:station: d6:2e:43:ee:8e:a6 leave, AID = 1, bss_flags is 8916035, bss:0x3ffcec34
+I (195622) wifi:new:<2,0>, old:<2,0>, ap:<2,1>, sta:<255,255>, prof:2
+I (195632) wifi:<ba-del>idx:2, tid:0
+E (195632) wifi:NAN WiFi stop
+[0;32mI (195632) SOFTAP: event disconnected connected[0m
+[0;33mW (195642) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;33mW (195652) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;33mW (195652) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+I (195692) wifi:flush txq
+I (195692) wifi:stop sw txq
+I (195692) wifi:lmac stop hw txq
+[0;32mI (195702) wifi_init: rx ba win: 6[0m
+[0;32mI (195702) wifi_init: tcpip mbox: 32[0m
+[0;32mI (195702) wifi_init: udp mbox: 6[0m
+[0;32mI (195702) wifi_init: tcp mbox: 6[0m
+[0;32mI (195702) wifi_init: tcp tx win: 5744[0m
+[0;32mI (195712) wifi_init: tcp rx win: 5744[0m
+[0;32mI (195712) wifi_init: tcp mss: 1440[0m
+[0;32mI (195722) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (195722) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (195732) WIFI STATION: wifi_init_sta finished, ssid:laptop, pass:123456789. ssid len:6, pass len:9[0m
+I (195842) wifi:mode : sta (fc:b4:67:f5:ed:80)
+I (195842) wifi:enable tsf
+[0;32mI (195852) WIFI STA: start connect to access point[0m
+I (198262) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:2
+I (199432) wifi:state: init -> auth (b0)
+I (200432) wifi:state: auth -> init (200)
+I (200432) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:2
+[0;32mI (200442) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (200442) WIFI STATION: connect to the AP fail[0m
+[0;32mI (202852) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (202852) WIFI STATION: connect to the AP fail[0m
+I (205262) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:2
+I (205272) wifi:state: init -> auth (b0)
+I (206272) wifi:state: auth -> init (200)
+I (206272) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:2
+[0;32mI (206272) WIFI STATION: retry to connect to the AP[0m
+[0;32mI (206272) WIFI STATION: connect to the AP fail[0m
+E (208692) wifi:NAN WiFi stop
+I (208692) wifi:flush txq
+I (208692) wifi:stop sw txq
+I (208692) wifi:lmac stop hw txq
+[0;32mI (208682) WIFI STATION: Can't connect to the AP point[0m
+[0;32mI (208692) WIFI STATION: connect to the AP fail[0m
+[0;32mI (208712) WIFI STA: Deinit station mode[0m
+[0;32mI (209712) wifi_init: rx ba win: 6[0m
+[0;32mI (209712) wifi_init: tcpip mbox: 32[0m
+[0;32mI (209712) wifi_init: udp mbox: 6[0m
+[0;32mI (209712) wifi_init: tcp mbox: 6[0m
+[0;32mI (209712) wifi_init: tcp tx win: 5744[0m
+[0;32mI (209722) wifi_init: tcp rx win: 5744[0m
+[0;32mI (209722) wifi_init: tcp mss: 1440[0m
+[0;32mI (209732) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (209732) wifi_init: WiFi RX IRAM OP enabled[0m
+I (209762) wifi:mode : softAP (fc:b4:67:f5:ed:81)
+I (209862) wifi:Total power save buffer number: 16
+[0;32mI (209872) SOFTAP: wifi_init_softap finished. SSID:ESP32 password:12345678 channel:2[0m
+[0;32mI (209872) APP: Start webserver for connection configuration[0m
+[0;32mI (209872) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m

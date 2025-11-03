@@ -1,0 +1,100 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2025 11:40:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=76e48h (486984) map[0m
+[0;32mI (281) esp_image: segment 1: paddr=00086e70 vaddr=3ffbdb60 size=05468h ( 21608) load[0m
+[0;32mI (289) esp_image: segment 2: paddr=0008c2e0 vaddr=40080000 size=03d38h ( 15672) load[0m
+[0;32mI (296) esp_image: segment 3: paddr=00090020 vaddr=400d0020 size=faf58h (1027928) map[0m
+[0;32mI (668) esp_image: segment 4: paddr=0018af80 vaddr=40083d38 size=1abf4h (109556) load[0m
+[0;32mI (729) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (729) boot: Disabling RNG early entropy source...[0m
+[0;32mI (741) cpu_start: Multicore app[0m
+[0;32mI (741) cpu_start: Pro cpu up.[0m
+[0;32mI (741) cpu_start: Starting app cpu, entry point is 0x40081408[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (761) cpu_start: Pro cpu start user code[0m
+[0;32mI (761) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (761) cpu_start: Application information:[0m
+[0;32mI (766) cpu_start: Project name:     main[0m
+[0;32mI (771) cpu_start: App version:      1[0m
+[0;32mI (775) cpu_start: Compile time:     Oct 14 2025 11:40:01[0m
+[0;32mI (781) cpu_start: ELF file SHA256:  13634ee785c89031...[0m
+[0;32mI (787) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (793) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (797) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (802) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (807) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (814) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (820) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (826) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (832) heap_init: At 3FFCB870 len 00014790 (81 KiB): DRAM[0m
+[0;32mI (839) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (845) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (851) heap_init: At 4009E92C len 000016D4 (5 KiB): IRAM[0m
+[0;32mI (859) spi_flash: detected chip: generic[0m
+[0;32mI (862) spi_flash: flash io: dio[0m
+[0;32mI (867) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (872) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (876) app_start: Starting scheduler on CPU1[0m
+I (876) main_task: Started on CPU0[0m
+[0;32mI (886) main_task: Calling app_main()[0m
+[0;32mI (926) APP: Web server handler task started[0m
+[0;32mI (936) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (936) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (936) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (936) APP: Read data from nvs flash failed[0m
+[0;32mI (946) APP: connection state: 0[0m
+I (956) wifi:wifi driver task: 3ffd1a84, prio:23, stack:6656, core=0
+I (976) wifi:wifi firmware version: ce9244d
+I (976) wifi:wifi certification version: v7.0
+I (976) wifi:config NVS flash: enabled
+I (976) wifi:config nano formating: disabled
+I (986) wifi:Init data frame dynamic rx buffer num: 32
+I (986) wifi:Init management frame dynamic rx buffer num: 32
+I (996) wifi:Init management short buffer num: 32
+I (996) wifi:Init dynamic tx buffer num: 32
+I (1006) wifi:Init static rx buffer size: 1600
+I (1006) wifi:Init static rx buffer num: 10
+I (1016) wifi:Init dynamic rx buffer num: 32
+[0;32mI (1016) wifi_init: rx ba win: 6[0m
+[0;32mI (1016) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1026) wifi_init: udp mbox: 6[0m
+[0;32mI (1026) wifi_init: tcp mbox: 6[0m
+[0;32mI (1036) wifi_init: tcp tx win: 5744[0m
+[0;32mI (1036) wifi_init: tcp rx win: 5744[0m
+[0;32mI (1036) wifi_init: tcp mss: 1440[0m
+[0;32mI (1046) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1046) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1066) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+I (1186) wifi:mode : softAP (fc:b4:67:f5:ed:81)
+I (1326) wifi:Total power save buffer number: 16
+I (1326) wifi:Init max length of beacon: 752/752
+I (1326) wifi:Init max length of beacon: 752/752
+[0;32mI (1326) SOFTAP: wifi_init_softap finished. SSID:ESP32 password:12345678 channel:2[0m
+[0;32mI (1326) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (1346) HTTP_SERVER: http_server_configure: Starting server on port: '80' with task priority: '3'[0m
+[0;32mI (1356) HTTP_SERVER: http_server_configure: Registering URI handlers[0m
+[0;32mI (1356) APP: Start webserver for connection configuration[0m

@@ -1,0 +1,820 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2025 11:40:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=76eb0h (487088) map[0m
+[0;32mI (281) esp_image: segment 1: paddr=00086ed8 vaddr=3ffbdb60 size=05468h ( 21608) load[0m
+[0;32mI (289) esp_image: segment 2: paddr=0008c348 vaddr=40080000 size=03cd0h ( 15568) load[0m
+[0;32mI (296) esp_image: segment 3: paddr=00090020 vaddr=400d0020 size=fb24ch (1028684) map[0m
+[0;32mI (669) esp_image: segment 4: paddr=0018b274 vaddr=40083cd0 size=1ac5ch (109660) load[0m
+[0;32mI (730) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (730) boot: Disabling RNG early entropy source...[0m
+[0;32mI (741) cpu_start: Multicore app[0m
+[0;32mI (742) cpu_start: Pro cpu up.[0m
+[0;32mI (742) cpu_start: Starting app cpu, entry point is 0x40081408[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (762) cpu_start: Pro cpu start user code[0m
+[0;32mI (762) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (762) cpu_start: Application information:[0m
+[0;32mI (767) cpu_start: Project name:     main[0m
+[0;32mI (771) cpu_start: App version:      1[0m
+[0;32mI (776) cpu_start: Compile time:     Oct 14 2025 11:40:01[0m
+[0;32mI (782) cpu_start: ELF file SHA256:  7813c9df4eddde89...[0m
+[0;32mI (788) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (793) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (798) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (803) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (808) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (815) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (821) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (827) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (833) heap_init: At 3FFCB890 len 00014770 (81 KiB): DRAM[0m
+[0;32mI (839) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (845) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (852) heap_init: At 4009E92C len 000016D4 (5 KiB): IRAM[0m
+[0;32mI (860) spi_flash: detected chip: generic[0m
+[0;32mI (863) spi_flash: flash io: dio[0m
+[0;32mI (867) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (872) app_start: Starting scheduler on CPU0[0m
+[0;32[0;32mI (877) app_start: Starting scheduler on CPU1[0m
+mI (877) main_task: Started on CPU0[0m
+[0;32mI (887) main_task: Calling app_main()[0m
+[0;32mI (937) APP: Web server handler task started[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+[0;32mI (937) NVS_HANDLE: Open nvs flash: 0[0m
+I (957) wifi:wifi driver task: 3ffd1a7c, prio:23, stack:6656, core=0
+I (977) wifi:wifi firmware version: ce9244d
+I (977) wifi:wifi certification version: v7.0
+I (977) wifi:config NVS flash: enabled
+I (977) wifi:config nano formating: disabled
+I (987) wifi:Init data frame dynamic rx buffer num: 32
+I (987) wifi:Init management frame dynamic rx buffer num: 32
+I (997) wifi:Init management short buffer num: 32
+I (997) wifi:Init dynamic tx buffer num: 32
+I (1007) wifi:Init static rx buffer size: 1600
+I (1007) wifi:Init static rx buffer num: 10
+I (1007) wifi:Init dynamic rx buffer num: 32
+[0;32mI (1017) wifi_init: rx ba win: 6[0m
+[0;32mI (1017) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1017) wifi_init: udp mbox: 6[0m
+[0;32mI (1027) wifi_init: tcp mbox: 6[0m
+[0;32mI (1027) wifi_init: tcp tx win: 5744[0m
+[0;32mI (1037) wifi_init: tcp rx win: 5744[0m
+[0;32mI (1037) wifi_init: tcp mss: 1440[0m
+[0;32mI (1047) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1047) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1047) WIFI STATION: wifi_init_sta finished, ssid:laptop, pass:12345678. ssid len:6, pass len:8[0m
+[0;32mI (1067) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+I (1177) wifi:mode : sta (24:dc:c3:a6:d0:28)
+I (1177) wifi:enable tsf
+[0;32mI (1177) APP: Read data from nvs flash: laptop 12345678 0[0m
+[0;32mI (1187) WIFI STA: start connect to access point[0m
+I (3597) wifi:new:<2,1>, old:<1,0>, ap:<255,255>, sta:<2,1>, prof:2
+I (3597) wifi:state: init -> auth (b0)
+I (3607) wifi:state: auth -> assoc (0)
+I (3607) wifi:state: assoc -> run (10)
+I (4117) wifi:connected with laptop, aid = 6, channel 2, 40U, bssid = 16:13:33:02:85:b3
+I (4117) wifi:security: WPA2-PSK, phy: bgn, rssi: -53
+I (4127) wifi:pm start, type: 1
+
+I (4147) wifi:<ba-add>idx:0 (ifx:0, 16:13:33:02:85:b3), tid:0, ssn:4, winSize:64
+I (4177) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5127) esp_netif_handlers: sta ip: 192.168.137.216, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (5127) WIFI STATION: got ip:192.168.137.1[0m
+[0;32mI (5127) APP: Connect to AP successful[0m
+[0;32mI (5137) APP: connection state: 1[0m
+[0;32mI (5137) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (5147) BTDM_INIT: Bluetooth MAC: 24:dc:c3:a6:d0:2a[0m
+[0;32mI (5477) GATTC_MULTI: Registered gattc_if=3, start scan[0m
+[0;32mI (5477) APP: Init SNTP...[0m
+[0;32mI (5477) GATTC_MULTI: Scan params set -> start scanning[0m
+[0;32mI (5487) APP: Waiting for system time to be set... (1/30)[0m
+[0;32mI (6487) APP: Waiting for system time to be set... (2/30)[0m
+[0;32mI (7487) APP: Waiting for system time to be set... (3/30)[0m
+[0;32mI (8487) APP: Time synced: Thu Oct 16 14:07:06 2025
+[0m
+[0;32mI (8487) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (8897) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (10037) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (10037) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (10427) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (11467) APP: GET status=200[0m
+[0;32mI (11467) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (11467) APP: mode=1[0m
+[0;32mI (11467) APP: state=1[0m
+[0;32mI (11477) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (12477) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (12867) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (13917) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (13927) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (14297) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (15347) APP: GET status=200[0m
+[0;32mI (15347) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (15347) APP: mode=1[0m
+[0;32mI (15357) APP: state=1[0m
+[0;32mI (15357) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (16357) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (16757) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (17907) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (17917) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (18397) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (19487) APP: GET status=200[0m
+[0;32mI (19487) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (19487) APP: mode=1[0m
+[0;32mI (19487) APP: state=1[0m
+[0;32mI (19497) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (20497) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (20957) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (22157) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (22167) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (22697) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (23757) APP: GET status=200[0m
+[0;32mI (23757) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (23757) APP: mode=1[0m
+[0;32mI (23757) APP: state=1[0m
+[0;32mI (23767) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (24767) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (26587) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (27757) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (27767) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (28257) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (29307) APP: GET status=200[0m
+[0;32mI (29307) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (29307) APP: mode=1[0m
+[0;32mI (29307) APP: state=1[0m
+[0;32mI (29317) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (30317) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (30797) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (31947) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (31957) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (32347) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (33387) APP: GET status=200[0m
+[0;32mI (33387) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (33387) APP: mode=1[0m
+[0;32mI (33387) APP: state=1[0m
+[0;32mI (33397) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (34397) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (34787) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (35947) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (35957) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (36517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (37587) APP: GET status=200[0m
+[0;32mI (37597) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (37597) APP: mode=1[0m
+[0;32mI (37597) APP: state=1[0m
+[0;32mI (37607) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (38607) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (38987) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (40177) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (40187) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (40637) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (41697) APP: GET status=200[0m
+[0;32mI (41697) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (41707) APP: mode=1[0m
+[0;32mI (41707) APP: state=1[0m
+[0;32mI (41717) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (42717) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (43207) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (44447) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (44447) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (44917) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (46017) APP: GET status=200[0m
+[0;32mI (46017) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (46017) APP: mode=1[0m
+[0;32mI (46017) APP: state=1[0m
+[0;32mI (46027) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (47027) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (47507) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (48667) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (48677) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (49127) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (50217) APP: GET status=200[0m
+[0;32mI (50217) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (50217) APP: mode=1[0m
+[0;32mI (50227) APP: state=1[0m
+[0;32mI (50227) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (51237) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (51677) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (52827) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (52837) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (53327) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (54287) APP: GET status=200[0m
+[0;32mI (54297) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (54297) APP: mode=1[0m
+[0;32mI (54297) APP: state=1[0m
+[0;32mI (54307) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (55307) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (55677) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (56717) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (56727) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (57107) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (58157) APP: GET status=200[0m
+[0;32mI (58157) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (58157) APP: mode=1[0m
+[0;32mI (58157) APP: state=1[0m
+[0;32mI (58167) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (59167) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (59587) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (60707) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (60717) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (61227) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (62247) APP: GET status=200[0m
+[0;32mI (62247) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (62257) APP: mode=1[0m
+[0;32mI (62257) APP: state=1[0m
+[0;32mI (62267) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (63267) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (63657) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (64807) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (64817) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (65297) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (66357) APP: GET status=200[0m
+[0;32mI (66357) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (66367) APP: mode=1[0m
+[0;32mI (66367) APP: state=1[0m
+[0;32mI (66377) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (67377) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (67757) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (68907) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (68917) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (69397) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (70467) APP: GET status=200[0m
+[0;32mI (70467) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (70467) APP: mode=1[0m
+[0;32mI (70467) APP: state=1[0m
+[0;32mI (70477) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (71477) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (71857) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (73107) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (73107) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (73487) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (74537) APP: GET status=200[0m
+[0;32mI (74537) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (74537) APP: mode=1[0m
+[0;32mI (74547) APP: state=1[0m
+[0;32mI (74547) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (75547) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (75947) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (77197) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (77207) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (77597) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (78657) APP: GET status=200[0m
+[0;32mI (78657) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (78657) APP: mode=1[0m
+[0;32mI (78657) APP: state=1[0m
+[0;32mI (78667) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (79667) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (80147) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (81297) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (81307) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (81777) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (83037) APP: GET status=200[0m
+[0;32mI (83037) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (83037) APP: mode=1[0m
+[0;32mI (83037) APP: state=1[0m
+[0;32mI (83047) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (84047) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (84487) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (85607) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (85607) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (85977) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (87057) APP: GET status=200[0m
+[0;32mI (87057) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (87057) APP: mode=1[0m
+[0;32mI (87057) APP: state=1[0m
+[0;32mI (87067) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (88067) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (88467) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (89587) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (89597) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (90077) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (91227) APP: GET status=200[0m
+[0;32mI (91227) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (91227) APP: mode=1[0m
+[0;32mI (91227) APP: state=1[0m
+[0;32mI (91237) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (92237) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (92637) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (93787) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (93797) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (94167) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (95237) APP: GET status=200[0m
+[0;32mI (95237) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (95237) APP: mode=1[0m
+[0;32mI (95237) APP: state=1[0m
+[0;32mI (95247) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (96247) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (96627) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (97787) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (97797) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (98177) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (99217) APP: GET status=200[0m
+[0;32mI (99217) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (99217) APP: mode=1[0m
+[0;32mI (99217) APP: state=1[0m
+[0;32mI (99227) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (100227) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (100627) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (101777) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (101787) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (102187) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (103257) APP: GET status=200[0m
+[0;32mI (103267) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (103267) APP: mode=1[0m
+[0;32mI (103267) APP: state=1[0m
+[0;32mI (103277) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (104277) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (104737) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (105897) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (105907) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (106407) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (107407) APP: GET status=200[0m
+[0;32mI (107407) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (107407) APP: mode=1[0m
+[0;32mI (107407) APP: state=1[0m
+[0;32mI (107417) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (108417) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (108847) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (110107) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (110117) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (110567) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (111637) APP: GET status=200[0m
+[0;32mI (111637) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (111637) APP: mode=1[0m
+[0;32mI (111647) APP: state=1[0m
+[0;32mI (111657) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (112657) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (113107) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (114267) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (114277) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (114857) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (115927) APP: GET status=200[0m
+[0;32mI (115927) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (115927) APP: mode=1[0m
+[0;32mI (115927) APP: state=1[0m
+[0;32mI (115937) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (116937) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (117327) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (118387) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (118397) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (118857) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (119907) APP: GET status=200[0m
+[0;32mI (119907) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (119907) APP: mode=1[0m
+[0;32mI (119917) APP: state=1[0m
+[0;32mI (119917) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (120927) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (121407) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (122567) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (122577) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (122947) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (123997) APP: GET status=200[0m
+[0;32mI (123997) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (123997) APP: mode=1[0m
+[0;32mI (124007) APP: state=1[0m
+[0;32mI (124007) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (125017) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (125397) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (126597) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (126607) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (127047) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (128097) APP: GET status=200[0m
+[0;32mI (128097) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (128097) APP: mode=1[0m
+[0;32mI (128097) APP: state=1[0m
+[0;32mI (128107) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (129107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (129497) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (130647) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (130657) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (131037) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (132017) APP: GET status=200[0m
+[0;32mI (132017) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (132027) APP: mode=1[0m
+[0;32mI (132027) APP: state=1[0m
+[0;32mI (132037) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (133037) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (133487) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (134647) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (134657) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (135027) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (136127) APP: GET status=200[0m
+[0;32mI (136127) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (136127) APP: mode=1[0m
+[0;32mI (136127) APP: state=1[0m
+[0;32mI (136137) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (137137) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (137607) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (138637) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (138647) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (139017) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (139997) APP: GET status=200[0m
+[0;32mI (139997) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (139997) APP: mode=1[0m
+[0;32mI (139997) APP: state=1[0m
+[0;32mI (140007) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (141007) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (141377) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (142527) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (142537) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (142907) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (143877) APP: GET status=200[0m
+[0;32mI (143887) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (143887) APP: mode=1[0m
+[0;32mI (143887) APP: state=1[0m
+[0;32mI (143897) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (144897) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (145277) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (146317) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (146327) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (146707) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (147747) APP: GET status=200[0m
+[0;32mI (147757) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (147757) APP: mode=1[0m
+[0;32mI (147757) APP: state=1[0m
+[0;32mI (147767) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (148767) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (149187) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (150307) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (150317) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (150797) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (151867) APP: GET status=200[0m
+[0;32mI (151867) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (151867) APP: mode=1[0m
+[0;32mI (151867) APP: state=1[0m
+[0;32mI (151877) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (152877) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (153367) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (154517) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (154527) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (154927) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (155957) APP: GET status=200[0m
+[0;32mI (155957) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (155957) APP: mode=1[0m
+[0;32mI (155957) APP: state=1[0m
+[0;32mI (155967) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (156967) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (157377) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (158507) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (158507) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (159087) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (160167) APP: GET status=200[0m
+[0;32mI (160177) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (160177) APP: mode=1[0m
+[0;32mI (160177) APP: state=1[0m
+[0;32mI (160187) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (161187) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (161657) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (162907) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (162917) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (163397) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (164547) APP: GET status=200[0m
+[0;32mI (164547) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (164547) APP: mode=1[0m
+[0;32mI (164547) APP: state=1[0m
+[0;32mI (164557) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (165557) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (165997) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (167247) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (167257) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (167747) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (168887) APP: GET status=200[0m
+[0;32mI (168887) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (168897) APP: mode=1[0m
+[0;32mI (168897) APP: state=1[0m
+[0;32mI (168907) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (169907) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (170387) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (171647) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (171657) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (172137) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (173297) APP: GET status=200[0m
+[0;32mI (173297) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (173297) APP: mode=1[0m
+[0;32mI (173297) APP: state=1[0m
+[0;32mI (173307) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (174307) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (174807) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (176117) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (176127) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (176597) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (177757) APP: GET status=200[0m
+[0;32mI (177757) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (177757) APP: mode=1[0m
+[0;32mI (177757) APP: state=1[0m
+[0;32mI (177767) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (178767) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (179267) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (180977) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (180987) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (181817) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (183637) APP: GET status=200[0m
+[0;32mI (183637) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (183637) APP: mode=1[0m
+[0;32mI (183637) APP: state=1[0m
+[0;32mI (183647) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (184647) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (185147) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (186387) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (186397) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (187357) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (188427) APP: GET status=200[0m
+[0;32mI (188427) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (188427) APP: mode=1[0m
+[0;32mI (188437) APP: state=1[0m
+[0;32mI (188437) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (189447) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (189947) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (191687) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (191687) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (192107) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (193117) APP: GET status=200[0m
+[0;32mI (193117) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (193117) APP: mode=1[0m
+[0;32mI (193117) APP: state=1[0m
+[0;32mI (193127) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (194127) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (194527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (195677) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (195687) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (196067) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (197117) APP: GET status=200[0m
+[0;32mI (197117) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (197117) APP: mode=1[0m
+[0;32mI (197117) APP: state=1[0m
+[0;32mI (197127) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (198127) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (198517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (199677) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (199687) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (200157) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (201107) APP: GET status=200[0m
+[0;32mI (201107) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (201107) APP: mode=1[0m
+[0;32mI (201107) APP: state=1[0m
+[0;32mI (201117) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (202117) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (202517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (203567) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (203577) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (203967) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (205097) APP: GET status=200[0m
+[0;32mI (205097) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (205097) APP: mode=1[0m
+[0;32mI (205107) APP: state=1[0m
+[0;32mI (205107) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (206107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (206517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (207657) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (207667) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (208147) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (209197) APP: GET status=200[0m
+[0;32mI (209197) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (209197) APP: mode=1[0m
+[0;32mI (209197) APP: state=1[0m
+[0;32mI (209207) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (210207) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (210597) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (211647) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (211657) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (212077) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (213097) APP: GET status=200[0m
+[0;32mI (213097) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (213097) APP: mode=1[0m
+[0;32mI (213097) APP: state=1[0m
+[0;32mI (213107) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (214107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (214487) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (215647) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (215647) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (216167) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (217177) APP: GET status=200[0m
+[0;32mI (217177) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (217177) APP: mode=1[0m
+[0;32mI (217187) APP: state=1[0m
+[0;32mI (217197) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (218197) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (218607) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (219847) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (219857) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (220327) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (221377) APP: GET status=200[0m
+[0;32mI (221377) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (221377) APP: mode=1[0m
+[0;32mI (221387) APP: state=1[0m
+[0;32mI (221397) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (222397) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (222807) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (223937) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (223947) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (224317) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (225377) APP: GET status=200[0m
+[0;32mI (225377) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (225377) APP: mode=1[0m
+[0;32mI (225377) APP: state=1[0m
+[0;32mI (225387) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (226387) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (226897) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (228037) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (228047) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (228417) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (229467) APP: GET status=200[0m
+[0;32mI (229467) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (229467) APP: mode=1[0m
+[0;32mI (229467) APP: state=1[0m
+[0;32mI (229477) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (230477) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (230887) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (232157) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (232167) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (232727) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (233797) APP: GET status=200[0m
+[0;32mI (233797) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (233797) APP: mode=1[0m
+[0;32mI (233797) APP: state=1[0m
+[0;32mI (233807) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (234807) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (235297) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (237147) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (237157) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (237677) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (239597) APP: GET status=200[0m
+[0;32mI (239597) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (239597) APP: mode=1[0m
+[0;32mI (239607) APP: state=1[0m
+[0;32mI (239617) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (240617) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (241117) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (242627) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (242637) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (243127) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (244127) APP: GET status=200[0m
+[0;32mI (244127) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (244127) APP: mode=1[0m
+[0;32mI (244127) APP: state=1[0m
+[0;32mI (244137) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (245137) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (245517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (246687) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (246697) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (247087) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (248107) APP: GET status=200[0m
+[0;32mI (248107) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (248107) APP: mode=1[0m
+[0;32mI (248107) APP: state=1[0m
+[0;32mI (248117) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (249117) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (249527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (250667) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (250667) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (251197) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (252207) APP: GET status=200[0m
+[0;32mI (252207) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (252217) APP: mode=1[0m
+[0;32mI (252217) APP: state=1[0m
+[0;32mI (252227) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (253227) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (253707) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (254857) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (254867) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (255247) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (256307) APP: GET status=200[0m
+[0;32mI (256307) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (256307) APP: mode=1[0m
+[0;32mI (256307) APP: state=1[0m
+[0;32mI (256317) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (257317) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (257707) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (258757) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (258757) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (259267) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (260287) APP: GET status=200[0m
+[0;32mI (260287) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (260297) APP: mode=1[0m
+[0;32mI (260297) APP: state=1[0m
+[0;32mI (260307) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (261307) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (261717) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (262847) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (262857) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (263227) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (264197) APP: GET status=200[0m
+[0;32mI (264197) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (264197) APP: mode=1[0m
+[0;32mI (264197) APP: state=1[0m
+[0;32mI (264207) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (265207) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (267017) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (268687) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (268697) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (269067) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (270117) APP: GET status=200[0m
+[0;32mI (270117) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (270117) APP: mode=1[0m
+[0;32mI (270127) APP: state=1[0m
+[0;32mI (270127) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (271127) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (271527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (272677) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (272687) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (273067) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (274017) APP: GET status=200[0m
+[0;32mI (274017) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (274017) APP: mode=1[0m
+[0;32mI (274027) APP: state=1[0m
+[0;32mI (274027) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (275027) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (275427) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (276467) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (276477) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (276907) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (277897) APP: GET status=200[0m
+[0;32mI (277907) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (277907) APP: mode=1[0m
+[0;32mI (277907) APP: state=1[0m
+[0;32mI (277917) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (278917) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (279307) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (280457) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (280467) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (280847) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (281897) APP: GET status=200[0m
+[0;32mI (281897) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (281897) APP: mode=1[0m
+[0;32mI (281897) APP: state=1[0m
+[0;32mI (281907) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (282907) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (283307) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (284457) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (284467) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (284857) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (285907) APP: GET status=200[0m
+[0;32mI (285907) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (285907) APP: mode=1[0m
+[0;32mI (285907) APP: state=1[0m
+[0;32mI (285917) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (286917) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (287297) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (288347) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (288357) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (288727) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (289777) APP: GET status=200[0m
+[0;32mI (289777) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (289787) APP: mode=1[0m
+[0;32mI (289787) APP: state=1[0m
+[0;32mI (289797) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (290797) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (292527) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (293667) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (293677) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (294157) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (295127) APP: GET status=200[0m
+[0;32mI (295127) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (295137) APP: mode=1[0m
+[0;32mI (295137) APP: state=1[0m
+[0;32mI (295147) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (296147) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (296517) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (297707) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (297717) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (298157) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (299197) APP: GET status=200[0m
+[0;32mI (299197) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (299207) APP: mode=1[0m
+[0;32mI (299207) APP: state=1[0m
+[0;32mI (299217) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (300217) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (300607) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (301657) APP: PUT status=200, resp={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (301667) APP: HTTP GET https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (302037) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (303097) APP: GET status=200[0m
+[0;32mI (303097) APP: GET body={"CO2":800,"Humi":60,"Mode":1,"State":1,"Temp":25.5}[0m
+[0;32mI (303097) APP: mode=1[0m
+[0;32mI (303097) APP: state=1[0m
+[0;32mI (303107) APP: Parsed from Firebase: state=80, mode=59[0m
+[0;32mI (304107) APP: HTTP PUT https://htn-iot-8e223-default-rtdb.asia-southeast1.firebasedatabase.app/sensor/data/ESP32_ABC123.json?auth=ok7JtCJv8A9JTdhfsNUZwkG8GyvOO1pkY5PAgn5e[0m
+[0;32mI (304497) esp-x509-crt-bundle: Certificate validated[0m

@@ -1,0 +1,88 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\workspace\gatt_server\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/Espressif/workspace/gatt_server/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/8] Building C object esp-idf/Libs_GattServer/CMakeFiles/__idf_Libs_GattServer.dir/Libs_GattServer.c.obj
+D:/Espressif/workspace/gatt_server/components/Libs_GattServer/Libs_GattServer.c: In function 'Libs_GattServerNotify':
+D:/Espressif/workspace/gatt_server/components/Libs_GattServer/Libs_GattServer.c:547:69: warning: passing argument 5 of 'esp_ble_gatts_send_indicate' from incompatible pointer type [-Wincompatible-pointer-types]
+  547 |                                         sizeof(init_hum_threshold), (uint16_t*)&init_hum_threshold, false);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                     |
+      |                                                                     uint16_t * {aka short unsigned int *}
+In file included from D:/Espressif/workspace/gatt_server/components/Libs_GattServer/include/Libs_GattServer.h:14,
+                 from D:/Espressif/workspace/gatt_server/components/Libs_GattServer/Libs_GattServer.c:13:
+D:/Espressif/frameworks/esp-idf-v5.1.1/components/bt/host/bluedroid/api/include/api/esp_gatts_api.h:482:68: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  482 |                                       uint16_t value_len, uint8_t *value, bool need_confirm);
+      |                                                           ~~~~~~~~~^~~~~
+[3/8] Linking C static library esp-idf\Libs_GattServer\libLibs_GattServer.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable gatt_server_demos.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.7.dev1
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated D:/Espressif/workspace/gatt_server/build/gatt_server_demos.bin
+[7/8] cmd.exe /C "cd /D D:\Espressif\workspace\gatt_server\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/workspace/gatt_server/build/partition_table/partition-table.bin D:/Espressif/workspace/gatt_server/build/gatt_server_demos.bin"
+gatt_server_demos.bin binary size 0xc1690 bytes. Smallest app partition is 0x100000 bytes. 0x3e970 bytes (24%) free.
+[7/8] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.1.1\components\esptool_py && D:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=D:/Espressif/frameworks/esp-idf-v5.1.1 -D SERIAL_TOOL=D:/Espressif/python_env/idf5.1_py3.11_env/Scripts/python.exe;;D:/Espressif/frameworks/esp-idf-v5.1.1/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/Espressif/workspace/gatt_server/build -P D:/Espressif/frameworks/esp-idf-v5.1.1/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM3 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x10000 gatt_server_demos.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.dev1
+Serial port COM3
+Connecting...............
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: fc:b4:67:f5:ed:80
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000d1fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26640 bytes to 16687...
+Writing at 0x00001000... (50 %)
+Writing at 0x0000768e... (100 %)
+Wrote 26640 bytes (16687 compressed) at 0x00001000 in 0.9 seconds (effective 239.6 kbit/s)...
+Hash of data verified.
+Compressed 792208 bytes to 468886...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001dc07... (6 %)
+Writing at 0x0002b3e5... (10 %)
+Writing at 0x0003752c... (13 %)
+Writing at 0x0003cf30... (17 %)
+Writing at 0x00042cb2... (20 %)
+Writing at 0x0004842d... (24 %)
+Writing at 0x0004dfa5... (27 %)
+Writing at 0x000536a2... (31 %)
+Writing at 0x00058de2... (34 %)
+Writing at 0x0005e824... (37 %)
+Writing at 0x000643d1... (41 %)
+Writing at 0x0006a5f5... (44 %)
+Writing at 0x00070724... (48 %)
+Writing at 0x0007673d... (51 %)
+Writing at 0x0007c3d3... (55 %)
+Writing at 0x00081ff3... (58 %)
+Writing at 0x0008836b... (62 %)
+Writing at 0x0008de59... (65 %)
+Writing at 0x000938c7... (68 %)
+Writing at 0x00099486... (72 %)
+Writing at 0x0009f2b8... (75 %)
+Writing at 0x000a5665... (79 %)
+Writing at 0x000ab39b... (82 %)
+Writing at 0x000b4477... (86 %)
+Writing at 0x000ba972... (89 %)
+Writing at 0x000c232a... (93 %)
+Writing at 0x000c7f00... (96 %)
+Writing at 0x000cd9e3... (100 %)
+Wrote 792208 bytes (468886 compressed) at 0x00010000 in 11.0 seconds (effective 578.2 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 301.4 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

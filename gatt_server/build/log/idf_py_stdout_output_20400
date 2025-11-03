@@ -1,0 +1,678 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7084
+ho 0 tail 12 room 4
+load:0x40078000,len:15584
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 30 2025 21:31:32[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=217f4h (137204) map[0m
+[0;32mI (154) esp_image: segment 1: paddr=0003181c vaddr=3ffbdb60 size=04560h ( 17760) load[0m
+[0;32mI (162) esp_image: segment 2: paddr=00035d84 vaddr=40080000 size=0a294h ( 41620) load[0m
+[0;32mI (179) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=82474h (533620) map[0m
+[0;32mI (372) esp_image: segment 4: paddr=000c249c vaddr=4008a294 size=0f1bch ( 61884) load[0m
+[0;32mI (411) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (411) boot: Disabling RNG early entropy source...[0m
+[0;32mI (422) cpu_start: Multicore app[0m
+[0;32mI (423) cpu_start: Pro cpu up.[0m
+[0;32mI (423) cpu_start: Starting app cpu, entry point is 0x400814a0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (441) cpu_start: Pro cpu start user code[0m
+[0;32mI (441) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (441) cpu_start: Application information:[0m
+[0;32mI (445) cpu_start: Project name:     gatt_server_demos[0m
+[0;32mI (451) cpu_start: App version:      1[0m
+[0;32mI (456) cpu_start: Compile time:     Oct 31 2025 00:20:44[0m
+[0;32mI (462) cpu_start: ELF file SHA256:  aa85ac3b6b7466f9...[0m
+[0;32mI (468) cpu_start: ESP-IDF:          v5.1.1-dirty[0m
+[0;32mI (473) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (478) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (483) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (488) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (495) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (501) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (507) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFC8750 len 000178B0 (94 KiB): DRAM[0m
+[0;32mI (519) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (532) heap_init: At 40099450 len 00006BB0 (26 KiB): IRAM[0m
+[0;32mI (540) spi_flash: detected chip: generic[0m
+[0;32mI (543) spi_flash: flash io: dio[0m
+[0;32mI (547) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (552) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (557) app_start: Starting scheduler on CPU1[0m
+I (557) main_task: Started on CPU0[0m
+[0;32mI (567) main_task: Calling app_main()[0m
+[0;32mI (617) BTDM_INIT: BT controller compile version [946b762][0m
+[0;32mI (617) BTDM_INIT: Bluetooth MAC: fc:b4:67:f5:ed:82[0m
+[0;32mI (617) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07[0m
+[0;32mI (1037) GATT_SERVER: A REG app_id=0, gatts_if=3[0m
+[0;32mI (1047) GATT_SERVER: Sensor service started[0m
+[0;32mI (1047) GATT_SERVER: B REG app_id=1, gatts_if=4[0m
+[0;32mI (1047) GATT_SERVER: LED handles:[0m
+[0;32mI (1047) GATT_SERVER:   SVC        : 0x003B[0m
+[0;32mI (1057) GATT_SERVER:   CHAR_DECL  : 0x003C[0m
+[0;32mI (1057) GATT_SERVER:   CHAR_VALUE : 0x003D[0m
+[0;32mI (1067) GATT_SERVER:   CHAR_DECL  : 0x003E[0m
+[0;32mI (1067) GATT_SERVER:   CHAR_VALUE : 0x003F[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_DECL  : 0x0040[0m
+[0;32mI (1077) GATT_SERVER:   CHAR_VALUE : 0x0041[0m
+[0;33mW (1087) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1097) GATT_SERVER: Adv data set. Start advertising[0m
+[0;32mI (1097) uart: queue free spaces: 20[0m
+[0;32mI (1107) main_task: Returned from app_main()[0m
+[0;32mI (2037) UART2: uart[2] event:[0m
+[0;32mI (2037) UART2: [UART DATA]: 44[0m
+[0;32mI (2037) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (3067) UART2: uart[2] event:[0m
+[0;32mI (3067) UART2: [UART DATA]: 44[0m
+[0;32mI (3067) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (4097) UART2: uart[2] event:[0m
+[0;32mI (4097) UART2: [UART DATA]: 44[0m
+[0;32mI (4097) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (5137) UART2: uart[2] event:[0m
+[0;32mI (5137) UART2: [UART DATA]: 44[0m
+[0;32mI (5137) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (6167) UART2: uart[2] event:[0m
+[0;32mI (6167) UART2: [UART DATA]: 44[0m
+[0;32mI (6167) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (7197) UART2: uart[2] event:[0m
+[0;32mI (7197) UART2: [UART DATA]: 44[0m
+[0;32mI (7197) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (8237) UART2: uart[2] event:[0m
+[0;32mI (8237) UART2: [UART DATA]: 44[0m
+[0;32mI (8237) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (9267) UART2: uart[2] event:[0m
+[0;32mI (9267) UART2: [UART DATA]: 44[0m
+[0;32mI (9267) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (10297) UART2: uart[2] event:[0m
+[0;32mI (10297) UART2: [UART DATA]: 44[0m
+[0;32mI (10297) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (11327) UART2: uart[2] event:[0m
+[0;32mI (11327) UART2: [UART DATA]: 44[0m
+[0;32mI (11337) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (11607) GATT_SERVER: A CONNECT conn_id=0[0m
+[0;32mI (12367) UART2: uart[2] event:[0m
+[0;32mI (12367) UART2: [UART DATA]: 44[0m
+[0;32mI (12367) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (12367) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (13397) UART2: uart[2] event:[0m
+[0;32mI (13397) UART2: [UART DATA]: 44[0m
+[0;32mI (13397) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (13407) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (14427) UART2: uart[2] event:[0m
+[0;32mI (14427) UART2: [UART DATA]: 44[0m
+[0;32mI (14427) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (14437) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (15467) UART2: uart[2] event:[0m
+[0;32mI (15467) UART2: [UART DATA]: 44[0m
+[0;32mI (15467) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (15467) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (16497) UART2: uart[2] event:[0m
+[0;32mI (16497) UART2: [UART DATA]: 44[0m
+[0;32mI (16497) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (16507) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (17527) UART2: uart[2] event:[0m
+[0;32mI (17527) UART2: [UART DATA]: 44[0m
+[0;32mI (17537) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (17537) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (18567) UART2: uart[2] event:[0m
+[0;32mI (18567) UART2: [UART DATA]: 44[0m
+[0;32mI (18567) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (18567) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (19597) UART2: uart[2] event:[0m
+[0;32mI (19597) UART2: [UART DATA]: 44[0m
+[0;32mI (19597) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (19597) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=1[0m
+[0;32mI (20627) UART2: uart[2] event:[0m
+[0;32mI (20627) UART2: [UART DATA]: 44[0m
+[0;32mI (20637) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (20637) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (21667) UART2: uart[2] event:[0m
+[0;32mI (21667) UART2: [UART DATA]: 44[0m
+[0;32mI (21667) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (21667) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (22697) UART2: uart[2] event:[0m
+[0;32mI (22697) UART2: [UART DATA]: 44[0m
+[0;32mI (22697) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (22697) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (23727) UART2: uart[2] event:[0m
+[0;32mI (23727) UART2: [UART DATA]: 44[0m
+[0;32mI (23737) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (23737) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (24647) GATT_SERVER: LED HUM THRESHOLD -> 1[0m
+[0;32mI (24657) GATTS_SERVER: BLE receive event[0m
+[0;32mI (24657) UART2: Send data: c:0001[0m
+[0;32mI (24767) UART2: uart[2] event:[0m
+[0;32mI (24767) UART2: [UART DATA]: 44[0m
+[0;32mI (24767) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:1 ht:50[0m
+[0;32mI (24767) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=1[0m
+[0;32mI (25797) UART2: uart[2] event:[0m
+[0;32mI (25797) UART2: [UART DATA]: 44[0m
+[0;32mI (25797) UART2: tem:27.799999 hum:78.000000 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (25807) GATT_SERVER: Notify data: T=278 H=780 CO2=0 mode=0 state=0[0m
+[0;32mI (26837) UART2: uart[2] event:[0m
+[0;32mI (26837) UART2: [UART DATA]: 44[0m
+[0;32mI (26837) UART2: tem:27.700001 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (26837) GATT_SERVER: Notify data: T=277 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (27867) UART2: uart[2] event:[0m
+[0;32mI (27867) UART2: [UART DATA]: 44[0m
+[0;32mI (27867) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (27867) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (28897) UART2: uart[2] event:[0m
+[0;32mI (28897) UART2: [UART DATA]: 44[0m
+[0;32mI (28897) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (28907) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (29937) UART2: uart[2] event:[0m
+[0;32mI (29937) UART2: [UART DATA]: 44[0m
+[0;32mI (29937) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (29937) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (30967) UART2: uart[2] event:[0m
+[0;32mI (30967) UART2: [UART DATA]: 44[0m
+[0;32mI (30967) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (30967) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (31997) UART2: uart[2] event:[0m
+[0;32mI (31997) UART2: [UART DATA]: 44[0m
+[0;32mI (31997) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (32007) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (33027) UART2: uart[2] event:[0m
+[0;32mI (33037) UART2: [UART DATA]: 44[0m
+[0;32mI (33037) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (33037) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (34067) UART2: uart[2] event:[0m
+[0;32mI (34067) UART2: [UART DATA]: 44[0m
+[0;32mI (34067) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (34067) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (35097) UART2: uart[2] event:[0m
+[0;32mI (35097) UART2: [UART DATA]: 44[0m
+[0;32mI (35097) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (35097) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (36127) UART2: uart[2] event:[0m
+[0;32mI (36127) UART2: [UART DATA]: 44[0m
+[0;32mI (36127) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (36137) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (37167) UART2: uart[2] event:[0m
+[0;32mI (37167) UART2: [UART DATA]: 44[0m
+[0;32mI (37167) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (37167) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (38197) UART2: uart[2] event:[0m
+[0;32mI (38197) UART2: [UART DATA]: 44[0m
+[0;32mI (38197) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (38197) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (38307) GATT_SERVER: LED HUM THRESHOLD -> 1[0m
+[0;32mI (38307) GATTS_SERVER: BLE receive event[0m
+[0;32mI (38307) UART2: Send data: c:0001[0m
+[0;32mI (39227) UART2: uart[2] event:[0m
+[0;32mI (39227) UART2: [UART DATA]: 44[0m
+[0;32mI (39227) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (39237) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (40267) UART2: uart[2] event:[0m
+[0;32mI (40267) UART2: [UART DATA]: 44[0m
+[0;32mI (40267) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (40267) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (41297) UART2: uart[2] event:[0m
+[0;32mI (41297) UART2: [UART DATA]: 44[0m
+[0;32mI (41297) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (41297) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (42327) UART2: uart[2] event:[0m
+[0;32mI (42327) UART2: [UART DATA]: 44[0m
+[0;32mI (42327) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (42337) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (43367) UART2: uart[2] event:[0m
+[0;32mI (43367) UART2: [UART DATA]: 44[0m
+[0;32mI (43367) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (43367) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (44397) UART2: uart[2] event:[0m
+[0;32mI (44397) UART2: [UART DATA]: 44[0m
+[0;32mI (44397) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (44397) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (45427) UART2: uart[2] event:[0m
+[0;32mI (45427) UART2: [UART DATA]: 44[0m
+[0;32mI (45427) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (45437) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (46457) UART2: uart[2] event:[0m
+[0;32mI (46467) UART2: [UART DATA]: 44[0m
+[0;32mI (46467) UART2: tem:27.700001 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (46467) GATT_SERVER: Notify data: T=277 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (47497) UART2: uart[2] event:[0m
+[0;32mI (47497) UART2: [UART DATA]: 44[0m
+[0;32mI (47497) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (47497) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (48527) UART2: uart[2] event:[0m
+[0;32mI (48527) UART2: [UART DATA]: 44[0m
+[0;32mI (48527) UART2: tem:27.799999 hum:78.000000 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (48527) GATT_SERVER: Notify data: T=278 H=780 CO2=0 mode=0 state=0[0m
+[0;32mI (49557) UART2: uart[2] event:[0m
+[0;32mI (49557) UART2: [UART DATA]: 44[0m
+[0;32mI (49557) UART2: tem:27.700001 hum:78.000000 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (49567) GATT_SERVER: Notify data: T=277 H=780 CO2=0 mode=0 state=0[0m
+[0;32mI (50597) UART2: uart[2] event:[0m
+[0;32mI (50597) UART2: [UART DATA]: 44[0m
+[0;32mI (50597) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (50597) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (51627) UART2: uart[2] event:[0m
+[0;32mI (51627) UART2: [UART DATA]: 44[0m
+[0;32mI (51627) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (51627) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (52657) UART2: uart[2] event:[0m
+[0;32mI (52657) UART2: [UART DATA]: 44[0m
+[0;32mI (52657) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (52667) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (53697) UART2: uart[2] event:[0m
+[0;32mI (53697) UART2: [UART DATA]: 44[0m
+[0;32mI (53697) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (53697) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (54727) UART2: uart[2] event:[0m
+[0;32mI (54727) UART2: [UART DATA]: 44[0m
+[0;32mI (54727) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (54727) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (55757) UART2: uart[2] event:[0m
+[0;32mI (55757) UART2: [UART DATA]: 44[0m
+[0;32mI (55757) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (55767) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (56797) UART2: uart[2] event:[0m
+[0;32mI (56797) UART2: [UART DATA]: 44[0m
+[0;32mI (56797) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (56797) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (57827) UART2: uart[2] event:[0m
+[0;32mI (57827) UART2: [UART DATA]: 44[0m
+[0;32mI (57827) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (57827) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (58857) UART2: uart[2] event:[0m
+[0;32mI (58857) UART2: [UART DATA]: 44[0m
+[0;32mI (58857) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (58867) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (59897) UART2: uart[2] event:[0m
+[0;32mI (59897) UART2: [UART DATA]: 44[0m
+[0;32mI (59897) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (59897) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (60927) UART2: uart[2] event:[0m
+[0;32mI (60927) UART2: [UART DATA]: 44[0m
+[0;32mI (60927) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (60927) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (61957) UART2: uart[2] event:[0m
+[0;32mI (61957) UART2: [UART DATA]: 44[0m
+[0;32mI (61957) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (61967) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (62987) UART2: uart[2] event:[0m
+[0;32mI (62987) UART2: [UART DATA]: 44[0m
+[0;32mI (62987) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (62997) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (64027) UART2: uart[2] event:[0m
+[0;32mI (64027) UART2: [UART DATA]: 44[0m
+[0;32mI (64027) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (64027) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (65057) UART2: uart[2] event:[0m
+[0;32mI (65057) UART2: [UART DATA]: 44[0m
+[0;32mI (65057) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (65057) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (66087) UART2: uart[2] event:[0m
+[0;32mI (66087) UART2: [UART DATA]: 44[0m
+[0;32mI (66087) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (66097) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (67127) UART2: uart[2] event:[0m
+[0;32mI (67127) UART2: [UART DATA]: 44[0m
+[0;32mI (67127) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (67127) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (68157) UART2: uart[2] event:[0m
+[0;32mI (68157) UART2: [UART DATA]: 44[0m
+[0;32mI (68157) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (68157) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (69187) UART2: uart[2] event:[0m
+[0;32mI (69187) UART2: [UART DATA]: 44[0m
+[0;32mI (69187) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (69187) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (70217) UART2: uart[2] event:[0m
+[0;32mI (70217) UART2: [UART DATA]: 44[0m
+[0;32mI (70217) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (70227) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (71257) UART2: uart[2] event:[0m
+[0;32mI (71257) UART2: [UART DATA]: 44[0m
+[0;32mI (71257) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (71257) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (72287) UART2: uart[2] event:[0m
+[0;32mI (72287) UART2: [UART DATA]: 44[0m
+[0;32mI (72287) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (72287) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (73317) UART2: uart[2] event:[0m
+[0;32mI (73317) UART2: [UART DATA]: 44[0m
+[0;32mI (73317) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (73317) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (74347) UART2: uart[2] event:[0m
+[0;32mI (74347) UART2: [UART DATA]: 44[0m
+[0;32mI (74347) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (74357) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (75377) UART2: uart[2] event:[0m
+[0;32mI (75387) UART2: [UART DATA]: 44[0m
+[0;32mI (75387) UART2: tem:27.799999 hum:78.000000 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (75387) GATT_SERVER: Notify data: T=278 H=780 CO2=0 mode=0 state=0[0m
+[0;32mI (76417) UART2: uart[2] event:[0m
+[0;32mI (76417) UART2: [UART DATA]: 44[0m
+[0;32mI (76417) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (76417) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (77447) UART2: uart[2] event:[0m
+[0;32mI (77447) UART2: [UART DATA]: 44[0m
+[0;32mI (77447) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (77447) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (78477) UART2: uart[2] event:[0m
+[0;32mI (78477) UART2: [UART DATA]: 44[0m
+[0;32mI (78477) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (78487) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (79507) UART2: uart[2] event:[0m
+[0;32mI (79507) UART2: [UART DATA]: 44[0m
+[0;32mI (79507) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (79517) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (80547) UART2: uart[2] event:[0m
+[0;32mI (80547) UART2: [UART DATA]: 44[0m
+[0;32mI (80547) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (80547) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (81577) UART2: uart[2] event:[0m
+[0;32mI (81577) UART2: [UART DATA]: 44[0m
+[0;32mI (81577) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (81577) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (82607) UART2: uart[2] event:[0m
+[0;32mI (82607) UART2: [UART DATA]: 44[0m
+[0;32mI (82607) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (82607) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (83637) UART2: uart[2] event:[0m
+[0;32mI (83637) UART2: [UART DATA]: 44[0m
+[0;32mI (83637) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (83647) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (84677) UART2: uart[2] event:[0m
+[0;32mI (84677) UART2: [UART DATA]: 44[0m
+[0;32mI (84677) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (84677) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (85707) UART2: uart[2] event:[0m
+[0;32mI (85707) UART2: [UART DATA]: 44[0m
+[0;32mI (85707) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (85707) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (86737) UART2: uart[2] event:[0m
+[0;32mI (86737) UART2: [UART DATA]: 44[0m
+[0;32mI (86737) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (86737) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (87767) UART2: uart[2] event:[0m
+[0;32mI (87767) UART2: [UART DATA]: 44[0m
+[0;32mI (87767) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (87777) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (88807) UART2: uart[2] event:[0m
+[0;32mI (88807) UART2: [UART DATA]: 44[0m
+[0;32mI (88807) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (88807) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (89837) UART2: uart[2] event:[0m
+[0;32mI (89837) UART2: [UART DATA]: 44[0m
+[0;32mI (89837) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (89837) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (90867) UART2: uart[2] event:[0m
+[0;32mI (90867) UART2: [UART DATA]: 44[0m
+[0;32mI (90867) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (90877) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (91907) UART2: uart[2] event:[0m
+[0;32mI (91907) UART2: [UART DATA]: 44[0m
+[0;32mI (91907) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (91907) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (92937) UART2: uart[2] event:[0m
+[0;32mI (92937) UART2: [UART DATA]: 44[0m
+[0;32mI (92937) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (92937) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (93967) UART2: uart[2] event:[0m
+[0;32mI (93967) UART2: [UART DATA]: 44[0m
+[0;32mI (93967) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (93977) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (94997) UART2: uart[2] event:[0m
+[0;32mI (94997) UART2: [UART DATA]: 44[0m
+[0;32mI (94997) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (95007) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (96037) UART2: uart[2] event:[0m
+[0;32mI (96037) UART2: [UART DATA]: 44[0m
+[0;32mI (96037) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (96037) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (97067) UART2: uart[2] event:[0m
+[0;32mI (97067) UART2: [UART DATA]: 44[0m
+[0;32mI (97067) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (97067) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (98097) UART2: uart[2] event:[0m
+[0;32mI (98097) UART2: [UART DATA]: 44[0m
+[0;32mI (98097) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (98107) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (99127) UART2: uart[2] event:[0m
+[0;32mI (99127) UART2: [UART DATA]: 44[0m
+[0;32mI (99127) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (99137) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (100167) UART2: uart[2] event:[0m
+[0;32mI (100167) UART2: [UART DATA]: 44[0m
+[0;32mI (100167) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (100167) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (101197) UART2: uart[2] event:[0m
+[0;32mI (101197) UART2: [UART DATA]: 44[0m
+[0;32mI (101197) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (101197) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (102227) UART2: uart[2] event:[0m
+[0;32mI (102227) UART2: [UART DATA]: 44[0m
+[0;32mI (102227) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (102237) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (103267) UART2: uart[2] event:[0m
+[0;32mI (103267) UART2: [UART DATA]: 44[0m
+[0;32mI (103267) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (103267) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (104297) UART2: uart[2] event:[0m
+[0;32mI (104297) UART2: [UART DATA]: 44[0m
+[0;32mI (104297) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (104297) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (105327) UART2: uart[2] event:[0m
+[0;32mI (105327) UART2: [UART DATA]: 44[0m
+[0;32mI (105327) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (105337) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (106357) UART2: uart[2] event:[0m
+[0;32mI (106357) UART2: [UART DATA]: 44[0m
+[0;32mI (106357) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (106367) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (107397) UART2: uart[2] event:[0m
+[0;32mI (107397) UART2: [UART DATA]: 44[0m
+[0;32mI (107397) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (107397) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (108427) UART2: uart[2] event:[0m
+[0;32mI (108427) UART2: [UART DATA]: 44[0m
+[0;32mI (108427) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (108427) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (109457) UART2: uart[2] event:[0m
+[0;32mI (109457) UART2: [UART DATA]: 44[0m
+[0;32mI (109457) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (109467) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (110487) UART2: uart[2] event:[0m
+[0;32mI (110487) UART2: [UART DATA]: 44[0m
+[0;32mI (110487) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (110497) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (111527) UART2: uart[2] event:[0m
+[0;32mI (111527) UART2: [UART DATA]: 44[0m
+[0;32mI (111527) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (111527) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (112557) UART2: uart[2] event:[0m
+[0;32mI (112557) UART2: [UART DATA]: 44[0m
+[0;32mI (112557) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (112557) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (113587) UART2: uart[2] event:[0m
+[0;32mI (113587) UART2: [UART DATA]: 44[0m
+[0;32mI (113587) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (113597) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (114617) UART2: uart[2] event:[0m
+[0;32mI (114617) UART2: [UART DATA]: 44[0m
+[0;32mI (114617) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (114627) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (115657) UART2: uart[2] event:[0m
+[0;32mI (115657) UART2: [UART DATA]: 44[0m
+[0;32mI (115657) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (115657) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (116687) UART2: uart[2] event:[0m
+[0;32mI (116687) UART2: [UART DATA]: 44[0m
+[0;32mI (116687) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (116687) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (117717) UART2: uart[2] event:[0m
+[0;32mI (117717) UART2: [UART DATA]: 44[0m
+[0;32mI (117717) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (117727) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (118747) UART2: uart[2] event:[0m
+[0;32mI (118747) UART2: [UART DATA]: 44[0m
+[0;32mI (118757) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (118757) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (119787) UART2: uart[2] event:[0m
+[0;32mI (119787) UART2: [UART DATA]: 44[0m
+[0;32mI (119787) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (119787) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (120817) UART2: uart[2] event:[0m
+[0;32mI (120817) UART2: [UART DATA]: 44[0m
+[0;32mI (120817) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (120817) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (121847) UART2: uart[2] event:[0m
+[0;32mI (121847) UART2: [UART DATA]: 44[0m
+[0;32mI (121847) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (121857) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (122887) UART2: uart[2] event:[0m
+[0;32mI (122887) UART2: [UART DATA]: 44[0m
+[0;32mI (122887) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (122887) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (123917) UART2: uart[2] event:[0m
+[0;32mI (123917) UART2: [UART DATA]: 44[0m
+[0;32mI (123917) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (123917) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (124947) UART2: uart[2] event:[0m
+[0;32mI (124947) UART2: [UART DATA]: 44[0m
+[0;32mI (124947) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (124957) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (125987) UART2: uart[2] event:[0m
+[0;32mI (125987) UART2: [UART DATA]: 44[0m
+[0;32mI (125987) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (125987) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (127017) UART2: uart[2] event:[0m
+[0;32mI (127017) UART2: [UART DATA]: 44[0m
+[0;32mI (127017) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (127017) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (128047) UART2: uart[2] event:[0m
+[0;32mI (128047) UART2: [UART DATA]: 44[0m
+[0;32mI (128047) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (128057) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (129087) UART2: uart[2] event:[0m
+[0;32mI (129087) UART2: [UART DATA]: 44[0m
+[0;32mI (129087) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (129087) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (130117) UART2: uart[2] event:[0m
+[0;32mI (130117) UART2: [UART DATA]: 44[0m
+[0;32mI (130117) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (130117) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (131147) UART2: uart[2] event:[0m
+[0;32mI (131147) UART2: [UART DATA]: 44[0m
+[0;32mI (131147) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (131157) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (132187) UART2: uart[2] event:[0m
+[0;32mI (132187) UART2: [UART DATA]: 44[0m
+[0;32mI (132187) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (132187) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (133217) UART2: uart[2] event:[0m
+[0;32mI (133217) UART2: [UART DATA]: 44[0m
+[0;32mI (133217) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (133217) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (134247) UART2: uart[2] event:[0m
+[0;32mI (134247) UART2: [UART DATA]: 44[0m
+[0;32mI (134247) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (134257) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (135277) UART2: uart[2] event:[0m
+[0;32mI (135277) UART2: [UART DATA]: 44[0m
+[0;32mI (135277) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (135287) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (136317) UART2: uart[2] event:[0m
+[0;32mI (136317) UART2: [UART DATA]: 44[0m
+[0;32mI (136317) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (136317) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (137347) UART2: uart[2] event:[0m
+[0;32mI (137347) UART2: [UART DATA]: 44[0m
+[0;32mI (137347) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (137347) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (138377) UART2: uart[2] event:[0m
+[0;32mI (138377) UART2: [UART DATA]: 44[0m
+[0;32mI (138377) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (138387) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (139417) UART2: uart[2] event:[0m
+[0;32mI (139417) UART2: [UART DATA]: 44[0m
+[0;32mI (139417) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (139417) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (140447) UART2: uart[2] event:[0m
+[0;32mI (140447) UART2: [UART DATA]: 44[0m
+[0;32mI (140447) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (140447) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (141477) UART2: uart[2] event:[0m
+[0;32mI (141477) UART2: [UART DATA]: 44[0m
+[0;32mI (141477) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (141487) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (142517) UART2: uart[2] event:[0m
+[0;32mI (142517) UART2: [UART DATA]: 44[0m
+[0;32mI (142517) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (142517) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (143547) UART2: uart[2] event:[0m
+[0;32mI (143547) UART2: [UART DATA]: 44[0m
+[0;32mI (143547) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (143547) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (144577) UART2: uart[2] event:[0m
+[0;32mI (144577) UART2: [UART DATA]: 44[0m
+[0;32mI (144577) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (144587) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (145607) UART2: uart[2] event:[0m
+[0;32mI (145607) UART2: [UART DATA]: 44[0m
+[0;32mI (145607) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (145617) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (146647) UART2: uart[2] event:[0m
+[0;32mI (146647) UART2: [UART DATA]: 44[0m
+[0;32mI (146647) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (146647) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (147677) UART2: uart[2] event:[0m
+[0;32mI (147677) UART2: [UART DATA]: 44[0m
+[0;32mI (147677) UART2: tem:27.700001 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (147677) GATT_SERVER: Notify data: T=277 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (148707) UART2: uart[2] event:[0m
+[0;32mI (148707) UART2: [UART DATA]: 44[0m
+[0;32mI (148707) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (148717) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (149747) UART2: uart[2] event:[0m
+[0;32mI (149747) UART2: [UART DATA]: 44[0m
+[0;32mI (149747) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (149747) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (150777) UART2: uart[2] event:[0m
+[0;32mI (150777) UART2: [UART DATA]: 44[0m
+[0;32mI (150777) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (150777) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (151807) UART2: uart[2] event:[0m
+[0;32mI (151807) UART2: [UART DATA]: 44[0m
+[0;32mI (151807) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (151817) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (152837) UART2: uart[2] event:[0m
+[0;32mI (152837) UART2: [UART DATA]: 44[0m
+[0;32mI (152847) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (152847) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m
+[0;32mI (153877) UART2: uart[2] event:[0m
+[0;32mI (153877) UART2: [UART DATA]: 44[0m
+[0;32mI (153877) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (153877) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (154907) UART2: uart[2] event:[0m
+[0;32mI (154907) UART2: [UART DATA]: 44[0m
+[0;32mI (154907) UART2: tem:27.799999 hum:77.900002 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (154907) GATT_SERVER: Notify data: T=278 H=779 CO2=0 mode=0 state=0[0m
+[0;32mI (155937) UART2: uart[2] event:[0m
+[0;32mI (155937) UART2: [UART DATA]: 44[0m
+[0;32mI (155937) UART2: tem:27.799999 hum:77.800003 mq2:0 mod:0 state:0 ht:01[0m
+[0;32mI (155947) GATT_SERVER: Notify data: T=278 H=778 CO2=0 mode=0 state=0[0m

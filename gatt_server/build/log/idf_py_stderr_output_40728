@@ -1,0 +1,27 @@
+[0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM8 instead...[0m
+[0;33m--- idf_monitor on \\.\COM8 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081490: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0;33m0x40081b3a: panic_abort at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/panic.c:452
+[0m
+[0;33m0x40091cb1: esp_system_abort at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/esp_system_chip.c:84
+[0m
+[0;33m0x400977b5: __assert_func at D:/Espressif/frameworks/esp-idf-v5.1.1/components/newlib/assert.c:81
+[0m
+[0;33m0x40094ef9: xEventGroupSetBits at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/event_groups.c:559 (discriminator 1)
+[0m
+[0;33m0x401286a1: uart_handle_event at D:/Espressif/workspace/gatt_server/components/uart_handle/uart_handle.c:60
+[0m
+[0;33m0x400d78d7: notify_task at D:/Espressif/workspace/gatt_server/main/gatts_demo.c:297
+[0m
+[0;33m0x40094551: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.1.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081490: call_start_cpu1 at D:/Espressif/frameworks/esp-idf-v5.1.1/components/esp_system/port/cpu_start.c:154
+[0m
+[0m

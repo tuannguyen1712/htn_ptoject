@@ -1,0 +1,115 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\workspace\ESP_Gateway\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/Espressif/workspace/ESP_Gateway/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from D:/Espressif/workspace/ESP_Gateway/main/main.c:4:
+D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:175:18: warning: 'firebase_post_example' defined but not used [-Wunused-function]
+  175 | static esp_err_t firebase_post_example(void)
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+D:/Espressif/workspace/ESP_Gateway/components/Libs_FireBase/include/Libs_FireBase.h:60:13: warning: 'wifi_init_sta' defined but not used [-Wunused-function]
+   60 | static void wifi_init_sta(void)
+      |             ^~~~~~~~~~~~~
+[3/8] Linking C static library esp-idf\main\libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable main.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.7.dev1
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated D:/Espressif/workspace/ESP_Gateway/build/main.bin
+[7/8] cmd.exe /C "cd /D D:\Espressif\workspace\ESP_Gateway\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.1.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/workspace/ESP_Gateway/build/partition_table/partition-table.bin D:/Espressif/workspace/ESP_Gateway/build/main.bin"
+main.bin binary size 0x195ba0 bytes. Smallest app partition is 0x200000 bytes. 0x6a460 bytes (21%) free.
+[7/8] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.1.1\components\esptool_py && D:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=D:/Espressif/frameworks/esp-idf-v5.1.1 -D SERIAL_TOOL=D:/Espressif/python_env/idf5.1_py3.11_env/Scripts/python.exe;;D:/Espressif/frameworks/esp-idf-v5.1.1/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/Espressif/workspace/ESP_Gateway/build -P D:/Espressif/frameworks/esp-idf-v5.1.1/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM4 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x10000 main.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.dev1
+Serial port COM4
+Connecting...........
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: fc:b4:67:f5:ed:80
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x001a5fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26640 bytes to 16692...
+Writing at 0x00001000... (50 %)
+Writing at 0x0000768d... (100 %)
+Wrote 26640 bytes (16692 compressed) at 0x00001000 in 0.9 seconds (effective 239.2 kbit/s)...
+Hash of data verified.
+Compressed 1661856 bytes to 976639...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001d6a0... (3 %)
+Writing at 0x0002a180... (5 %)
+Writing at 0x000357ea... (6 %)
+Writing at 0x000564b8... (8 %)
+Writing at 0x0005b09f... (10 %)
+Writing at 0x00060304... (11 %)
+Writing at 0x00065980... (13 %)
+Writing at 0x00071ee1... (15 %)
+Writing at 0x00077bc8... (16 %)
+Writing at 0x0007e14d... (18 %)
+Writing at 0x0008b979... (20 %)
+Writing at 0x00091cf1... (21 %)
+Writing at 0x00097780... (23 %)
+Writing at 0x0009d4c1... (25 %)
+Writing at 0x000a2bd5... (26 %)
+Writing at 0x000a8326... (28 %)
+Writing at 0x000ade64... (30 %)
+Writing at 0x000b3566... (31 %)
+Writing at 0x000b9c33... (33 %)
+Writing at 0x000bfa3a... (35 %)
+Writing at 0x000c5b52... (36 %)
+Writing at 0x000cb9b2... (38 %)
+Writing at 0x000d1908... (40 %)
+Writing at 0x000d74c6... (41 %)
+Writing at 0x000dd482... (43 %)
+Writing at 0x000e3187... (45 %)
+Writing at 0x000e943a... (46 %)
+Writing at 0x000ef298... (48 %)
+Writing at 0x000f4daa... (50 %)
+Writing at 0x000fa3a5... (51 %)
+Writing at 0x000ffccb... (53 %)
+Writing at 0x001055ef... (55 %)
+Writing at 0x0010afac... (56 %)
+Writing at 0x00110fa7... (58 %)
+Writing at 0x0011685b... (60 %)
+Writing at 0x0011c32e... (61 %)
+Writing at 0x001220ac... (63 %)
+Writing at 0x00127d21... (65 %)
+Writing at 0x0012d563... (66 %)
+Writing at 0x00132890... (68 %)
+Writing at 0x00137c94... (70 %)
+Writing at 0x0013d20d... (71 %)
+Writing at 0x0014251e... (73 %)
+Writing at 0x00147b93... (75 %)
+Writing at 0x0014d418... (76 %)
+Writing at 0x00153035... (78 %)
+Writing at 0x001586e6... (80 %)
+Writing at 0x0015e07a... (81 %)
+Writing at 0x00164421... (83 %)
+Writing at 0x00169e72... (85 %)
+Writing at 0x0016f415... (86 %)
+Writing at 0x00176bb9... (88 %)
+Writing at 0x0017e6eb... (90 %)
+Writing at 0x00185f0c... (91 %)
+Writing at 0x0018be5e... (93 %)
+Writing at 0x001915d5... (95 %)
+Writing at 0x00197385... (96 %)
+Writing at 0x0019cf26... (98 %)
+Writing at 0x001a23c8... (100 %)
+Wrote 1661856 bytes (976639 compressed) at 0x00010000 in 23.3 seconds (effective 569.8 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 104...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (104 compressed) at 0x00008000 in 0.1 seconds (effective 286.0 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
