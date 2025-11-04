@@ -1,7 +1,7 @@
 # =========================
 # Python
 # =========================
-__pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
@@ -27,7 +27,7 @@ ENV/
 # =========================
 # ESP-IDF / Firmware build
 # =========================
-build/
+**/build/
 sdkconfig
 sdkconfig.old
 *.bin
