@@ -36,8 +36,9 @@ extern "C" {
 #define WIFI_EVENT_BIT                      BIT0
 #define HTTP_EVENT_BIT                      BIT1
 #define FIREBASE_EVENT_BIT                  BIT2
-#define MQTT_CONNECTED_EVENT_BIT            BIT3
-#define MQTT_RECEIVE_DATA_EVENT_BIT         BIT4
+
+#define DATA_COMMING_EVENT_BIT              BIT3
+#define MODE_CHECK_EVENT_BIT                BIT4
 
 #define NVS_WIFI_NAMESPACE          (char*) "CAM"
 #define NVS_WIFI_SSID               (char*) "CAM_SSID"
