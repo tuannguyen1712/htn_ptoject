@@ -185,12 +185,11 @@ void Send_Data() {
 
 void Misting_Control(void) {
 	if (forcing_status == DEVICE_FORCING_STATUS_OFF) {
-		uint8_t target_humidity_threshold = current_hum_threshold;
 		if (current_mode == DEVICE_MODE_AUTO) {
-			target_humidity_threshold = Calculate_Suitable_Humidity(tem);
+			current_hum_threshold = Calculate_Suitable_Humidity(tem);
 		}
 		if ((int) hum != DHT_ERROR_VAL) {
-			if (hum < target_humidity_threshold) {
+			if (hum < current_hum_threshold) {
 				Misting_Control_ON();
 			} else {
 				Misting_Control_OFF();
@@ -258,7 +257,9 @@ void Handle_Command() {
 	if (uart_rx_buf_cnt == UART_RECV_COMMAND_LENGTH && strncmp((char*) uart_rx_buf, "c:", 2) == 0) {
 		current_mode = uart_rx_buf[2];
 		sampling_interval = (uint32_t)((((uint32_t)uart_rx_buf[3]) << 8) | (uint32_t)uart_rx_buf[4]) * 1000;
-		current_hum_threshold = uart_rx_buf[5];
+		if (current_mode == DEVICE_MODE_MANUAL) {
+			current_hum_threshold = uart_rx_buf[5];
+		}
 		Measure_And_Control();
 	}
 	Clear_Uart_RxBuffer();

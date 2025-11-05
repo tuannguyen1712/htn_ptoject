@@ -5,24 +5,25 @@ import pandas as pd
 from typing import Optional, Dict, Any
 import datetime
 from config import *
+from typing import Optional, Dict, Any
 
 def build_url(path: str) -> str:
     return f"{FIREBASE_URL}{path}.json?auth={FIREBASE_AUTH_TOKEN}"
 
-def get_device_data(device_id: str) -> Optional[Dict[str, Any]]:
-    url = build_url(f"{FIREBASE_PATH_DATA}/{device_id}")
+""" Fetch data of a specific date (format "YYYY:MM:DD") from Firebase for given device. """
+def get_device_data(device_id: str, date_str: str) -> Optional[Dict[str, Any]]:
+    url = build_url(f"{FIREBASE_PATH_DATA}/{device_id}/{date_str}")
     try:
         resp = requests.get(url, timeout=8)
         if resp.status_code == 200:
             return resp.json()
-    except Exception:
-        print("Error fetching device data from Firebase.")
+        else:
+            print(f"Error: HTTP {resp.status_code} from Firebase.")
+    except Exception as e:
+        print(f"Error fetching data from Firebase: {e}")
     return None
 
-"""
-Write control object to Firebase under /sensor/control/<device_id>.
-Example: {"mode": "auto", "target_humidity": 60}
-"""
+""" Write control object to Firebase under /sensor/control/<device_id>. """
 def write_control_to_device(device_id: str, control_payload: Dict[str, Any]) -> bool:
     url = build_url(f"{FIREBASE_PATH_CONTROL}/{device_id}")
     try:
@@ -31,74 +32,69 @@ def write_control_to_device(device_id: str, control_payload: Dict[str, Any]) -> 
     except Exception:
         return False
 
+import pandas as pd
+
 """
-Fetch time series data from Firebase for a given device ID.
-Data format in Firebase:
-{
-    "20251103160639": {
-        "CO2": 448,
-        "HumThres": 50,
-        "Humi": 83.19,
-        "Mode": 0,
-        "State": 0,
-        "Temp": 23.9,
-        "Timestamp": "2025:11:03:16:06:39"
-    }
-}
+Convert a day's Firebase data into a pandas DataFrame.
+
+Args:
+    device_id: "ESP32_ABC123"
+    date_str: folder name of date, format "YYYY:MM:DD"
+    limit: max number of records to return
 """
-def get_data_series_from_device(device_id: str, limit: int = 10000) -> pd.DataFrame:
-    data = get_device_data(device_id)
-    # print("avc")
+def get_data_series_from_device(device_id: str, date_str: str, limit: int = 10000) -> pd.DataFrame:
+    data = get_device_data(device_id, date_str)
     if not data or not isinstance(data, dict):
         return pd.DataFrame()
 
     rows = []
-    for key, val in data.items():
+    for time_key, val in data.items():
         if not isinstance(val, dict):
             continue
         ts_str = val.get("Timestamp")
         try:
-            # Convert "YYYY:MM:DD:HH:MM:SS" to standard timestamp
             timestamp = pd.to_datetime(ts_str, format="%Y:%m:%d:%H:%M:%S", errors="coerce")
         except Exception:
-            timestamp = ""
+            timestamp = pd.NaT
+
         rows.append({
             "timestamp": timestamp,
             "Temp": val.get("Temp", 0),
             "Humi": val.get("Humi", 0),
-            "CO2": val.get("CO2", 0)
+            "CO2": val.get("CO2", 0),
+            "Mode": val.get("Mode", None),
+            "State": val.get("State", None),
+            "HumThres": val.get("HumThres", None)
         })
 
     df = pd.DataFrame(rows)
     if df.empty:
         return df
-    return df.tail(limit).reset_index(drop=True)
-    
+
+    df = df.sort_values("timestamp").tail(limit).reset_index(drop=True)
+    return df
+
+""" Fetch sensor data from Firebase for a device between start_dt and end_dt. """
 def get_device_data_by_time(device_id: str, start_dt: datetime.datetime, end_dt: datetime.datetime) -> pd.DataFrame:
-    """
-    Fetch sensor data from Firebase for a device between start_dt and end_dt.
-    Returns a DataFrame filtered by timestamp range.
-    """
-    # Get all data for device
-    df = get_data_series_from_device(device_id)
-    if df.empty or "timestamp" not in df.columns:
+
+    date_cursor = start_dt.date()
+    all_rows = []
+
+    while date_cursor <= end_dt.date():
+        date_key = date_cursor.strftime("%Y:%m:%d")
+        df_day = get_data_series_from_device(device_id, date_key)
+        if not df_day.empty:
+            all_rows.append(df_day)
+        date_cursor += datetime.timedelta(days=1)
+
+    if not all_rows:
+        print("No data found in requested range.")
         return pd.DataFrame()
 
-    for data in df["timestamp"]:
-        print(f"Data timestamp: {data}")
-    # Parse timestamp column with known format
-    try:
-        df["timestamp"] = pd.to_datetime(df["timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
-    except Exception:
-        # fallback if format mismatch
-        df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
-
-    # Remove invalid timestamps
+    df = pd.concat(all_rows, ignore_index=True)
     df = df.dropna(subset=["timestamp"])
 
-    # Filter by selected time range
     mask = (df["timestamp"] >= start_dt) & (df["timestamp"] <= end_dt)
-    filtered_df = df.loc[mask].reset_index(drop=True)
-
-    print(f"Filtered data from {start_dt} to {end_dt}, {len(filtered_df)} records found.")
+    filtered_df = df.loc[mask].sort_values("timestamp").reset_index(drop=True)
+    print(f"Fetched {len(filtered_df)} records from {start_dt} to {end_dt}")
     return filtered_df

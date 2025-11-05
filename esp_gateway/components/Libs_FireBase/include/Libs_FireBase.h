@@ -235,11 +235,12 @@ static esp_err_t firebase_post_example(const char *device_id, float temp, float 
 }
 
 // -------------------- Firebase: PUT (ghi đè vào key cố định) --------------------
-esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, 
-                                int hum_thres, uint8_t *time_stamp, uint8_t *time_path)
+esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state,
+                                int hum_thres, uint8_t *time_stamp, uint8_t *date_path, uint8_t *time_node)
 {
     char path[256];
-    snprintf(path, sizeof(path), "%s/%s/%s", FIREBASE_PATH_DATA, device_id, (const char*)time_path);
+    snprintf(path, sizeof(path), "%s/%s/%s/%s",
+             FIREBASE_PATH_DATA, device_id, (const char*)date_path, (const char*)time_node);
 
     char url[256];
     build_url(url, sizeof(url), path);
@@ -363,8 +364,7 @@ void Libs_FireBaseInit()
     sntp_sync_time_test();
 }
 
-/* time format yyyy:mm:dd:hh:mm:ss */
-void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *time_path) 
+void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *date_path, uint8_t *time_node)
 {
     time(&now);
     setenv("TZ", "CST-7", 1);
@@ -372,10 +372,21 @@ void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *time_path)
     localtime_r(&now, &timeinfo);
     timeinfo.tm_year += 1900;
     timeinfo.tm_mon += 1;
-    sprintf((char *)time_buf, "%04d:%02d:%02d:%02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-    sprintf((char *)time_path, "%04d%02d%02d%02d%02d%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-    ESP_LOGI("SNTP", "Current time in Vietnam: %d:%02d:%02d %02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    // Full timestamp for logging
+    sprintf((char *)time_buf, "%04d:%02d:%02d:%02d:%02d:%02d",
+            timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+            timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    // Directory per day
+    sprintf((char *)date_path, "%04d:%02d:%02d",
+            timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday);
+
+    // Node per second
+    sprintf((char *)time_node, "%02d:%02d:%02d",
+            timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    ESP_LOGI("SNTP", "Current time in Vietnam: %d-%02d-%02d %02d:%02d:%02d",
+             timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+             timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }

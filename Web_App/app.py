@@ -89,7 +89,6 @@ in_time_range_select_mode = False
     State("end-date", "date"),
     State("end-time", "value"),
 )
-
 def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, start_time, end_date, end_time):
     global in_time_range_select_mode
     ctx = callback_context
@@ -106,12 +105,14 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
 
     # --- Back to Realtime Mode ---
     elif triggered_id == "back-btn":
-        df = get_data_series_from_device(DEFAULT_DEVICE_ID, limit=50)
+        today = datetime.date.today().strftime("%Y:%m:%d")
+        df = get_data_series_from_device(DEFAULT_DEVICE_ID, today, limit=50)
         in_time_range_select_mode = False
 
     # --- Realtime auto-update ---
     elif triggered_id == "refresh-interval" and not in_time_range_select_mode:
-        df = get_data_series_from_device(DEFAULT_DEVICE_ID, limit=15)
+        today = datetime.date.today().strftime("%Y:%m:%d")
+        df = get_data_series_from_device(DEFAULT_DEVICE_ID, today, limit=50)
     else:
         return no_update, no_update, no_update, no_update, no_update, no_update
 
@@ -122,15 +123,15 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
         return empty_fig, empty_fig, empty_fig, "N/A", "N/A", "N/A"
 
     # --- Build plots ---
-    fig_temp = px.line(df, x="timestamp", y="Temp", markers=True)
+    fig_temp = px.scatter(df, x="timestamp", y="Temp")
     fig_temp.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
                            xaxis_title="Time", yaxis_title="Temperature (°C)")
 
-    fig_humi = px.line(df, x="timestamp", y="Humi", markers=True)
+    fig_humi = px.scatter(df, x="timestamp", y="Humi")
     fig_humi.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
                            xaxis_title="Time", yaxis_title="Humidity (%)")
 
-    fig_co2 = px.line(df, x="timestamp", y="CO2", markers=True)
+    fig_co2 = px.scatter(df, x="timestamp", y="CO2")
     fig_co2.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
                            xaxis_title="Time", yaxis_title="CO₂ (ppm)")
 
