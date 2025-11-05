@@ -393,7 +393,7 @@ static void discover_and_subscribe_slot(int idx)
 /* =========================================================
  *                     GLOBAL FUNCTION
  * ========================================================= */
-void gateway_set_state(int server_idx, uint16_t state)
+void gateway_set_sampling_interval(int server_idx, uint16_t sampling_interval)
 {
     if (server_idx < 0 || server_idx >= MAX_PEERS) return;
     if (!peers[server_idx].connected || !peers[server_idx].h_led_val) {
@@ -402,8 +402,8 @@ void gateway_set_state(int server_idx, uint16_t state)
     }
     if (peers[server_idx].connected && peers[server_idx].h_led_val) {
         esp_ble_gattc_write_char(gattc_if_global, peers[server_idx].conn_id, peers[server_idx].h_led_val,
-                                 2, (uint8_t*)&state, ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
-        ESP_LOGI("DEBUG2", "state = %d", state);
+                                 2, (uint8_t*)&sampling_interval, ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
+        ESP_LOGI("DEBUG2", "sampling interval = %d", sampling_interval);
     }
 }
 

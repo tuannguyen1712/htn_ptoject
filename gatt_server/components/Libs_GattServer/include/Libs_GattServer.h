@@ -68,16 +68,16 @@ enum {
 
 
 /* --- LED Service --- */
-#define LED_SERVICE_UUID   0xB000
-#define LED_STATE_UUID     0xB001
-#define LED_MODE_UUID      0xB002
-#define LED_HUM_UUID       0xB003
+#define LED_SERVICE_UUID                0xB000
+#define LED_SAMPLING_INTERVAL_UUID      0xB001
+#define LED_MODE_UUID                   0xB002
+#define LED_HUM_UUID                    0xB003
 
 enum {
     LED_IDX_SVC = 0,
     
-    LED_IDX_CHAR_STATE,
-    LED_IDX_CHAR_STATE_VAL,
+    LED_IDX_CHAR_SAMPLING_INTERVAL,
+    LED_IDX_CHAR_SAMPLING_INTERVAL_VAL,
 
     LED_IDX_CHAR_MODE,
     LED_IDX_CHAR_MODE_VAL,
@@ -102,4 +102,4 @@ void Libs_GattServerNotify(uint16_t init_temp_x10, uint16_t init_humi_x10,
                             uint16_t init_co2_ppm, uint16_t init_mode, 
                             uint16_t init_state, uint16_t init_hum_threshold);
 void Libs_GattServerInit(void);
-void Libs_GattServerGetData(uint16_t *state, uint16_t *mode, uint16_t *hum_threshold);
+void Libs_GattServerGetData(uint16_t *sampling_interval, uint16_t *mode, uint16_t *hum_threshold);

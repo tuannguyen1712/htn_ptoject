@@ -1,0 +1,3 @@
+../Core/Src/Libs_Dht22.c:15:20:Dht22_Gpio_Setmode	40	static
+../Core/Src/Libs_Dht22.c:31:6:Dht22_Init	8	static
+../Core/Src/Libs_Dht22.c:36:6:Dht22_GetValue	48	static

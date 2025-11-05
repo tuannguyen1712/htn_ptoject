@@ -65,7 +65,7 @@ typedef struct {
 
 /* ==== Global function ==== */
 void Libs_BLEGattClient_init(void);
-void gateway_set_state(int server_idx, uint16_t state);
+void gateway_set_sampling_interval(int server_idx, uint16_t sampling_interval);
 void gateway_set_mode(int server_idx, uint8_t on);
 void gateway_set_humth(int server_idx, uint8_t on);
 void Libs_BLEGattClientGetValue(uint16_t idx, uint16_t *temp, uint16_t *humi, uint16_t *co2, uint16_t *mode, uint16_t *state, uint16_t *hum_thres);

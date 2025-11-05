@@ -235,12 +235,12 @@ static esp_err_t firebase_post_example(const char *device_id, float temp, float 
 }
 
 // -------------------- Firebase: PUT (ghi đè vào key cố định) --------------------
-// ví dụ đặt key theo device_id
-esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, 
-                                int hum_thres, uint8_t *time_stamp, uint8_t *time_path)
+esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state,
+                                int hum_thres, uint8_t *time_stamp, uint8_t *date_path, uint8_t *time_node)
 {
     char path[256];
-    snprintf(path, sizeof(path), "%s/%s/%s", FIREBASE_PATH_DATA, device_id, (const char*)time_path);
+    snprintf(path, sizeof(path), "%s/%s/%s/%s",
+             FIREBASE_PATH_DATA, device_id, (const char*)date_path, (const char*)time_node);
 
     char url[256];
     build_url(url, sizeof(url), path);
@@ -287,7 +287,7 @@ esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int
 }
 
 // -------------------- Firebase: GET + parse JSON --------------------
-esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_state, uint16_t *device_mode, uint16_t *device_hum_thres)
+esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_sampling_interval, uint16_t *device_mode, uint16_t *device_hum_thres)
 {
     char url[256];
     build_url(url, sizeof(url), FIREBASE_PATH_CONTROL);
@@ -322,23 +322,23 @@ esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_state, 
                     cJSON_ArrayForEach(it, root) {
                         if (cJSON_IsObject(it)) {
                             cJSON *mode = cJSON_GetObjectItem(it, "mode");
-                            cJSON *state = cJSON_GetObjectItem(it, "state");
+                            cJSON *sampling_interval = cJSON_GetObjectItem(it, "sampling_interval");
                             cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "Item '%s' -> mode=%g", it->string, mode->valuedouble);
-                            if (state) ESP_LOGI(TAG, "Item '%s' -> state=%g", it->string, state->valuedouble);
+                            if (sampling_interval) ESP_LOGI(TAG, "Item '%s' -> sampling_interval=%g", it->string, sampling_interval->valuedouble);
                             if (hum_t) ESP_LOGI(TAG, "Item '%s' -> hum_t=%g", it->string, hum_t->valuedouble);
-                            *device_state = state ? state->valuedouble : 0;
+                            *device_sampling_interval = sampling_interval ? sampling_interval->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
                             *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                         } else {
                             // nếu GET path là key cố định (PUT), root chính là object
                             cJSON *mode = cJSON_GetObjectItem(root, "mode");
-                            cJSON *state = cJSON_GetObjectItem(root, "state");
+                            cJSON *sampling_interval = cJSON_GetObjectItem(root, "sampling_interval");
                             cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "mode=%g", mode->valuedouble);
-                            if (state) ESP_LOGI(TAG, "state=%g", state->valuedouble);
+                            if (sampling_interval) ESP_LOGI(TAG, "sampling_interval=%g", sampling_interval->valuedouble);
                             if (hum_t) ESP_LOGI(TAG, "hum_t=%g", hum_t->valuedouble);
-                            *device_state = state ? state->valuedouble : 0;
+                            *device_sampling_interval = sampling_interval ? sampling_interval->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
                             *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                             break;
@@ -364,8 +364,7 @@ void Libs_FireBaseInit()
     sntp_sync_time_test();
 }
 
-/* time format yyyy:mm:dd:hh:mm:ss */
-void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *time_path) 
+void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *date_path, uint8_t *time_node)
 {
     time(&now);
     setenv("TZ", "CST-7", 1);
@@ -373,10 +372,21 @@ void Libs_FireBaseGetTime(uint8_t *time_buf, uint8_t *time_path)
     localtime_r(&now, &timeinfo);
     timeinfo.tm_year += 1900;
     timeinfo.tm_mon += 1;
-    sprintf((char *)time_buf, "%04d:%02d:%02d:%02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-    sprintf((char *)time_path, "%04d%02d%02d%02d%02d%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-    ESP_LOGI("SNTP", "Current time in Vietnam: %d:%02d:%02d %02d:%02d:%02d", timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
-                                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    // Full timestamp for logging
+    sprintf((char *)time_buf, "%04d:%02d:%02d:%02d:%02d:%02d",
+            timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+            timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    // Directory per day
+    sprintf((char *)date_path, "%04d:%02d:%02d",
+            timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday);
+
+    // Node per second
+    sprintf((char *)time_node, "%02d:%02d:%02d",
+            timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+
+    ESP_LOGI("SNTP", "Current time in Vietnam: %d-%02d-%02d %02d:%02d:%02d",
+             timeinfo.tm_year, timeinfo.tm_mon, timeinfo.tm_mday,
+             timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
