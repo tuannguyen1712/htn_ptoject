@@ -111,7 +111,7 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
 
     # --- Realtime auto-update ---
     elif triggered_id == "refresh-interval" and not in_time_range_select_mode:
-        df = get_data_series_from_device(DEFAULT_DEVICE_ID, limit=50)
+        df = get_data_series_from_device(DEFAULT_DEVICE_ID, limit=15)
     else:
         return no_update, no_update, no_update, no_update, no_update, no_update
 

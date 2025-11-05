@@ -1,3 +1,4 @@
+"./Core/Src/Libs_Dht22.o"
 "./Core/Src/Libs_Mq135.o"
 "./Core/Src/Libs_Ssd1306.o"
 "./Core/Src/app.o"

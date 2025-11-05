@@ -1,4 +1,4 @@
-Core/Src/app.o: ../Core/Src/app.c \
+Core/Src/Libs_Dht22.o: ../Core/Src/Libs_Dht22.c ../Core/Inc/Libs_Dht22.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -31,10 +31,8 @@ Core/Src/app.o: ../Core/Src/app.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/Libs_Dht22.h ../Core/Inc/app.h ../Core/Inc/Libs_I2c.h \
- ../Core/Inc/Wrappers_I2c.h ../Core/Inc/Libs_Ssd1306.h \
- ../Core/Inc/Libs_Mq135.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+../Core/Inc/Libs_Dht22.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -68,9 +66,3 @@ Core/Src/app.o: ../Core/Src/app.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Core/Inc/Libs_Dht22.h:
-../Core/Inc/app.h:
-../Core/Inc/Libs_I2c.h:
-../Core/Inc/Wrappers_I2c.h:
-../Core/Inc/Libs_Ssd1306.h:
-../Core/Inc/Libs_Mq135.h:
