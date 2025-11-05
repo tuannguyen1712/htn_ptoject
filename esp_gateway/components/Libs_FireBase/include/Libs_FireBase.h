@@ -235,7 +235,6 @@ static esp_err_t firebase_post_example(const char *device_id, float temp, float 
 }
 
 // -------------------- Firebase: PUT (ghi đè vào key cố định) --------------------
-// ví dụ đặt key theo device_id
 esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, 
                                 int hum_thres, uint8_t *time_stamp, uint8_t *time_path)
 {
@@ -287,7 +286,7 @@ esp_err_t firebase_put_example(const char *device_id, float temp, float hum, int
 }
 
 // -------------------- Firebase: GET + parse JSON --------------------
-esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_state, uint16_t *device_mode, uint16_t *device_hum_thres)
+esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_sampling_interval, uint16_t *device_mode, uint16_t *device_hum_thres)
 {
     char url[256];
     build_url(url, sizeof(url), FIREBASE_PATH_CONTROL);
@@ -322,23 +321,23 @@ esp_err_t firebase_get_and_parse(const char *device_id, uint16_t *device_state, 
                     cJSON_ArrayForEach(it, root) {
                         if (cJSON_IsObject(it)) {
                             cJSON *mode = cJSON_GetObjectItem(it, "mode");
-                            cJSON *state = cJSON_GetObjectItem(it, "state");
+                            cJSON *sampling_interval = cJSON_GetObjectItem(it, "sampling_interval");
                             cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "Item '%s' -> mode=%g", it->string, mode->valuedouble);
-                            if (state) ESP_LOGI(TAG, "Item '%s' -> state=%g", it->string, state->valuedouble);
+                            if (sampling_interval) ESP_LOGI(TAG, "Item '%s' -> sampling_interval=%g", it->string, sampling_interval->valuedouble);
                             if (hum_t) ESP_LOGI(TAG, "Item '%s' -> hum_t=%g", it->string, hum_t->valuedouble);
-                            *device_state = state ? state->valuedouble : 0;
+                            *device_sampling_interval = sampling_interval ? sampling_interval->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
                             *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                         } else {
                             // nếu GET path là key cố định (PUT), root chính là object
                             cJSON *mode = cJSON_GetObjectItem(root, "mode");
-                            cJSON *state = cJSON_GetObjectItem(root, "state");
+                            cJSON *sampling_interval = cJSON_GetObjectItem(root, "sampling_interval");
                             cJSON *hum_t = cJSON_GetObjectItem(it, "humi_thres");
                             if (mode) ESP_LOGI(TAG, "mode=%g", mode->valuedouble);
-                            if (state) ESP_LOGI(TAG, "state=%g", state->valuedouble);
+                            if (sampling_interval) ESP_LOGI(TAG, "sampling_interval=%g", sampling_interval->valuedouble);
                             if (hum_t) ESP_LOGI(TAG, "hum_t=%g", hum_t->valuedouble);
-                            *device_state = state ? state->valuedouble : 0;
+                            *device_sampling_interval = sampling_interval ? sampling_interval->valuedouble : 0;
                             *device_mode  = mode  ? mode->valuedouble  : 0;
                             *device_hum_thres  = hum_t  ? hum_t->valuedouble  : 0;
                             break;

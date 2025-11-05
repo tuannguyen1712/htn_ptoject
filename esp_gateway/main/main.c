@@ -16,7 +16,8 @@ void WebServer_setNvsData(uint8_t *ssid, uint8_t *pass, uint16_t port);
 void GetControlDataFromFirebase();
 
 uint16_t mode, state, temp, humi, co2, hum_thres;
-uint16_t ctrl_mode, ctrl_state, ctrl_hum_thres;
+uint16_t ctrl_mode, ctrl_sampling_interval, ctrl_hum_thres;
+uint16_t current_sampling_interval;
 uint8_t time_stamp[20], time_path[20];
 
 void app_main(void)
@@ -54,14 +55,15 @@ void app_main(void)
 void GetControlDataFromFirebase() {
     for(;;)
     {
-        firebase_get_and_parse("ESP32_ABC123", &ctrl_state, &ctrl_mode, &ctrl_hum_thres);
-        ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", ctrl_state, ctrl_mode, ctrl_hum_thres);
-        ESP_LOGI("DEBUG1", "state = %d", ctrl_state);
-        if (ctrl_state != state || ctrl_mode != mode || ctrl_hum_thres != hum_thres) { 
-            gateway_set_state(0, ctrl_state);
+        firebase_get_and_parse("ESP32_ABC123", &ctrl_sampling_interval, &ctrl_mode, &ctrl_hum_thres);
+        ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", ctrl_sampling_interval, ctrl_mode, ctrl_hum_thres);
+        ESP_LOGI("DEBUG1", "state = %d", ctrl_sampling_interval);
+        if (ctrl_sampling_interval != current_sampling_interval || ctrl_mode != mode || ctrl_hum_thres != hum_thres) { 
+            current_sampling_interval = ctrl_sampling_interval;
+            gateway_set_sampling_interval(0, ctrl_sampling_interval);
             gateway_set_mode(0, ctrl_mode);
             gateway_set_humth(0, ctrl_hum_thres);
-            ESP_LOGI(TAG, "Parsed from Firebase: state=%d, mode=%d", ctrl_state, ctrl_mode);
+            ESP_LOGI(TAG, "Parsed from Firebase: state=%d, mode=%d", ctrl_sampling_interval, ctrl_mode);
         }
         vTaskDelay(pdMS_TO_TICKS(5000));
     }

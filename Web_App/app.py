@@ -52,11 +52,11 @@ def send_control(n, setpoint, interval, mode):
     
     payload = {
         "mode": mode,
-        "state": interval,
+        "sampling_interval": interval,
         "humi_thres": setpoint
     }
     ok = write_control_to_device(DEFAULT_DEVICE_ID, payload)
-    return f"(Sent) Mode: {payload['mode']} Sampling Interval: {payload['state']} Huminity Threshold {payload['humi_thres']}" \
+    return f"(Sent) Mode: {payload['mode']} Sampling Interval: {payload['sampling_interval']} Huminity Threshold {payload['humi_thres']}" \
             if ok else "Failed to send control."
 
 """ Callback for sending WiFi configuration to device """

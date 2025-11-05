@@ -81,13 +81,13 @@ void notify_task(void *arg)
 void SendData_task(void *arg) 
 {
     uint16_t led_mode;
-    uint16_t led_state;
+    uint16_t led_sampling_interval;
     uint16_t led_hum_threshold;
     for(;;) {
         xEventGroupWaitBits(EventGroupHandle, BLE_RECEIVE_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
         ESP_LOGI(TAG, "BLE receive event");
-        Libs_GattServerGetData(&led_state, &led_mode, &led_hum_threshold);
-        uart_SendData(led_mode, led_state, led_hum_threshold);
+        Libs_GattServerGetData(&led_sampling_interval, &led_mode, &led_hum_threshold);
+        uart_SendData(led_mode, led_sampling_interval, led_hum_threshold);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

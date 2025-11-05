@@ -210,7 +210,7 @@ static const esp_gatts_attr_db_t gatt_db_sensor[SENSOR_IDX_NB] = {
 };
 
 static uint16_t led_handle_table[LED_IDX_NB];
-static uint16_t  led_state = 0;
+static uint16_t  led_sampling_interval = 10;
 static uint8_t  led_mode  = 0;
 static uint8_t  led_hum_threshold = 0;
 
@@ -220,15 +220,15 @@ static const esp_gatts_attr_db_t gatt_db_led[LED_IDX_NB] = {
         {ESP_UUID_LEN_16, (uint8_t*)&UUID_PRIMARY_SERVICE, ESP_GATT_PERM_READ,
          sizeof(uint16_t), sizeof(uint16_t), (uint8_t*)&(uint16_t){LED_SERVICE_UUID}}
     },
-    [LED_IDX_CHAR_STATE] = {
+    [LED_IDX_CHAR_SAMPLING_INTERVAL] = {
         {ESP_GATT_AUTO_RSP},
         {ESP_UUID_LEN_16, (uint8_t*)&UUID_CHAR_DECLARE, ESP_GATT_PERM_READ,
          sizeof(uint8_t), sizeof(uint8_t), (uint8_t*)&PROP_READ_WRITE}
     },
-    [LED_IDX_CHAR_STATE_VAL] = {
+    [LED_IDX_CHAR_SAMPLING_INTERVAL_VAL] = {
         {ESP_GATT_AUTO_RSP},
-        {ESP_UUID_LEN_16, (uint8_t*)&(uint16_t){LED_STATE_UUID}, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-         sizeof(led_state), sizeof(led_state), (uint8_t*)&led_state}
+        {ESP_UUID_LEN_16, (uint8_t*)&(uint16_t){LED_SAMPLING_INTERVAL_UUID}, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+         sizeof(led_sampling_interval), sizeof(led_sampling_interval), (uint8_t*)&led_sampling_interval}
     },
     [LED_IDX_CHAR_MODE] = {
         {ESP_GATT_AUTO_RSP},
@@ -406,8 +406,8 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event,
             esp_ble_gatts_start_service(led_handle_table[LED_IDX_SVC]);
             ESP_LOGI(TAG, "LED handles:");
             ESP_LOGI(TAG, "  SVC        : 0x%04X", led_handle_table[LED_IDX_SVC]);
-            ESP_LOGI(TAG, "  CHAR_DECL  : 0x%04X", led_handle_table[LED_IDX_CHAR_STATE]);
-            ESP_LOGI(TAG, "  CHAR_VALUE : 0x%04X", led_handle_table[LED_IDX_CHAR_STATE_VAL]);
+            ESP_LOGI(TAG, "  CHAR_DECL  : 0x%04X", led_handle_table[LED_IDX_CHAR_SAMPLING_INTERVAL]);
+            ESP_LOGI(TAG, "  CHAR_VALUE : 0x%04X", led_handle_table[LED_IDX_CHAR_SAMPLING_INTERVAL_VAL]);
             ESP_LOGI(TAG, "  CHAR_DECL  : 0x%04X", led_handle_table[LED_IDX_CHAR_MODE]);
             ESP_LOGI(TAG, "  CHAR_VALUE : 0x%04X", led_handle_table[LED_IDX_CHAR_MODE_VAL]);
             ESP_LOGI(TAG, "  CHAR_DECL  : 0x%04X", led_handle_table[LED_IDX_CHAR_HUM]);
@@ -422,9 +422,9 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event,
         break;
 
     case ESP_GATTS_WRITE_EVT:
-        if (param->write.handle == led_handle_table[LED_IDX_CHAR_STATE_VAL] && param->write.len >= 1) {
-            led_state = (param->write.value[1] << 8) | param->write.value[0];
-            ESP_LOGI(TAG, "LED STATE -> %d", led_state);
+        if (param->write.handle == led_handle_table[LED_IDX_CHAR_SAMPLING_INTERVAL_VAL] && param->write.len >= 1) {
+            led_sampling_interval = (param->write.value[1] << 8) | param->write.value[0];
+            ESP_LOGI(TAG, "LED SAMPLING INTERVAL -> %d", led_sampling_interval);
         }
         else if (param->write.handle == led_handle_table[LED_IDX_CHAR_MODE_VAL] && param->write.len >= 1) {
             led_mode = param->write.value[0] ? 1 : 0;
@@ -549,9 +549,9 @@ void Libs_GattServerNotify(uint16_t init_temp_x10, uint16_t init_humi_x10, uint1
     }
 }
 
-void Libs_GattServerGetData(uint16_t *state, uint16_t *mode, uint16_t *hum_threshold)
+void Libs_GattServerGetData(uint16_t *sampling_interval, uint16_t *mode, uint16_t *hum_threshold)
 {
-    *state = led_state;
+    *sampling_interval = led_sampling_interval;
     *mode  = led_mode;
     *hum_threshold = led_hum_threshold;
 }
