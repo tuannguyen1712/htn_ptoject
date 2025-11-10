@@ -16,8 +16,10 @@ void WebServer_setNvsData(uint8_t *ssid, uint8_t *pass, uint16_t port);
 void GetControlDataFromFirebase();
 
 uint16_t mode, state, temp, humi, co2, hum_thres;
-uint16_t ctrl_mode, ctrl_sampling_interval, ctrl_hum_thres;
+uint16_t new_webapp_mode, new_webapp_sampling_interval, new_webapp_threshold;
 uint16_t current_sampling_interval;
+uint16_t curent_mode;
+uint16_t current_threshold;
 uint8_t time_buf[32], date_path[32], time_node[32];
 
 void app_main(void)
@@ -48,22 +50,61 @@ void app_main(void)
         Libs_BLEGattClientGetValue(0, &temp, &humi, &co2, &mode, &state, &hum_thres);
         ESP_LOGI(TAG, "Sensor: temp=%d.%dC, humi=%d.%d%%, co2=%dppm, mode=%d, state=%d", temp/10, temp%10, humi/10, humi%10, co2, mode, state);
         Libs_FireBaseGetTime(time_buf, date_path, time_node);
-        firebase_put_example("ESP32_ABC123", temp/10.0, humi/10.0, co2, mode, state, hum_thres, time_buf, date_path, time_node);
+        firebase_put_node_data("ESP32_ABC123", temp/10.0, humi/10.0, co2, mode, state, hum_thres, time_buf, date_path, time_node);
     }
 }
 
+void UpdateManualControlToFirebase() {
+    firebase_put_control_data("ESP32_ABC123", mode, hum_thres, current_sampling_interval, last_data_comming_timestamp);
+    curent_mode = mode;
+    current_threshold = hum_thres;
+}
+
+void ApplyControlFromWebapp() {
+    current_sampling_interval = new_webapp_sampling_interval;
+    curent_mode = new_webapp_mode;
+    current_threshold = new_webapp_threshold;
+    
+    /* Set BLE data */
+    gateway_set_sampling_interval(0, new_webapp_sampling_interval);
+    gateway_set_mode(0, new_webapp_mode);
+    gateway_set_humth(0, new_webapp_threshold);
+    ESP_LOGI(TAG, "Send to node from Firebase: interval=%d, mode=%d, threshold=%d", new_webapp_sampling_interval, new_webapp_mode, new_webapp_threshold);
+}
+
 void GetControlDataFromFirebase() {
+    time_t firebase_control_timestamp;
+    firebase_get_and_parse("ESP32_ABC123", &new_webapp_sampling_interval, &new_webapp_mode, &new_webapp_threshold, &firebase_control_timestamp);
+    ApplyControlFromWebapp();
+    xEventGroupWaitBits(xEventGroup, DATA_COMMING_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
     for(;;)
     {
-        firebase_get_and_parse("ESP32_ABC123", &ctrl_sampling_interval, &ctrl_mode, &ctrl_hum_thres);
-        ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", ctrl_sampling_interval, ctrl_mode, ctrl_hum_thres);
-        ESP_LOGI("DEBUG1", "state = %d", ctrl_sampling_interval);
-        if (ctrl_sampling_interval != current_sampling_interval || ctrl_mode != mode || ctrl_hum_thres != hum_thres) { 
-            current_sampling_interval = ctrl_sampling_interval;
-            gateway_set_sampling_interval(0, ctrl_sampling_interval);
-            gateway_set_mode(0, ctrl_mode);
-            gateway_set_humth(0, ctrl_hum_thres);
-            ESP_LOGI(TAG, "Parsed from Firebase: state=%d, mode=%d", ctrl_sampling_interval, ctrl_mode);
+        firebase_get_and_parse("ESP32_ABC123", &new_webapp_sampling_interval, &new_webapp_mode, &new_webapp_threshold, &firebase_control_timestamp);
+        ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", new_webapp_sampling_interval, new_webapp_mode, new_webapp_threshold);
+
+        uint8_t is_new_control_from_webapp = 0;
+        uint8_t is_new_control_from_physical_button = 0;
+
+        if ((new_webapp_sampling_interval != current_sampling_interval) || 
+            (new_webapp_mode != curent_mode) ||
+            (new_webapp_threshold != current_threshold)) {
+                is_new_control_from_webapp = 1;
+        }
+
+        if ((mode != curent_mode) || (hum_thres != current_threshold)) {
+            is_new_control_from_physical_button = 1;
+        }
+
+        if ((is_new_control_from_webapp == 1) && (is_new_control_from_physical_button == 0)) {
+            ApplyControlFromWebapp();
+        } else if ((is_new_control_from_webapp == 0) && (is_new_control_from_physical_button == 1)) {
+            UpdateManualControlToFirebase();
+        } else if ((is_new_control_from_webapp == 1) && (is_new_control_from_physical_button == 1)) {
+            if (last_data_comming_timestamp > firebase_control_timestamp) {
+                UpdateManualControlToFirebase();
+            } else {
+                ApplyControlFromWebapp();
+            }
         }
         vTaskDelay(pdMS_TO_TICKS(5000));
     }

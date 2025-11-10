@@ -14,13 +14,13 @@
 #include "esp_gap_ble_api.h"
 #include "esp_gattc_api.h"
 #include "esp_gatt_common_api.h"
+#include <time.h>
+#include <sys/time.h>
 
+#define TARGET_NAME          "ESP32_Device"
+#define MAX_PEERS            5
 
-/* ==== THÔNG TIN NODE SERVER ==== */
-#define TARGET_NAME          "ESP32_Device"      // tên quảng cáo server
-#define MAX_PEERS            5                    // Số server kết nối đồng thời
-
-/* ==== UUID khớp với server ==== */
+/* ==== UUID ==== */
 #define SENSOR_SVC_UUID16       0xA000
 #define TEMP_CHAR_UUID16        0xA001
 #define HUMI_CHAR_UUID16        0xA002
@@ -36,7 +36,8 @@
 #define HUM_THRES_CHAR_UUID16   0xB003
 #define CCCD_UUID16             0x2902
 
-/* ==== TRẠNG THÁI/STRUCT CHO MỖI SERVER ==== */
+extern time_t last_data_comming_timestamp;
+
 typedef struct {
     bool in_use;
     bool connected;

@@ -24,6 +24,7 @@ static esp_gatt_if_t gattc_if_global = ESP_GATT_IF_NONE;
 
 static device_data_t devices_data[MAX_PEERS];
 
+time_t last_data_comming_timestamp;
 /* ==== UTILS ==== */
 static inline esp_bt_uuid_t UUID16(uint16_t u) {
     esp_bt_uuid_t x = { .len = ESP_UUID_LEN_16, .uuid = { .uuid16 = u } };
@@ -224,7 +225,8 @@ static void gattc_cb(esp_gattc_cb_event_t e, esp_gatt_if_t gattc_if, esp_ble_gat
             uint16_t ht; memcpy(&ht, p->notify.value, 2);
             ESP_LOGI(TAG, "[%d] Hum threshold = %u C", idx, ht);
             sensors[idx].hum_thres = ht;
-
+            
+            time(&last_data_comming_timestamp);
             xEventGroupSetBits(xEventGroup, DATA_COMMING_EVENT_BIT);
             ESP_LOGI(TAG, "[%d] >>> All sensor data received, ready to upload", idx);
         }

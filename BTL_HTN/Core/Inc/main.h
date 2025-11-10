@@ -62,8 +62,20 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define RELAY_Pin GPIO_PIN_13
 #define RELAY_GPIO_Port GPIOC
+#define SET_AUTO_MODE_Pin GPIO_PIN_7
+#define SET_AUTO_MODE_GPIO_Port GPIOA
+#define SET_AUTO_MODE_EXTI_IRQn EXTI9_5_IRQn
+#define MANUAL_DOWN_Pin GPIO_PIN_0
+#define MANUAL_DOWN_GPIO_Port GPIOB
+#define MANUAL_DOWN_EXTI_IRQn EXTI0_IRQn
+#define MANUAL_UP_Pin GPIO_PIN_1
+#define MANUAL_UP_GPIO_Port GPIOB
+#define MANUAL_UP_EXTI_IRQn EXTI1_IRQn
 #define DHT_Pin GPIO_PIN_2
 #define DHT_GPIO_Port GPIOB
+#define ON_OFF_MANUAL_Pin GPIO_PIN_10
+#define ON_OFF_MANUAL_GPIO_Port GPIOB
+#define ON_OFF_MANUAL_EXTI_IRQn EXTI15_10_IRQn
 
 /* USER CODE BEGIN Private defines */
 

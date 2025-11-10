@@ -3,6 +3,7 @@ from dash import Input, Output, State, callback_context, no_update
 import plotly.express as px
 import datetime
 import warnings
+import time
 
 """ Internal module imports """
 from firebase_utils import *
@@ -48,15 +49,17 @@ def toggle_mode(n_clicks):
     prevent_initial_call=True
 )
 def send_control(n, setpoint, interval, mode):
+    timestamp = int(time.time())
     mode = 1 if "AUTO" in mode else 0
     
     payload = {
         "mode": mode,
         "sampling_interval": interval,
-        "humi_thres": setpoint
+        "humidity_threshold": setpoint,
+        "timestamp": timestamp
     }
     ok = write_control_to_device(DEFAULT_DEVICE_ID, payload)
-    return f"(Sent) Mode: {payload['mode']} Sampling Interval: {payload['sampling_interval']} Huminity Threshold {payload['humi_thres']}" \
+    return f"(Sent) Mode: {payload['mode']} Sampling Interval: {payload['sampling_interval']} Huminity Threshold {payload['humidity_threshold']}" \
             if ok else "Failed to send control."
 
 """ Callback for sending WiFi configuration to device """
