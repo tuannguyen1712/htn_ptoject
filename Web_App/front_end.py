@@ -14,12 +14,12 @@ dbc.Card([
         dbc.Row([
             dbc.Col([
                 html.Label("Target (%)", className="text-light small"),
-                dbc.Input(id="humidity-setpoint", type="number", min=30, max=90, step=1, value=70, size="sm"),
+                dbc.Input(id="humidity-setpoint", type="number", min=30, max=90, step=1, value=55, size="sm"),
             ], md=4),
             dbc.Col([
                 html.Label("Sampling Interval", className="text-light small"),
                 # dbc.Button("ON", id="state-btn", color="success", className="w-100 btn-sm")
-                dbc.Input(id="sampling-interval", type="number", min=1, max=255, step=1, value=5, size="sm"),
+                dbc.Input(id="sampling-interval", type="number", min=5, max=65535, step=1, value=5, size="sm"),
             ], md=4),
             dbc.Col([
                 html.Label("Mode", className="text-light small"),

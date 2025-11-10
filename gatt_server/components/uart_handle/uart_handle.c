@@ -35,12 +35,18 @@ static void uart_handle_event()
                 case UART_DATA:
                     uart_read_bytes(UART_NUM_2, dtmp, event.size, portMAX_DELAY);
                     ESP_LOGI("UART2", "[UART DATA]: %d", event.size);
-
-                    sscanf((char*) dtmp,
-                            "tem:%f hum:%f mq2:%u mod:%u state:%u ht:%02u",
-                            &tem, &hum, &adc_val, &device_mode, &device_state, &device_hum_threshold);
-                    ESP_LOGI("UART2", "tem:%1f hum:%f mq2:%u mod:%u state:%u ht:%02u", tem, hum, adc_val, device_mode, device_state, device_hum_threshold);
-                    xEventGroupSetBits(EventGroupHandle, UART_EVENT_BIT);
+                    ESP_LOGI("UART2", "[UART DATA]: %.*s", event.size, dtmp);
+                    if (strncmp((char*)dtmp, "s:", 2) == 0) {
+                        // Sync request from MCU
+                        ESP_LOGI("UART2", "Sync request received from MCU");
+                        xEventGroupSetBits(EventGroupHandle, UART_SYNC_EVENT_BIT);
+                    } else {
+                        sscanf((char*) dtmp,
+                                "tem:%f hum:%f mq2:%u mod:%u state:%u ht:%02u",
+                                &tem, &hum, &adc_val, &device_mode, &device_state, &device_hum_threshold);
+                        ESP_LOGI("UART2", "tem:%1f hum:%f mq2:%u mod:%u state:%u ht:%02u", tem, hum, adc_val, device_mode, device_state, device_hum_threshold);
+                        xEventGroupSetBits(EventGroupHandle, UART_EVENT_BIT);
+                    }
                     break;
                 //Event of HW FIFO overflow detected
                 case UART_FIFO_OVF:
@@ -108,16 +114,16 @@ void uart_GetData(int16_t *tempx10, int16_t *humix10, uint16_t *co2, uint16_t *m
     *hum_threshold = (uint16_t) device_hum_threshold;
 }
 
-void uart_SendData(uint16_t mode, uint16_t state, uint16_t hum_threshold)
+void uart_SendData(uint16_t mode, uint16_t sampling_interval, uint16_t hum_threshold)
 {
     uint8_t tx_data[6];
     tx_data[0] = 'c';
     tx_data[1] = ':';
     tx_data[2] = (uint8_t)(mode);
-    tx_data[3] = (uint8_t)(state >> 8);
-    tx_data[4] = (uint8_t)(state & 0xFF);
+    tx_data[3] = (uint8_t)(sampling_interval >> 8);
+    tx_data[4] = (uint8_t)(sampling_interval & 0xFF);
     tx_data[5] = (uint8_t)(hum_threshold);
     uart_write_bytes(UART_NUM_2, (const char*) tx_data, 6);
-    ESP_LOGI("UART2", "state = %d", state);
+    ESP_LOGI("UART2", "state = %d", sampling_interval);
     ESP_LOG_BUFFER_HEX("UART2", tx_data, 6);
 }

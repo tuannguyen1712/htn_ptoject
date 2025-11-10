@@ -12,19 +12,22 @@
 #define UART_RECV_LENGTH_MAX 			10
 #define UART_TRANS_LENGTH_MAX			256
 
-#define TOUTCH_SENSOR_PIN				GPIO_PIN_10
-#define TOUTCH_SENSOR_PORT				GPIOB
+#define ON_OFF_MANUAL_PIN				GPIO_PIN_10
+#define ON_OFF_MANUAL_PORT				GPIOB
+#define MANUAL_HUMIDITY_UP_PIN			GPIO_PIN_1
+#define MANUAL_HUMIDITY_DOWN_PIN		GPIO_PIN_0		
+#define SET_AUTO_MODE_PIN				GPIO_PIN_7	
 #define RELAY_PIN						GPIO_PIN_13
 #define RELAY_PORT						GPIOC
 
 #define DEVICE_FORCING_STATUS_ON		1
 #define DEVICE_FORCING_STATUS_OFF		0
 #define MIST_STATE_ON					1
-#define MIST_STATE_OFF				0
+#define MIST_STATE_OFF					0
 #define DEVICE_MODE_AUTO				1
 #define DEVICE_MODE_MANUAL				0
 
-#define DEVICE_DEFAULT_HUMIDITY_THRESHOLD		70
+#define DEVICE_DEFAULT_HUMIDITY_THRESHOLD		55
 #define DEVICE_DEFAULT_FORCING_STATUS			DEVICE_FORCING_STATUS_OFF
 #define DEVICE_DEFAULT_MODE						DEVICE_MODE_AUTO
 
@@ -32,6 +35,12 @@
 
 #define MIST_ON_MAX_DURATION_MS   		10000
 #define MIST_MIN_OFF_INTERVAL_MS   		5000
+
+#define FIREBASE_SYNC_TIMEOUT			30000
+
+#define HUMIDITY_JUMP_THRESHOLD     	0.3f
+#define TEMP_JUMP_THRESHOLD     		0.2f
+#define CO2_JUMP_THRESHOLD				10
 
 extern UART_HandleTypeDef huart2;
 extern ADC_HandleTypeDef hadc1;
@@ -64,6 +73,9 @@ float hum = 0;
 uint32_t mist_on_start_time = 0;
 uint32_t mist_off_time = 0;
 
+/* Sync from firebase completed! */
+volatile uint8_t sync_complete = 0;
+
 /* Static function prototype */
 static inline void Mq135_GetCo2Ppm(float tem, float hum);
 static inline void Misting_Control_ON();
@@ -95,6 +107,18 @@ void Air_Monitor_Main() {
 	Libs_Ssd1306_UpdateScreen();
 	HAL_Delay(1000);
 	
+	Send_Firebase_Sync_Request();
+	HAL_Delay(300);
+	/* Wait until data sync from firebase, if timeout, use default value */
+	uint32_t sync_time = HAL_GetTick();
+	while (sync_complete == 0) {
+		if (HAL_GetTick() - sync_time > FIREBASE_SYNC_TIMEOUT) {
+			break;
+		}
+		HAL_Delay(2000);
+		Send_Firebase_Sync_Request();
+	}
+
 	HAL_TIM_Base_Start_IT(&htim4);
 	while (1) {
 		Update_Screen();
@@ -129,11 +153,9 @@ static inline void Misting_Control_ON(void) {
 }
 
 static inline void Misting_Control_OFF(void) {
-    if (current_state) {
-        HAL_GPIO_WritePin(RELAY_PORT, RELAY_PIN, GPIO_PIN_RESET);
-        current_state = MIST_STATE_OFF;
-        mist_off_time = HAL_GetTick();
-    }
+	HAL_GPIO_WritePin(RELAY_PORT, RELAY_PIN, GPIO_PIN_RESET);
+	current_state = MIST_STATE_OFF;
+	mist_off_time = HAL_GetTick();
 }
 
 static inline void Uart_Start_Check_Message_Timer() {
@@ -158,21 +180,57 @@ void Measure_And_Control(void) {
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	static uint32_t button_tick_ms;
+	static uint32_t on_off_manual_button_tick_ms = 0;
+	static uint32_t manual_humidity_up_button_tick_ms = 0;
+	static uint32_t manual_humidity_down_button_tick_ms = 0;
+	static uint32_t set_auto_mode_button_tick_ms = 0;
 	UNUSED(GPIO_Pin);
-	if (GPIO_Pin == TOUTCH_SENSOR_PIN) {
-		if (HAL_GetTick() - button_tick_ms >= 300) {
+	if (GPIO_Pin == ON_OFF_MANUAL_PIN) {
+		if (HAL_GetTick() - on_off_manual_button_tick_ms >= 200) {
 			if (forcing_status == DEVICE_FORCING_STATUS_OFF) {
 				forcing_status = DEVICE_FORCING_STATUS_ON;
-				Misting_Control_ON();
+				/* Turn on misting without any added logic */
+				HAL_GPIO_WritePin(RELAY_PORT, RELAY_PIN, GPIO_PIN_SET);
+				current_state = MIST_STATE_ON;
 			} else {
 				forcing_status = DEVICE_FORCING_STATUS_OFF;
 				Misting_Control_OFF();
-				Misting_Control();
 			}
-			button_tick_ms = HAL_GetTick();
+			on_off_manual_button_tick_ms = HAL_GetTick();
+		}
+	} else if (GPIO_Pin == MANUAL_HUMIDITY_UP_PIN) {
+		if (HAL_GetTick() - manual_humidity_up_button_tick_ms >= 200) {
+			current_mode = DEVICE_MODE_MANUAL;
+			current_hum_threshold += 1;
+			current_hum_threshold = current_hum_threshold > 30 ? current_hum_threshold : 30;
+			current_hum_threshold = current_hum_threshold < 90 ? current_hum_threshold : 90;
+			Misting_Control();
+			manual_humidity_up_button_tick_ms = HAL_GetTick();
+			Send_Data();
+		}
+	} else if (GPIO_Pin == MANUAL_HUMIDITY_DOWN_PIN) {
+		if (HAL_GetTick() - manual_humidity_down_button_tick_ms >= 200) {
+			current_mode = DEVICE_MODE_MANUAL;
+			current_hum_threshold -= 1;
+			current_hum_threshold = current_hum_threshold > 30 ? current_hum_threshold : 30;
+			current_hum_threshold = current_hum_threshold < 90 ? current_hum_threshold : 90;
+			Misting_Control();
+			manual_humidity_down_button_tick_ms = HAL_GetTick();
+			Send_Data();
+		}	
+	} else if (GPIO_Pin == SET_AUTO_MODE_PIN) {
+		if (HAL_GetTick() - set_auto_mode_button_tick_ms >= 200) {
+			current_mode = DEVICE_MODE_AUTO;
+			Misting_Control();
+			set_auto_mode_button_tick_ms = HAL_GetTick();
+			Send_Data();
 		}
 	}
+}
+
+void Send_Firebase_Sync_Request() {
+	uint8_t tx_data[2] = "s:";
+	HAL_UART_Transmit(&huart2, tx_data, 2, 200);
 }
 
 void Send_Data() {
@@ -245,8 +303,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		Handle_Command();
 	} else if (htim->Instance == TIM4) {
 		uint32_t cur_tick = HAL_GetTick();
+		float old_hum = hum;
+		float old_tem = tem;
+		uint32_t old_co2_ppm = co2_ppm;
 		Measure_And_Control();
-		if (cur_tick - last_data_sendtime_ms >= (sampling_interval - 100)) {
+		if ((cur_tick - last_data_sendtime_ms >= (sampling_interval - 100)) ||
+			(old_hum - hum >= HUMIDITY_JUMP_THRESHOLD) ||
+			(old_hum - hum <= -1.0*HUMIDITY_JUMP_THRESHOLD) ||
+			(old_tem - tem >= TEMP_JUMP_THRESHOLD) ||
+			(old_tem - tem <= -1.0*TEMP_JUMP_THRESHOLD) ||
+			(old_co2_ppm - co2_ppm >= CO2_JUMP_THRESHOLD) ||
+			(old_co2_ppm - co2_ppm <= -1.0*CO2_JUMP_THRESHOLD)) {
 			last_data_sendtime_ms = HAL_GetTick();
 			Send_Data();
 		}
@@ -259,6 +326,9 @@ void Handle_Command() {
 		sampling_interval = (uint32_t)((((uint32_t)uart_rx_buf[3]) << 8) | (uint32_t)uart_rx_buf[4]) * 1000;
 		if (current_mode == DEVICE_MODE_MANUAL) {
 			current_hum_threshold = uart_rx_buf[5];
+		}
+		if (sync_complete == 0) {
+			sync_complete = 1;
 		}
 		Measure_And_Control();
 	}
@@ -275,23 +345,23 @@ void Update_Screen() {
 	Libs_Ssd1306_Fill(SSD1306_BLACK);
 
 	sprintf(line, "tem:%2.1f hum:%3.1f", tem, hum);
-	Libs_Ssd1306_SetCursor(2, 0);
-	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
-
-	sprintf((char*) line, "co2:%4ld ppm", co2_ppm);
-	Libs_Ssd1306_SetCursor(2, 9);
-	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
-
-	sprintf((char*) line, "mode:%s", current_mode ? "auto" : "manual");
 	Libs_Ssd1306_SetCursor(2, 18);
 	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
 
-	sprintf((char*) line, "state:%s", current_state ? "on" : "off");
+	sprintf((char*) line, "co2:%4ld ppm", co2_ppm);
 	Libs_Ssd1306_SetCursor(2, 27);
 	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
 
-	sprintf((char*) line, "hum th:%d %%", current_hum_threshold);
+	sprintf((char*) line, "mode:%s", current_mode ? "auto" : "manual");
 	Libs_Ssd1306_SetCursor(2, 36);
+	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
+
+	sprintf((char*) line, "state:%s%s", current_state ? "on" : "off", forcing_status ? "(!forcing)" : "");
+	Libs_Ssd1306_SetCursor(2, 45);
+	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
+
+	sprintf((char*) line, "hum th:%d %%", current_hum_threshold);
+	Libs_Ssd1306_SetCursor(2, 54);
 	Libs_Ssd1306_WriteString(line, Font_6x8, SSD1306_WHITE);
 
 	Libs_Ssd1306_UpdateScreen();

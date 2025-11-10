@@ -71,9 +71,25 @@ void notify_task(void *arg)
     uint16_t init_hum_threshold;
     for(;;) 
     {
-        xEventGroupWaitBits(EventGroupHandle, UART_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
-        uart_GetData(&init_temp_x10, &init_humi_x10, &init_co2_ppm, &init_mode, &init_state, &init_hum_threshold);
-        Libs_GattServerNotify(init_temp_x10, init_humi_x10, init_co2_ppm, init_mode, init_state, init_hum_threshold);
+        EventBits_t bits = xEventGroupWaitBits(
+            EventGroupHandle,
+            UART_EVENT_BIT | UART_SYNC_EVENT_BIT,
+            pdTRUE,  // clear bits when receive
+            pdFALSE, // do not wait all bit
+            portMAX_DELAY
+        );
+
+        if(bits & UART_EVENT_BIT) {
+            uart_GetData(&init_temp_x10, &init_humi_x10, &init_co2_ppm,
+                         &init_mode, &init_state, &init_hum_threshold);
+            Libs_GattServerNotify(init_temp_x10, init_humi_x10, init_co2_ppm,
+                                  init_mode, init_state, init_hum_threshold);
+        }
+
+        if(bits & UART_SYNC_EVENT_BIT) {
+            Libs_GattServerNotifySync(); // notify Gateway about sync
+            ESP_LOGI("UART2", "Notify sync request");
+        }
     }
 }
 

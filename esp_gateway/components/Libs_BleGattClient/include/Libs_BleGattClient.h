@@ -14,13 +14,13 @@
 #include "esp_gap_ble_api.h"
 #include "esp_gattc_api.h"
 #include "esp_gatt_common_api.h"
+#include <time.h>
+#include <sys/time.h>
 
+#define TARGET_NAME          "ESP32_Device"
+#define MAX_PEERS            5
 
-/* ==== THÔNG TIN NODE SERVER ==== */
-#define TARGET_NAME          "ESP32_Device"      // tên quảng cáo server
-#define MAX_PEERS            5                    // Số server kết nối đồng thời
-
-/* ==== UUID khớp với server ==== */
+/* ==== UUID ==== */
 #define SENSOR_SVC_UUID16       0xA000
 #define TEMP_CHAR_UUID16        0xA001
 #define HUMI_CHAR_UUID16        0xA002
@@ -28,6 +28,7 @@
 #define DEVICE_MODE             0xA004
 #define DEVICE_STATE            0xA005
 #define DEVICE_HUM_THRES        0xA006
+#define LED_SYNC_REQUEST_UUID   0xA007
 
 
 #define LED_SVC_UUID16          0xB000         
@@ -36,7 +37,8 @@
 #define HUM_THRES_CHAR_UUID16   0xB003
 #define CCCD_UUID16             0x2902
 
-/* ==== TRẠNG THÁI/STRUCT CHO MỖI SERVER ==== */
+extern time_t last_data_comming_timestamp;
+
 typedef struct {
     bool in_use;
     bool connected;
@@ -52,6 +54,9 @@ typedef struct {
     uint16_t h_temp_val, h_humi_val, h_co2_val, h_state_val, h_mode_val, h_hum_thres_val;
     uint16_t h_temp_cccd, h_humi_cccd, h_co2_cccd, h_state_cccd, h_mode_cccd, h_hum_thres_cccd;
     uint16_t h_led_val, h_led_mode_val, h_led_hum_thres_val;
+    /* Sync */
+    uint16_t h_led_sync_val;
+    uint16_t h_led_sync_cccd;
 } peer_t;
 
 typedef struct {

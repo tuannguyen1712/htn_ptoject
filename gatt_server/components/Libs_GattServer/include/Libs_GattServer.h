@@ -35,6 +35,7 @@
 #define MODE_CHAR_UUID          0xA004
 #define STATE_CHAR_UUID         0xA005
 #define HUM_THRESHOLD_CHAR_UUID 0xA006
+#define LED_SYNC_REQUEST_UUID   0xA007
 
 enum {
     SENSOR_IDX_SVC = 0,
@@ -62,6 +63,10 @@ enum {
     SENSOR_IDX_CHAR_HUM_THRESHOLD,
     SENSOR_IDX_CHAR_HUM_THRESHOLD_VAL,
     SENSOR_IDX_CHAR_HUM_THRESHOLD_CCCD,
+
+    LED_IDX_CHAR_SYNC_REQUEST,
+    LED_IDX_CHAR_SYNC_REQUEST_VAL,
+    LED_IDX_CHAR_SYNC_REQUEST_CCCD,
 
     SENSOR_IDX_NB   // total number of indices
 };
@@ -98,6 +103,7 @@ typedef struct {
     uint16_t          *handle_table;    // points to attr handles array
 } gatts_profile_inst_t;
 
+void Libs_GattServerNotifySync(void);
 void Libs_GattServerNotify(uint16_t init_temp_x10, uint16_t init_humi_x10, 
                             uint16_t init_co2_ppm, uint16_t init_mode, 
                             uint16_t init_state, uint16_t init_hum_threshold);

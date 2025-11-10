@@ -24,6 +24,7 @@ static esp_gatt_if_t gattc_if_global = ESP_GATT_IF_NONE;
 
 static device_data_t devices_data[MAX_PEERS];
 
+time_t last_data_comming_timestamp;
 /* ==== UTILS ==== */
 static inline esp_bt_uuid_t UUID16(uint16_t u) {
     esp_bt_uuid_t x = { .len = ESP_UUID_LEN_16, .uuid = { .uuid16 = u } };
@@ -224,9 +225,14 @@ static void gattc_cb(esp_gattc_cb_event_t e, esp_gatt_if_t gattc_if, esp_ble_gat
             uint16_t ht; memcpy(&ht, p->notify.value, 2);
             ESP_LOGI(TAG, "[%d] Hum threshold = %u C", idx, ht);
             sensors[idx].hum_thres = ht;
-
+            
+            time(&last_data_comming_timestamp);
             xEventGroupSetBits(xEventGroup, DATA_COMMING_EVENT_BIT);
             ESP_LOGI(TAG, "[%d] >>> All sensor data received, ready to upload", idx);
+        }
+        else if (p->notify.handle == peers[idx].h_led_sync_val) {
+            ESP_LOGI(TAG, "[%d] Sync event received from server", idx);
+            xEventGroupSetBits(xEventGroup, SYNC_EVENT_BIT);
         }
         break;
     }
@@ -368,6 +374,21 @@ static void discover_and_subscribe_slot(int idx)
             if (peers[idx].h_hum_thres_cccd) {
                 esp_ble_gattc_write_char_descr(gattc_if_global, peers[idx].conn_id, peers[idx].h_hum_thres_cccd, 2, en,
                                                ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
+            }
+        }
+
+        // sync            
+        if (find_handles_for_char(gattc_if_global, peers[idx].conn_id,
+                                peers[idx].sensor_start, peers[idx].sensor_end,
+                                LED_SYNC_REQUEST_UUID, 
+                                &peers[idx].h_led_sync_val, 
+                                &peers[idx].h_led_sync_cccd)) 
+        {
+            esp_ble_gattc_register_for_notify(gattc_if_global, peers[idx].bda, peers[idx].h_led_sync_val);
+            if (peers[idx].h_led_sync_cccd) {
+                uint8_t en[2] = {0x01, 0x00};
+                esp_ble_gattc_write_char_descr(gattc_if_global, peers[idx].conn_id, peers[idx].h_led_sync_cccd, 2, en,
+                                            ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
             }
         }
     }
