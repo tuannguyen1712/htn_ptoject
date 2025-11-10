@@ -28,6 +28,7 @@
 #define DEVICE_MODE             0xA004
 #define DEVICE_STATE            0xA005
 #define DEVICE_HUM_THRES        0xA006
+#define LED_SYNC_REQUEST_UUID   0xA007
 
 
 #define LED_SVC_UUID16          0xB000         
@@ -53,6 +54,9 @@ typedef struct {
     uint16_t h_temp_val, h_humi_val, h_co2_val, h_state_val, h_mode_val, h_hum_thres_val;
     uint16_t h_temp_cccd, h_humi_cccd, h_co2_cccd, h_state_cccd, h_mode_cccd, h_hum_thres_cccd;
     uint16_t h_led_val, h_led_mode_val, h_led_hum_thres_val;
+    /* Sync */
+    uint16_t h_led_sync_val;
+    uint16_t h_led_sync_cccd;
 } peer_t;
 
 typedef struct {

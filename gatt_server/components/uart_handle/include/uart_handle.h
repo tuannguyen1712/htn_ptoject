@@ -18,8 +18,9 @@
 #define RD_BUF_SIZE (BUF_SIZE)
 
 #define UART_EVENT_BIT      BIT0
+#define UART_SYNC_EVENT_BIT BIT2
  
 // static void uart2_event_task(void *pvParameters);
 void uart2_init();
 void uart_GetData(int16_t *tempx10, int16_t *humix10, uint16_t *co2, uint16_t *mode, uint16_t *state, uint16_t *hum_threshold);
-void uart_SendData(uint16_t mode, uint16_t state, uint16_t hum_threshold);
+void uart_SendData(uint16_t mode, uint16_t sampling_interval, uint16_t hum_threshold);

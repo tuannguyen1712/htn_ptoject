@@ -74,25 +74,44 @@ void ApplyControlFromWebapp() {
 
 void GetControlDataFromFirebase() {
     time_t firebase_control_timestamp;
+
+    /* Wait sync event */
+    ESP_LOGI(TAG, "Waiting initial SYNC_EVENT_BIT from nodes...");
+    EventBits_t bits = xEventGroupWaitBits(xEventGroup, SYNC_EVENT_BIT | DATA_COMMING_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
+
     firebase_get_and_parse("ESP32_ABC123", &new_webapp_sampling_interval, &new_webapp_mode, &new_webapp_threshold, &firebase_control_timestamp);
-    ApplyControlFromWebapp();
-    xEventGroupWaitBits(xEventGroup, DATA_COMMING_EVENT_BIT, pdTRUE, pdFALSE, portMAX_DELAY);
+    current_sampling_interval = new_webapp_sampling_interval;
+    curent_mode = new_webapp_mode;
+    current_threshold = new_webapp_threshold;
+    if (bits & SYNC_EVENT_BIT) {
+        /* Get data and send control from firebase */
+        ApplyControlFromWebapp();
+        ESP_LOGI(TAG, "Sync data is sent to gatt server...");
+    }
+
     for(;;)
-    {
+    {   
+        EventBits_t uxBits = xEventGroupWaitBits(xEventGroup, SYNC_EVENT_BIT, pdTRUE, pdFALSE, pdMS_TO_TICKS(5000));
         firebase_get_and_parse("ESP32_ABC123", &new_webapp_sampling_interval, &new_webapp_mode, &new_webapp_threshold, &firebase_control_timestamp);
         ESP_LOGI(TAG, "Control from Firebase: state=%d, mode=%d humt=%d", new_webapp_sampling_interval, new_webapp_mode, new_webapp_threshold);
 
         uint8_t is_new_control_from_webapp = 0;
         uint8_t is_new_control_from_physical_button = 0;
+        
+        if ((uxBits & SYNC_EVENT_BIT) != 0) {
+            ApplyControlFromWebapp();
+        }
 
         if ((new_webapp_sampling_interval != current_sampling_interval) || 
             (new_webapp_mode != curent_mode) ||
             (new_webapp_threshold != current_threshold)) {
                 is_new_control_from_webapp = 1;
+                ESP_LOGI(TAG, "New control from web app %lld", firebase_control_timestamp);
         }
 
         if ((mode != curent_mode) || (hum_thres != current_threshold)) {
             is_new_control_from_physical_button = 1;
+            ESP_LOGI(TAG, "New control from buttons %lld", last_data_comming_timestamp);
         }
 
         if ((is_new_control_from_webapp == 1) && (is_new_control_from_physical_button == 0)) {
@@ -102,6 +121,7 @@ void GetControlDataFromFirebase() {
         } else if ((is_new_control_from_webapp == 1) && (is_new_control_from_physical_button == 1)) {
             if (last_data_comming_timestamp > firebase_control_timestamp) {
                 UpdateManualControlToFirebase();
+                ESP_LOGI(TAG, "Control from button is after from webapp");
             } else {
                 ApplyControlFromWebapp();
             }

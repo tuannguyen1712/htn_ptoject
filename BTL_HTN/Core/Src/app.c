@@ -36,6 +36,12 @@
 #define MIST_ON_MAX_DURATION_MS   		10000
 #define MIST_MIN_OFF_INTERVAL_MS   		5000
 
+#define FIREBASE_SYNC_TIMEOUT			30000
+
+#define HUMIDITY_JUMP_THRESHOLD     	0.3f
+#define TEMP_JUMP_THRESHOLD     		0.2f
+#define CO2_JUMP_THRESHOLD				10
+
 extern UART_HandleTypeDef huart2;
 extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef htim2;
@@ -66,6 +72,9 @@ float hum = 0;
 /* Mist state control variable */
 uint32_t mist_on_start_time = 0;
 uint32_t mist_off_time = 0;
+
+/* Sync from firebase completed! */
+volatile uint8_t sync_complete = 0;
 
 /* Static function prototype */
 static inline void Mq135_GetCo2Ppm(float tem, float hum);
@@ -98,6 +107,18 @@ void Air_Monitor_Main() {
 	Libs_Ssd1306_UpdateScreen();
 	HAL_Delay(1000);
 	
+	Send_Firebase_Sync_Request();
+	HAL_Delay(300);
+	/* Wait until data sync from firebase, if timeout, use default value */
+	uint32_t sync_time = HAL_GetTick();
+	while (sync_complete == 0) {
+		if (HAL_GetTick() - sync_time > FIREBASE_SYNC_TIMEOUT) {
+			break;
+		}
+		HAL_Delay(2000);
+		Send_Firebase_Sync_Request();
+	}
+
 	HAL_TIM_Base_Start_IT(&htim4);
 	while (1) {
 		Update_Screen();
@@ -207,6 +228,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	}
 }
 
+void Send_Firebase_Sync_Request() {
+	uint8_t tx_data[2] = "s:";
+	HAL_UART_Transmit(&huart2, tx_data, 2, 200);
+}
+
 void Send_Data() {
 	if (tem != -1) {
 		sprintf((char*) uart_tx_buf, "tem:%.1f hum:%.1f mq2:%lu mod:%u state:%u ht:%02u\n", 
@@ -277,8 +303,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		Handle_Command();
 	} else if (htim->Instance == TIM4) {
 		uint32_t cur_tick = HAL_GetTick();
+		float old_hum = hum;
+		float old_tem = tem;
+		uint32_t old_co2_ppm = co2_ppm;
 		Measure_And_Control();
-		if (cur_tick - last_data_sendtime_ms >= (sampling_interval - 100)) {
+		if ((cur_tick - last_data_sendtime_ms >= (sampling_interval - 100)) ||
+			(old_hum - hum >= HUMIDITY_JUMP_THRESHOLD) ||
+			(old_hum - hum <= -1.0*HUMIDITY_JUMP_THRESHOLD) ||
+			(old_tem - tem >= TEMP_JUMP_THRESHOLD) ||
+			(old_tem - tem <= -1.0*TEMP_JUMP_THRESHOLD) ||
+			(old_co2_ppm - co2_ppm >= CO2_JUMP_THRESHOLD) ||
+			(old_co2_ppm - co2_ppm <= -1.0*CO2_JUMP_THRESHOLD)) {
 			last_data_sendtime_ms = HAL_GetTick();
 			Send_Data();
 		}
@@ -291,6 +326,9 @@ void Handle_Command() {
 		sampling_interval = (uint32_t)((((uint32_t)uart_rx_buf[3]) << 8) | (uint32_t)uart_rx_buf[4]) * 1000;
 		if (current_mode == DEVICE_MODE_MANUAL) {
 			current_hum_threshold = uart_rx_buf[5];
+		}
+		if (sync_complete == 0) {
+			sync_complete = 1;
 		}
 		Measure_And_Control();
 	}

@@ -83,6 +83,7 @@ static uint16_t init_co2_ppm  = 450;   // 450 ppm
 static uint16_t init_mode     = 0;     // mode maunual
 static uint16_t init_state    = 0;       // state off
 static uint16_t init_hum_threshold = 50; // 50 %RH
+static uint16_t init_sync      = 0;
 static uint16_t cccd_init     = 0x0000;
 
 static const esp_gatts_attr_db_t gatt_db_sensor[SENSOR_IDX_NB] = {
@@ -207,6 +208,23 @@ static const esp_gatts_attr_db_t gatt_db_sensor[SENSOR_IDX_NB] = {
          sizeof(uint16_t), sizeof(uint16_t), (uint8_t*)&cccd_init}
     },
 
+    [LED_IDX_CHAR_SYNC_REQUEST] = {
+        {ESP_GATT_AUTO_RSP},
+        {ESP_UUID_LEN_16, (uint8_t*)&UUID_CHAR_DECLARE, ESP_GATT_PERM_READ,
+        sizeof(uint8_t), sizeof(uint8_t), (uint8_t*)&PROP_READ_NOTIFY}  // notify
+    },
+
+    [LED_IDX_CHAR_SYNC_REQUEST_VAL] = {
+        {ESP_GATT_AUTO_RSP},
+        {ESP_UUID_LEN_16, (uint8_t*)&(uint16_t){LED_SYNC_REQUEST_UUID}, ESP_GATT_PERM_READ,
+        sizeof(init_sync), sizeof(init_sync), (uint8_t*)&init_sync}
+    },
+
+    [LED_IDX_CHAR_SYNC_REQUEST_CCCD] = {
+        {ESP_GATT_AUTO_RSP},
+        {ESP_UUID_LEN_16, (uint8_t*)&UUID_CCCD, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+        sizeof(uint16_t), sizeof(uint16_t), (uint8_t*)&cccd_init}
+    },
 };
 
 static uint16_t led_handle_table[LED_IDX_NB];
@@ -277,6 +295,7 @@ static bool notify_co2_en   = false;
 static bool notify_mode_en  = false;
 static bool notify_state_en = false;
 static bool notify_hum_threshold_en = false;
+static bool notify_sync_en = false;
 
 
 /************************************
@@ -346,7 +365,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event,
     case ESP_GATTS_DISCONNECT_EVT:
         ESP_LOGI(TAG, "A DISCONNECT");
         conn_a_valid = false;
-        notify_temp_en = notify_humi_en = notify_co2_en = notify_mode_en = notify_state_en = false;
+        notify_temp_en = notify_humi_en = notify_co2_en = notify_mode_en = notify_state_en = notify_sync_en = false;
         esp_ble_gap_start_advertising(&adv_params);
         break;
 
@@ -376,6 +395,10 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event,
         else if (handle == sensor_handle_table[SENSOR_IDX_CHAR_HUM_THRESHOLD_CCCD]) {
             notify_hum_threshold_en = enable;
             ESP_LOGI(TAG, "Device hum threshold notify %s", enable ? "EN" : "DIS");
+        }
+        else if (handle == sensor_handle_table[LED_IDX_CHAR_SYNC_REQUEST_CCCD]) {
+            notify_sync_en = enable;
+            ESP_LOGI(TAG, "Device sync notify %s", enable ? "EN" : "DIS");
         }
         
         break;
@@ -503,6 +526,22 @@ void Libs_GattServerInit(void)
     // Set profile callbacks after forward decls exist
     gl_profile_tab[PROFILE_A_APP_ID].gatts_cb = gatts_profile_a_event_handler;
     gl_profile_tab[PROFILE_B_APP_ID].gatts_cb = gatts_profile_b_event_handler;
+}
+
+void Libs_GattServerNotifySync(void) {
+    if (conn_a_valid) {
+        if (notify_sync_en) {
+            esp_ble_gatts_send_indicate(
+                gl_profile_tab[PROFILE_A_APP_ID].gatts_if,
+                conn_a_id,
+                sensor_handle_table[LED_IDX_CHAR_SYNC_REQUEST_VAL],
+                sizeof(init_sync),
+                (uint8_t*)&init_sync,
+                false
+            );
+            ESP_LOGI(TAG, "Sync notify sent");
+        }
+    }
 }
 
 void Libs_GattServerNotify(uint16_t init_temp_x10, uint16_t init_humi_x10, uint16_t init_co2_ppm, uint16_t init_mode, uint16_t init_state, uint16_t init_hum_threshold)

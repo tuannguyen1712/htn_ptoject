@@ -14,6 +14,7 @@
 
 void Misting_Control(void);
 void Send_Data(void);
+void Send_Firebase_Sync_Request(void);
 void Handle_Command(void);
 void Measure_And_Control(void);
 float Calculate_Suitable_Humidity(float temperature_c);

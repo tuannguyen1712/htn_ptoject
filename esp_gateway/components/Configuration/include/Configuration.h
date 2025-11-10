@@ -39,6 +39,7 @@ extern "C" {
 
 #define DATA_COMMING_EVENT_BIT              BIT3
 #define MODE_CHECK_EVENT_BIT                BIT4
+#define SYNC_EVENT_BIT                      BIT5
 
 #define NVS_WIFI_NAMESPACE          (char*) "CAM"
 #define NVS_WIFI_SSID               (char*) "CAM_SSID"

@@ -184,56 +184,6 @@ static void build_url(char *out, size_t out_sz, const char *path_no_json)
     }
 }
 
-// -------------------- Firebase: POST (tạo key tự sinh) --------------------
-static esp_err_t firebase_post_example(const char *device_id, float temp, float hum, int co2_ppm, int mode, int state, int hum_thres, uint8_t *time_stamp)
-{
-    char path[256];
-    snprintf(path, sizeof(path), "%s/%s", FIREBASE_PATH_DATA, device_id);
-
-    char url[256];
-    build_url(url, sizeof(url), path);
-
-    cJSON *root = cJSON_CreateObject();
-    cJSON_AddNumberToObject(root, "Temp", temp);
-    cJSON_AddNumberToObject(root, "Humi", hum);
-    cJSON_AddNumberToObject(root, "CO2", co2_ppm);
-    cJSON_AddNumberToObject(root, "Mode", mode);   // 0: auto, 1: manual
-    cJSON_AddNumberToObject(root, "State", state); // 0: off, 1: on
-    cJSON_AddNumberToObject(root, "HumThres", hum_thres);
-    cJSON_AddStringToObject(root, "Timestamp", (const char*)time_stamp);
-    char *post_data = cJSON_PrintUnformatted(root);
-
-    http_resp_buf_t acc = {.buf = NULL, .len = 0};
-
-    esp_http_client_config_t cfg = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .user_data = &acc,
-        .crt_bundle_attach = esp_crt_bundle_attach,
-        .timeout_ms = 10000,
-    };
-
-    esp_http_client_handle_t client = esp_http_client_init(&cfg);
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-
-    ESP_LOGI(TAG, "HTTP POST %s", url);
-    esp_err_t err = esp_http_client_perform(client);
-    if (err == ESP_OK) {
-        int code = esp_http_client_get_status_code(client);
-        ESP_LOGI(TAG, "POST status=%d, resp=%s", code, acc.buf ? acc.buf : "(null)");
-    } else {
-        ESP_LOGE(TAG, "POST failed: %s", esp_err_to_name(err));
-    }
-
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    free(acc.buf);
-    return err;
-}
-
 // -------------------- Firebase: PUT new data --------------------
 esp_err_t firebase_put_node_data(const char *device_id,
                                  float temp, float hum, int co2_ppm,
