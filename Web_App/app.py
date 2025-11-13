@@ -1,9 +1,26 @@
 from front_end import *
 from dash import Input, Output, State, callback_context, no_update
+from dash.exceptions import PreventUpdate
 import plotly.express as px
 import datetime
 import warnings
 import time
+import threading
+import json
+import requests
+from sseclient import SSEClient
+from firebase_utils import *
+
+new_data_available = False
+latest_control = {}
+new_control_available = False
+
+# global data for display
+fig_temp = px.line(title="No data")
+fig_humi = px.line(title="No data")
+fig_co2 = px.line(title="No data")
+latest = {}
+df = pd.DataFrame()
 
 """ Internal module imports """
 from firebase_utils import *
@@ -76,6 +93,28 @@ def send_wifi(n, ssid, password):
     ok, resp = send_wifi_config_to_device(ssid, password)
     return f"WiFi OK: {resp}" if ok else f"Failed: {resp}"
 
+def update_graph(df: pd.DataFrame):
+    # --- If no data ---
+    if df.empty:
+        empty_fig = px.line(title="No data available")
+        empty_fig.update_layout(template="plotly_dark")
+        return empty_fig, empty_fig, empty_fig
+
+    # --- Build plots ---
+    fig_temp = px.scatter(df, x="timestamp", y="Temp")
+    fig_temp.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
+                           xaxis_title="Time", yaxis_title="Temperature (°C)")
+
+    fig_humi = px.scatter(df, x="timestamp", y="Humi")
+    fig_humi.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
+                           xaxis_title="Time", yaxis_title="Humidity (%)")
+
+    fig_co2 = px.scatter(df, x="timestamp", y="CO2")
+    fig_co2.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
+                           xaxis_title="Time", yaxis_title="CO₂ (ppm)")
+    
+    return fig_temp, fig_humi, fig_co2
+
 in_time_range_select_mode = False
 @app.callback(
     Output("temp-graph", "figure"),
@@ -94,53 +133,106 @@ in_time_range_select_mode = False
 )
 def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, start_time, end_date, end_time):
     global in_time_range_select_mode
-    ctx = callback_context
-    triggered_id = ctx.triggered_id if ctx.triggered else None
+    global new_data_available
+    global fig_temp, fig_humi, fig_co2, df, latest
+
+    triggered_id = callback_context.triggered_id if callback_context.triggered else None
 
     # --- Filter Mode ---
     if triggered_id == "apply-btn":
-        if not (start_date and end_date):
-            return no_update, no_update, no_update, no_update, no_update, no_update
         start_dt = pd.to_datetime(f"{start_date} {start_time}")
         end_dt = pd.to_datetime(f"{end_date} {end_time}")
-        df = get_device_data_by_time(DEFAULT_DEVICE_ID, start_dt, end_dt)
+        df_filted = get_device_data_by_time(DEFAULT_DEVICE_ID, start_dt, end_dt)
         in_time_range_select_mode = True
-
-    # --- Back to Realtime Mode ---
-    elif triggered_id == "back-btn":
-        today = datetime.date.today().strftime("%Y:%m:%d")
-        df = get_data_series_from_device(DEFAULT_DEVICE_ID, today, limit=50)
-        in_time_range_select_mode = False
-
-    # --- Realtime auto-update ---
-    elif triggered_id == "refresh-interval" and not in_time_range_select_mode:
-        today = datetime.date.today().strftime("%Y:%m:%d")
-        df = get_data_series_from_device(DEFAULT_DEVICE_ID, today, limit=50)
+        
+        fig_temp, fig_humi, fig_co2 = update_graph(df_filted)
+    
+        latest = df.iloc[-1].to_dict()
+        if df.empty: # No data
+            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A"
+        else:
+            return fig_temp, fig_humi, fig_co2, \
+                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
     else:
-        return no_update, no_update, no_update, no_update, no_update, no_update
+        # Update graph only if having new data and not in "time range select mode"
+        # Still update the lastest data
+        if not df.empty:
+            latest = df.iloc[-1].to_dict()
+            if triggered_id == "refresh-interval":
+                if new_data_available and (not in_time_range_select_mode):
+                    new_data_available = False
+                else:
+                    return fig_temp, fig_humi, fig_co2, \
+                        f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+            
+            if triggered_id == "back-btn":
+                in_time_range_select_mode = False
 
-    # --- If no data ---
-    if df.empty:
-        empty_fig = px.line(title="No data available")
-        empty_fig.update_layout(template="plotly_dark")
-        return empty_fig, empty_fig, empty_fig, "N/A", "N/A", "N/A"
+            fig_temp, fig_humi, fig_co2 = update_graph(df)
 
-    # --- Build plots ---
-    fig_temp = px.scatter(df, x="timestamp", y="Temp")
-    fig_temp.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
-                           xaxis_title="Time", yaxis_title="Temperature (°C)")
+            return fig_temp, fig_humi, fig_co2, \
+                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+        else:
+            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A"
 
-    fig_humi = px.scatter(df, x="timestamp", y="Humi")
-    fig_humi.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
-                           xaxis_title="Time", yaxis_title="Humidity (%)")
+def firebase_listener():
+    global new_data_available, df
 
-    fig_co2 = px.scatter(df, x="timestamp", y="CO2")
-    fig_co2.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=30),
-                           xaxis_title="Time", yaxis_title="CO₂ (ppm)")
+    today = datetime.date.today().strftime("%Y:%m:%d")
+    url = build_url(f"{FIREBASE_PATH_DATA}/{DEFAULT_DEVICE_ID}/{today}")
+    headers = {"Accept": "text/event-stream"}
+    session = requests.Session()
+    req = requests.Request("GET", url, headers=headers)
+    prepped = session.prepare_request(req)
 
-    latest = df.iloc[-1].to_dict()
-    return fig_temp, fig_humi, fig_co2, \
-        f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+    response = session.send(prepped, stream=True)
+    client = SSEClient(response)
+
+    for event in client.events():
+        print(event)
+        payload = json.loads(event.data)
+
+        if not event.data or event.data == "null":
+            continue
+
+        path = payload.get("path")
+        if path == "/" or not path:
+            continue
+
+        try:
+            if "data" not in payload:
+                continue
+
+            data = payload["data"]
+
+            # New sensor data received
+            if isinstance(data, dict) and "Timestamp" in data:
+                ts = pd.to_datetime(data["Timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
+                new_row = pd.DataFrame([{
+                    "timestamp": ts,
+                    "Temp": data.get("Temp", 0),
+                    "Humi": data.get("Humi", 0),
+                    "CO2": data.get("CO2", 0),
+                    "Mode": data.get("Mode", None),
+                    "State": data.get("State", None),
+                    "HumThres": data.get("HumThres", None)
+                }])
+                df = pd.concat([df, new_row], ignore_index=True)
+                print(f"New data appended: {data}")
+                new_data_available = True
+
+        except Exception as e:
+            print("Parse error:", e)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    try:
+        today = datetime.date.today().strftime("%Y:%m:%d")
+        df = get_data_series_from_device(DEFAULT_DEVICE_ID, today)
+        print(df)
+        new_data_available = True
+    except Exception as e:
+        print("Error:", e)
+
+    # thresh for listening data from firebase
+    threading.Thread(target=firebase_listener, daemon=True).start()
+    app.run(debug=True, use_reloader=False)
