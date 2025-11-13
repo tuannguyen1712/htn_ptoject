@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
-app.title = "🌡️ IoT Realtime Dashboard"
+app.title = "Air Condition Monitor Dashboard"
 server = app.server
 
 # --- Layout Components ---
@@ -196,7 +196,7 @@ html.Div([
 # --- Layout ---
 app.layout = dbc.Container([
     # Header
-    html.H4("💡 IoT Environmental Dashboard",
+    html.H4("💡 Air Condition Monitor Dashboard",
             className="text-center fw-bold my-2 text-white",
             style={"fontSize": "28px"}),
 

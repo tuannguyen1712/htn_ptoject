@@ -14,6 +14,7 @@ from firebase_utils import *
 new_data_available = False
 latest_control = {}
 new_control_available = False
+current_control_status = None
 
 # global data for display
 fig_temp = px.line(title="No data")
@@ -58,17 +59,24 @@ def toggle_mode(n_clicks):
 
 """ Callback for sending control command to firebase """
 @app.callback(
-    Output("control-status", "children"),
+    Output("control-status", "children", allow_duplicate=True),
     Input("send-control-btn", "n_clicks"),
     State("humidity-setpoint", "value"),
     State("sampling-interval", "value"),
     State("mode-btn", "children"),
     prevent_initial_call=True
 )
-def send_control(n, setpoint, interval, mode):
+def update_control_status(n, setpoint, interval, mode):
+    global current_control_status
     timestamp = int(time.time())
     mode = 1 if "AUTO" in mode else 0
     
+    setpoint_display = setpoint
+    mode_display = "Manual"
+    if mode == 1: #auto
+        setpoint = 0
+        setpoint_display = "Synchronizing"
+        mode_display = "Auto"
     payload = {
         "mode": mode,
         "sampling_interval": interval,
@@ -76,8 +84,9 @@ def send_control(n, setpoint, interval, mode):
         "timestamp": timestamp
     }
     ok = write_control_to_device(DEFAULT_DEVICE_ID, payload)
-    return f"(Sent) Mode: {payload['mode']} Sampling Interval: {payload['sampling_interval']} Huminity Threshold {payload['humidity_threshold']}" \
+    current_control_status = f"(Current Status) Mode: {mode_display} || Sampling Interval: {interval} || Huminity Threshold {setpoint_display}" \
             if ok else "Failed to send control."
+    return current_control_status
 
 """ Callback for sending WiFi configuration to device """
 @app.callback(
@@ -123,6 +132,7 @@ in_time_range_select_mode = False
     Output("temp-value", "children"),
     Output("humi-value", "children"),
     Output("co2-value", "children"),
+    Output("control-status", "children", allow_duplicate=True),
     Input("refresh-interval", "n_intervals"),
     Input("apply-btn", "n_clicks"),
     Input("back-btn", "n_clicks"),
@@ -130,11 +140,13 @@ in_time_range_select_mode = False
     State("start-time", "value"),
     State("end-date", "date"),
     State("end-time", "value"),
+    prevent_initial_call=True
 )
 def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, start_time, end_date, end_time):
     global in_time_range_select_mode
     global new_data_available
     global fig_temp, fig_humi, fig_co2, df, latest
+    global current_control_status
 
     triggered_id = callback_context.triggered_id if callback_context.triggered else None
 
@@ -149,10 +161,10 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
     
         latest = df.iloc[-1].to_dict()
         if df.empty: # No data
-            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A"
+            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A", current_control_status
         else:
             return fig_temp, fig_humi, fig_co2, \
-                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm", current_control_status
     else:
         # Update graph only if having new data and not in "time range select mode"
         # Still update the lastest data
@@ -163,7 +175,7 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
                     new_data_available = False
                 else:
                     return fig_temp, fig_humi, fig_co2, \
-                        f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+                        f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm", current_control_status
             
             if triggered_id == "back-btn":
                 in_time_range_select_mode = False
@@ -171,15 +183,16 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
             fig_temp, fig_humi, fig_co2 = update_graph(df)
 
             return fig_temp, fig_humi, fig_co2, \
-                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm"
+                f"{latest.get('Temp', 0):.2f} °C", f"{latest.get('Humi', 0):.2f} %", f"{latest.get('CO2', 0):.0f} ppm", current_control_status
         else:
-            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A"
+            return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A", current_control_status
 
 def firebase_listener():
     global new_data_available, df
+    global latest_control, new_control_available
+    global current_control_status
 
-    today = datetime.date.today().strftime("%Y:%m:%d")
-    url = build_url(f"{FIREBASE_PATH_DATA}/{DEFAULT_DEVICE_ID}/{today}")
+    url = build_url("/sensor/")
     headers = {"Accept": "text/event-stream"}
     session = requests.Session()
     req = requests.Request("GET", url, headers=headers)
@@ -196,15 +209,15 @@ def firebase_listener():
             continue
 
         path = payload.get("path")
+        # print(path)
         if path == "/" or not path:
             continue
-
-        try:
-            if "data" not in payload:
-                continue
-
-            data = payload["data"]
-
+        
+        if "data" not in payload:
+                    continue
+        data = payload["data"]
+        # New data receive
+        if path.startswith("/Data"):
             # New sensor data received
             if isinstance(data, dict) and "Timestamp" in data:
                 ts = pd.to_datetime(data["Timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
@@ -220,9 +233,17 @@ def firebase_listener():
                 df = pd.concat([df, new_row], ignore_index=True)
                 print(f"New data appended: {data}")
                 new_data_available = True
+        elif path.startswith("/control"):
+            print("Receive control", data)
 
-        except Exception as e:
-            print("Parse error:", e)
+            display_mode = "Manual"
+            if data['mode'] == 1:
+                display_mode = "Auto"
+
+            setpoint_display = data['humidity_threshold']
+            if setpoint_display == 0:
+                setpoint_display = "Synchronizing"
+            current_control_status = f"(Current Status) Mode: {display_mode} || Sampling Interval: {data['sampling_interval']} || Huminity Threshold {setpoint_display}"
 
 if __name__ == "__main__":
     try:
@@ -230,6 +251,12 @@ if __name__ == "__main__":
         df = get_data_series_from_device(DEFAULT_DEVICE_ID, today)
         print(df)
         new_data_available = True
+        mode, sampling_interval, humidity_threshold = get_current_control_status(DEFAULT_DEVICE_ID)
+        display_mode = "Manual"
+        if mode == 1:
+            display_mode = "Auto"
+        current_control_status = f"(Current Status) Mode: {display_mode} || Sampling Interval: {sampling_interval} || Huminity Threshold {humidity_threshold}"
+
     except Exception as e:
         print("Error:", e)
 

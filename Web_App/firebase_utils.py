@@ -98,3 +98,28 @@ def get_device_data_by_time(device_id: str, start_dt: datetime.datetime, end_dt:
     filtered_df = df.loc[mask].sort_values("timestamp").reset_index(drop=True)
     print(f"Fetched {len(filtered_df)} records from {start_dt} to {end_dt}")
     return filtered_df
+
+def get_current_control_status(device_id):
+    url = build_url(f"{FIREBASE_PATH_CONTROL}/{device_id}")
+    try:
+        response = requests.get(url, timeout=10)
+
+        if response.status_code != 200:
+            print(f"[ERROR] Firebase returned {response.status_code}: {response.text}")
+            return None
+
+        data = response.json()
+
+        # Firebase return None if having no data
+        if not data:
+                print("[INFO] No data found at control path.")
+                return "None", "None", "None"
+
+        mode = data.get("mode")
+        sampling_interval = data.get("sampling_interval")
+        humidity_threshold = data.get("humidity_threshold")
+
+        return mode, sampling_interval, humidity_threshold
+
+    except Exception:
+        return "Error", "Error", "Error"
