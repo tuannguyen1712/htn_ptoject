@@ -74,7 +74,7 @@ def update_control_status(n, setpoint, interval, mode):
     setpoint_display = setpoint
     mode_display = "Manual"
     if mode == 1: #auto
-        # setpoint = 0
+        setpoint = 0
         setpoint_display = "Synchronizing"
         mode_display = "Auto"
     payload = {
@@ -187,63 +187,93 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
         else:
             return fig_temp, fig_humi, fig_co2, "N/A", "N/A", "N/A", current_control_status
 
-def firebase_listener():
-    global new_data_available, df
-    global latest_control, new_control_available
-    global current_control_status
+def firebase_sensor_listener():
+    global df, new_data_available
 
-    url = build_url("/sensor/")
+    today = datetime.date.today().strftime("%Y:%m:%d")
+    url = build_url(f"{FIREBASE_PATH_DATA}/{DEFAULT_DEVICE_ID}/{today}")
     headers = {"Accept": "text/event-stream"}
     session = requests.Session()
     req = requests.Request("GET", url, headers=headers)
     prepped = session.prepare_request(req)
-
     response = session.send(prepped, stream=True)
     client = SSEClient(response)
 
     for event in client.events():
-        print(event)
-        payload = json.loads(event.data)
-
         if not event.data or event.data == "null":
             continue
 
-        path = payload.get("path")
-        # print(path)
-        if path == "/" or not path:
+        try:
+            payload = json.loads(event.data)
+            data = payload.get("data")
+            if not data or not isinstance(data, dict):
+                continue
+
+            if "Timestamp" not in data:
+                continue
+
+            ts = pd.to_datetime(data["Timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
+            new_row = pd.DataFrame([{
+                "timestamp": ts,
+                "Temp": data.get("Temp", 0),
+                "Humi": data.get("Humi", 0),
+                "CO2": data.get("CO2", 0),
+                "Mode": data.get("Mode", None),
+                "State": data.get("State", None),
+                "HumThres": data.get("HumThres", None)
+            }])
+
+            df = pd.concat([df, new_row], ignore_index=True)
+            print(f"New sensor data appended: {data}")
+            new_data_available = True
+
+        except Exception as e:
+            print("Sensor listener error:", e)
+
+def firebase_control_listener():
+    global latest_control, new_control_available, current_control_status
+
+    url = build_url(f"{FIREBASE_PATH_CONTROL}/{DEFAULT_DEVICE_ID}")
+    headers = {"Accept": "text/event-stream"}
+
+    session = requests.Session()
+    req = requests.Request("GET", url, headers=headers)
+    prepped = session.prepare_request(req)
+    response = session.send(prepped, stream=True)
+    client = SSEClient(response)
+
+    print("Listening control config stream...")
+
+    for event in client.events():
+        if not event.data or event.data == "null":
             continue
-        
-        if "data" not in payload:
-                    continue
-        data = payload["data"]
-        # New data receive
-        if path.startswith("/Data"):
-            # New sensor data received
-            if isinstance(data, dict) and "Timestamp" in data:
-                ts = pd.to_datetime(data["Timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
-                new_row = pd.DataFrame([{
-                    "timestamp": ts,
-                    "Temp": data.get("Temp", 0),
-                    "Humi": data.get("Humi", 0),
-                    "CO2": data.get("CO2", 0),
-                    "Mode": data.get("Mode", None),
-                    "State": data.get("State", None),
-                    "HumThres": data.get("HumThres", None)
-                }])
-                df = pd.concat([df, new_row], ignore_index=True)
-                print(f"New data appended: {data}")
-                new_data_available = True
-        elif path.startswith("/control"):
-            print("Receive control", data)
 
-            display_mode = "Manual"
-            if data['mode'] == 1:
-                display_mode = "Auto"
+        try:
+            payload = json.loads(event.data)
+            data = payload.get("data")
+            if not data or not isinstance(data, dict):
+                continue
 
-            setpoint_display = data['humidity_threshold']
-            if setpoint_display == 0:
-                setpoint_display = "Synchronizing"
-            current_control_status = f"(Current Status) Mode: {display_mode} || Sampling Interval: {data['sampling_interval']} || Huminity Threshold {setpoint_display}"
+            latest_control = data
+            new_control_available = True
+
+            mode = data.get("mode", 0)
+            display_mode = "Auto" if mode == 1 else "Manual"
+
+            humidity_threshold = data.get("humidity_threshold", 0)
+            if humidity_threshold == 0:
+                humidity_threshold = "Synchronizing"
+
+            current_control_status = (
+                f"(Current Status) Mode: {display_mode} || "
+                f"Sampling Interval: {data.get('sampling_interval', 'N/A')} || "
+                f"Humidity Threshold: {humidity_threshold}"
+            )
+
+            print("New control config:", current_control_status)
+
+        except Exception as e:
+            print("Control listener error:", e)
 
 if __name__ == "__main__":
     try:
@@ -261,5 +291,7 @@ if __name__ == "__main__":
         print("Error:", e)
 
     # thresh for listening data from firebase
-    threading.Thread(target=firebase_listener, daemon=True).start()
+    # threading.Thread(target=firebase_listener, daemon=True).start()
+    threading.Thread(target=firebase_sensor_listener, daemon=True).start()
+    threading.Thread(target=firebase_control_listener, daemon=True).start()
     app.run(debug=True, use_reloader=False)

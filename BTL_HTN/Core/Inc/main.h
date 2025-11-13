@@ -60,8 +60,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define RELAY_Pin GPIO_PIN_13
-#define RELAY_GPIO_Port GPIOC
+#define MISTING_ON_Pin GPIO_PIN_13
+#define MISTING_ON_GPIO_Port GPIOC
 #define SET_AUTO_MODE_Pin GPIO_PIN_7
 #define SET_AUTO_MODE_GPIO_Port GPIOA
 #define SET_AUTO_MODE_EXTI_IRQn EXTI9_5_IRQn

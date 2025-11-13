@@ -42,7 +42,7 @@ Args:
     date_str: folder name of date, format "YYYY:MM:DD"
     limit: max number of records to return
 """
-def get_data_series_from_device(device_id: str, date_str: str, limit: int = 500) -> pd.DataFrame:
+def get_data_series_from_device(device_id: str, date_str: str, limit: int = 50000) -> pd.DataFrame:
     data = get_device_data(device_id, date_str)
     if not data or not isinstance(data, dict):
         return pd.DataFrame()

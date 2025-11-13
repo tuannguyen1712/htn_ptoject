@@ -52,6 +52,8 @@ void Dht22_GetValue(float *tem, float *hum) {
 			while (!HAL_GPIO_ReadPin(DHT22_PORT, DHT22_PIN)) {
 				if (HAL_GetTick() - time_out >= DHT_TIMEOUT) {
 					Dht22_Init();
+					*hum = DHT_ERROR_VAL;
+					*tem = DHT_ERROR_VAL;
 					return;
 				}
 			}
@@ -67,6 +69,8 @@ void Dht22_GetValue(float *tem, float *hum) {
 			while (HAL_GPIO_ReadPin(DHT22_PORT, DHT22_PIN)) {    /* wait Dht22 to transmit bit 1 complete */
 				if (HAL_GetTick() - time_out >= DHT_TIMEOUT) {
 					Dht22_Init();
+					*hum = DHT_ERROR_VAL;
+					*tem = DHT_ERROR_VAL;
 					return;
 				}
 			}
@@ -83,7 +87,7 @@ void Dht22_GetValue(float *tem, float *hum) {
 	Dht22_Instance.check_sum = bytes[4];
 
 	uint16_t check = (uint16_t) bytes[0] + (uint16_t) bytes[1] + (uint16_t) bytes[2] + (uint16_t) bytes[3];
-	if ((check % 256) != bytes[4]) {
+	if ((check % 256) != bytes[4]) { /* Last 8-bit is the checksum */
 		Dht22_Init();
 		return;
 	}
