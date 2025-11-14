@@ -150,6 +150,9 @@ def update_and_toggle_mode(n_intervals, apply_clicks, back_clicks, start_date, s
 
     triggered_id = callback_context.triggered_id if callback_context.triggered else None
 
+    if len(df) > 50:
+        df = df.iloc[-50:].reset_index(drop=True)
+
     # --- Filter Mode ---
     if triggered_id == "apply-btn":
         start_dt = pd.to_datetime(f"{start_date} {start_time}")
@@ -217,7 +220,7 @@ def firebase_listener():
                     continue
         data = payload["data"]
         # New data receive
-        if path.startswith("/Data"):
+        if path.startswith("/data"):
             # New sensor data received
             if isinstance(data, dict) and "Timestamp" in data:
                 ts = pd.to_datetime(data["Timestamp"], format="%Y:%m:%d:%H:%M:%S", errors="coerce")
